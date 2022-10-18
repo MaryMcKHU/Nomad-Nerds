@@ -1,0 +1,167 @@
+stages:
+  - test # Run tests first
+  - build # Run build after tests
+  - deploy
+
+services:
+  - postgres:14.2-bullseye
+
+variables:
+  DATABASE_URL: postgresql://users:password@postgres:5432/users
+  POSTGRES_PASSWORD: test_databases
+  API_YELP_KEY: ${API_YELP_KEY}
+  REACT_APP_API_YELP: https://${HEROKU_ACCOUNT_API_YELP}.herokuapp.com
+  REACT_APP_USER: https://${HEROKU_ACCOUNT_USER}.herokuapp.com
+  REACT_APP_THIRD_PARTY_SERVICE: https://api.yelp.com/v3
+  DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
+
+lint-test-job:
+  image: python:3-bullseye
+  stage: test
+  script:
+    - pip install flake8
+    - flake8 user api-yelp
+
+# django-app-unit-test-job:
+#   image: python:3-bullseye
+#   stage: test
+#   script:
+#     - cd user
+#     - pip install -r requirements.txt
+#     - python manage.py test
+
+yelp-api-unit-test-job:
+  image: python:3-bullseye
+  stage: test
+  script:
+    - cd api-yelp
+    - pip install -r requirements.txt
+    - python -m pytest
+
+build-ghi-job:
+  stage: build
+  image: node:lts-bullseye
+  variables:
+    PUBLIC_URL: https://nomad-nerds.gitlab.io/nomad-nerds
+  needs:
+    # - django-app-unit-test-job
+    - yelp-api-unit-test-job
+    - lint-test-job
+  script:
+    - cd ghi
+    - npm install
+    - npm install react-search-autocomplete --legacy-peer-deps
+    - npm run build
+    - cp build/index.html build/404.html
+  artifacts:
+    paths:
+      - ghi/build/
+
+
+pages:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  dependencies:
+    - build-ghi-job
+  needs:
+    - build-ghi-job
+  script:
+    - mv ghi/build/ public
+  artifacts:
+    paths:
+      - public
+
+
+build-api-yelp-job:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  script:
+    - cd api-yelp
+    - docker build -t ${CI_REGISTRY_IMAGE}/api-yelp:latest .
+    - docker tag ${CI_REGISTRY_IMAGE}/api-yelp:latest ${CI_REGISTRY_IMAGE}/api-yelp:$CI_JOB_ID
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker push ${CI_REGISTRY_IMAGE}/api-yelp:$CI_JOB_ID
+    - docker push ${CI_REGISTRY_IMAGE}/api-yelp:latest
+
+
+build-user-job:
+  rules:
+    - if: ($CI_COMMIT_BRANCH == "deploy" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - cd user
+    - docker build -t ${CI_REGISTRY_IMAGE}/user:latest .
+    - docker tag ${CI_REGISTRY_IMAGE}/user:latest ${CI_REGISTRY_IMAGE}/user:$CI_JOB_ID
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker push ${CI_REGISTRY_IMAGE}/user:$CI_JOB_ID
+    - docker push ${CI_REGISTRY_IMAGE}/user:latest
+
+
+deploy-api-yelp-job:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: deploy
+  image: docker:20.10.16
+  needs:
+    - build-api-yelp-job
+  services:
+    - docker:20.10.16-dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+    - docker pull ${CI_REGISTRY_IMAGE}/api-yelp:latest
+    - docker tag ${CI_REGISTRY_IMAGE}/api-yelp:latest registry.heroku.com/$HEROKU_ACCOUNT_API_YELP/web:latest
+    - docker push registry.heroku.com/$HEROKU_ACCOUNT_API_YELP/web:latest
+
+
+deploy-user-job:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: deploy
+  image: docker:20.10.16
+  needs:
+    - build-user-job
+  services:
+    - docker:20.10.16-dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+    - docker pull ${CI_REGISTRY_IMAGE}/user:latest
+    - docker tag ${CI_REGISTRY_IMAGE}/user:latest registry.heroku.com/$HEROKU_ACCOUNT_USER/web:latest
+    - docker push registry.heroku.com/$HEROKU_ACCOUNT_USER/web:latest
+
+
+release-api-yelp-job:
+  stage: deploy
+  image: node:10.17-alpine
+  needs:
+    - deploy-api-yelp-job
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  before_script:
+    - apk add curl bash
+    - curl https://cli-assets.heroku.com/install.sh | sh
+  script:
+    - heroku container:release web --app $HEROKU_ACCOUNT_API_YELP
+
+
+release-user-job:
+  stage: deploy
+  image: node:10.17-alpine
+  needs:
+    - deploy-user-job
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  before_script:
+    - apk add curl bash
+    - curl https://cli-assets.heroku.com/install.sh | sh
+  script:
+    - heroku container:release web --app $HEROKU_ACCOUNT_USER
