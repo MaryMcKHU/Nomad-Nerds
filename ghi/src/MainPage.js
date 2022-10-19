@@ -15,9 +15,9 @@ function MainPage() {
           <Col>
             <CitySearch />
           </Col>
-          {/* <Col style={{ marginTop: -600 }}>
+          <Col>
             <CategorySearch />
-          </Col> */}
+          </Col>
         </Row>
       </Container>
       <Container>

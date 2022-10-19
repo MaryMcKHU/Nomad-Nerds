@@ -1,12 +1,11 @@
 import { Carousel } from "react-bootstrap";
-import snowy from "./images/snowy.jpg";
-import nycSkyline from "./images/nyc_skyline.jpg";
-import sunset from "./images/sunset.jpg";
-import bicycle from './images/bicycle.jpg';
+import skiing from "./images/skiing.jpg";
+import airballoons from "./images/airballoons.jpg";
+import boats from "./images/boats.jpg";
 
 function CarouselFade() {
   return (
-    <Carousel fade className="carousel" interval={6000} >
+    <Carousel fade className="carousel" interval={6000}>
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
@@ -18,16 +17,14 @@ function CarouselFade() {
         <img
           className="d-block"
           style={{ overflow: "hidden" }}
-          src={snowy}
+          src={airballoons}
           alt="First slide"
         />
       </Carousel.Item>
-    </Carousel >
-/* 
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
-            <h1 className="display-5 fw-bold text-on-image" style={{fontFamily:'cursive'}}>
+            <h1 className="display-5 fw-bold text-on-image" style={{fontFamily:'cursive', color:'white'}}>
               Find your next adventure...
             </h1>
           </div>
@@ -35,7 +32,7 @@ function CarouselFade() {
         <img
           className="d-block"
           style={{ overflow: "hidden" }}
-          src={nycSkyline}
+          src={skiing}
           alt="Third slide"
         />
       </Carousel.Item>
@@ -51,11 +48,11 @@ function CarouselFade() {
         <img
           className="d-block"
           style={{ overflow: "hidden" }}
-          src={sunset}
+          src={boats}
           alt="Forth slide"
         />
       </Carousel.Item>
-    </Carousel> */
+    </Carousel>
   );
 }
 

@@ -32,6 +32,7 @@ function SuggestionList() {
                 fontWeight: "bold",
                 padding: 15,
                 paddingTop: 15,
+                marginTop:'50px'
               }}
             >
               {Object.keys(location)}

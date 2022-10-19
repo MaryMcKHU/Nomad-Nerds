@@ -29,7 +29,7 @@ function CitySearch() {
             resultStringKeyName="city"
             onSelect={handleOnSelect}
             autoFocus
-            placeholder="Search a city to find things to do"
+            placeholder="Search a city to explore popular things to do"
             formatResult={formatResult}
             maxResults={5}
             styling={{ borderRadius: "10px" }}
