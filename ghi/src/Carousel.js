@@ -9,7 +9,7 @@ function CarouselFade() {
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
-            <h1 className="display-5 text-on-image" style={{color:'black'}}>
+            <h1 className="display-5 text-on-image" style={{color:'white'}}>
               <span className='font-link'>
                 Find your next adventure...
               </span>
@@ -44,7 +44,7 @@ function CarouselFade() {
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
-            <h1 className="display-5 text-on-image" style={{color:'black'}}>
+            <h1 className="display-5 text-on-image" style={{color:'white'}}>
               <span className='font-link'>
                 Find your next adventure...
               </span>
