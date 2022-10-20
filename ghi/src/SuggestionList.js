@@ -20,7 +20,7 @@ function SuggestionList() {
           textAlign: "center",
         }}
       >
-        Popular Destinations
+        Recommendations for Popular Destinations
       </h2>
       {activities.map((location, index) => (
         <div key={index}>
