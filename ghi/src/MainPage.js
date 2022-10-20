@@ -13,9 +13,13 @@ function MainPage() {
       <Container>
         <Row>
           <Col>
+            <h1 className='citysearch-header' style={{marginTop:50, textAlign:'left', fontSize:'30px'}}>
+              <span className='font-link'>
+              Know where you're going <br /> 
+              but don't know what to do while there?
+              </span>
+            </h1>
             <CitySearch />
-          </Col>
-          <Col>
             <CategorySearch />
           </Col>
         </Row>

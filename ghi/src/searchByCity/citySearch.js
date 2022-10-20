@@ -22,17 +22,17 @@ function CitySearch() {
   return (
     <div className="Test">
       <header className="Test-header">
-        <div style={{ width: 400, paddingTop: -100, marginTop:'50px', marginBottom:'200px' }}>
+        <div style={{ width: 400, paddingTop: -100, marginTop:'50px', marginBottom:'200px', display:'block', marginLeft:'auto', marginRight:'auto' }}>
           <ReactSearchAutocomplete
             items={cities}
             fuseOptions={{ keys: ["city", "country", "admin_name"] }}
             resultStringKeyName="city"
             onSelect={handleOnSelect}
             autoFocus
-            placeholder="Search a city to explore popular things to do"
+            placeholder="Where to?"
             formatResult={formatResult}
             maxResults={5}
-            styling={{ borderRadius: "10px" }}
+            styling={{border:'3px solid #3383FF', fontSize:'19px'}}
           />
         </div>
       </header>

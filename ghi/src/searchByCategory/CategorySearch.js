@@ -331,7 +331,7 @@ function CategorySearch() {
       <div className="row">
         <div
           className="col-5"
-          style={{ paddingBottom: 400 }}
+          style={{ paddingBottom: 400, marginTop:50 }}
         >
           <div className="d-flex justify-content-center"></div>
           <div style={{ width: 280 }}>
@@ -351,7 +351,7 @@ function CategorySearch() {
         </div>
         <div className="col-6" style={{ paddingBottom: 400 }}>
           <div className="justify-content-center"></div>
-          <div style={{ width: 280 }}>
+          <div style={{ width: 280, marginTop:50 }}>
             <ReactSearchAutocomplete
               items={cities}
               fuseOptions={{ keys: ["city", "country", "admin_name"] }}

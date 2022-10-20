@@ -9,8 +9,10 @@ function CarouselFade() {
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
-            <h1 className="display-5 fw-bold text-on-image" style={{fontFamily:'cursive', color:'black'}}>
-              Find your next adventure...
+            <h1 className="display-5 text-on-image" style={{color:'black'}}>
+              <span className='font-link'>
+                Find your next adventure...
+              </span>
             </h1>
           </div>
         </Carousel.Caption>
@@ -24,8 +26,10 @@ function CarouselFade() {
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
-            <h1 className="display-5 fw-bold text-on-image" style={{fontFamily:'cursive', color:'white'}}>
-              Find your next adventure...
+            <h1 className="display-5 text-on-image" style={{color:'white'}}>
+              <span className='font-link'>
+                Find your next adventure...
+              </span>
             </h1>
           </div>
         </Carousel.Caption>
@@ -40,8 +44,10 @@ function CarouselFade() {
       <Carousel.Item style={{ zIndex: -1 }}>
         <Carousel.Caption>
           <div className="text-center">
-            <h1 className="display-5 fw-bold text-on-image" style={{fontFamily:'cursive'}}>
-              Find your next adventure...
+            <h1 className="display-5 text-on-image" style={{color:'black'}}>
+              <span className='font-link'>
+                Find your next adventure...
+              </span>
             </h1>
           </div>
         </Carousel.Caption>

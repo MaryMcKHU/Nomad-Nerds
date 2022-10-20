@@ -22,7 +22,7 @@ function Nav() {
   const links = token ? loggedIn : loggedOut;
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{zIndex:10}}>
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <img className="d-block w-100" src={logo} height={40} alt='logo' />
