@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 function SuggestionList() {
@@ -16,11 +15,11 @@ function SuggestionList() {
     <ul>
       <h2
         style={{
-          fontFamily: "verdana",
-          fontWeight: "bold",
           paddingTop: 15,
           textAlign: "center",
+          fontSize:'35px'
         }}
+        className='font-link'
       >
         Recommendations for Popular Destinations
       </h2>
@@ -28,10 +27,9 @@ function SuggestionList() {
         <div key={index}>
           <Container className="container-fluid">
             <h3
-              className="card-title"
+              className="card-title font-link"
               style={{
-                fontFamily: "verdana",
-                fontWeight: "bold",
+                fontSize:'20px',
                 padding: 15,
                 paddingTop: 15,
                 marginTop:'50px'
@@ -44,11 +42,12 @@ function SuggestionList() {
                 .slice(lowerNum, higherNum)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "18rem", height:'28em' }}>
+                    <Card style={{ width: "18rem", height:'28em', border:'none' }}>
                       <Card.Img
                         variant="top"
                         src={store.image_url}
                         height={250}
+                        style={{objectFit:'cover', borderRadius:10}}
                       />
                       <Card.Body>
                         <Card.Title style={{ fontWeight: "bold" }}>
@@ -64,7 +63,7 @@ function SuggestionList() {
                                 <span key={i}>
                                   <BsStarFill
                                     size="1em"
-                                    color="rgb(222, 190, 60)"
+                                    color="black"
                                   />
                                 </span>
                               )
@@ -74,7 +73,7 @@ function SuggestionList() {
                             String(store.rating).slice(-2) === ".5" ? (
                               <BsStarHalf
                                 size="1em"
-                                color="rgb(222, 190, 60)"
+                                color="black"
                               />
                             ) : (
                               ""

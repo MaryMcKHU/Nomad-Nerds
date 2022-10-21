@@ -238,6 +238,7 @@ function CategoryList() {
                         src={store.image_url}
                         onError={(e) => (e.target.src = no_info)}
                         height={250}
+                        style={{objectFit:'cover', borderRadius:10}}
                       />
                       <Card.Body>
                         <Card.Title style={{ fontWeight: "bold" }}>
@@ -253,7 +254,7 @@ function CategoryList() {
                                   <span key={i}>
                                     <BsStarFill
                                       size="1em"
-                                      color="rgb(222, 190, 60)"
+                                      color="black"
                                     />
                                   </span>
                                 )
@@ -263,7 +264,7 @@ function CategoryList() {
                             String(store.rating).slice(-2) === ".5" ? (
                               <BsStarHalf
                                 size="1em"
-                                color="rgb(222, 190, 60)"
+                                color="black"
                               />
                             ) : (
                               ""
