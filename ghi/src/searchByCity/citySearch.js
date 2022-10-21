@@ -22,7 +22,7 @@ function CitySearch() {
   return (
     <div className="Test">
       <header className="Test-header">
-        <div style={{ width: 400, marginBottom:'200px', display:'block', marginLeft:'auto', marginRight:'auto' }}>
+        <div style={{ width: 420, marginBottom:'200px', display:'block', marginLeft:'auto', marginRight:'auto' }}>
           <ReactSearchAutocomplete
             items={cities}
             fuseOptions={{ keys: ["city", "country", "admin_name"] }}

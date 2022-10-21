@@ -35,7 +35,7 @@ function MainPage() {
           <Col>
             <h1
               className="citysearch-header"
-              style={{ marginTop: 80, fontSize: "30px", marginLeft: 20 }}
+              style={{ marginTop: 80, fontSize: "30px", marginLeft: 50 }}
             >
               <span className="font-link">
                 <div>

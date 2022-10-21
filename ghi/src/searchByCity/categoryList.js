@@ -12,6 +12,7 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
 
+
 function CategoryList() {
   const location = useLocation();
   const [categories, setCategories] = useState([]);
@@ -232,7 +233,7 @@ function CategoryList() {
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "18rem" }}>
+                    <Card style={{ width: "18rem", border:'none' }}>
                       <Card.Img
                         variant="top"
                         src={store.image_url}
