@@ -5,6 +5,7 @@ import categories_id from "./categories_id.json";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function CategorySearch() {
   const northAmericaList = [
@@ -276,6 +277,7 @@ function CategorySearch() {
         className="container vertical-scrollable"
         style={{
           maxHeight: 150,
+          width: 430,
           overflowY: "scroll",
           backgroundColor: "white",
         }}
@@ -283,7 +285,7 @@ function CategorySearch() {
         {city_list.map((item) => {
           return (
             <div key={item.id} className="row">
-              <div className="col-1" >
+              <div className="col-1">
                 <button
                   onClick={() =>
                     setSelectedCities(
@@ -307,39 +309,41 @@ function CategorySearch() {
 
   function presetButtons() {
     return (
-      <Row className="d-flex justify-content-center" style={{ marginTop: 30 }}>
-        <Button
-          variant="secondary"
-          style={{ borderRadius: 30, opacity: 0.8, maxWidth: "175px" }}
-          onClick={() => setSelectedCities(northAmericaList)}
-        >
-          {" "}
-          North America
-        </Button>{" "}
-        <Button
-          variant="secondary"
-          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "100px" }}
-          onClick={() => setSelectedCities(europeList)}
-        >
-          {" "}
-          Europe
-        </Button>{" "}
-        <Button
-          variant="secondary"
-          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "100px" }}
-          onClick={() => setSelectedCities(asiaList)}
-        >
-          {" "}
-          Asia
-        </Button>{" "}
-        <Button
-          variant="secondary"
-          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "100px" }}
-          onClick={() => setSelectedCities(oceaniaList)}
-        >
-          {" "}
-          Oceania
-        </Button>
+      <Row style={{ marginTop: 10 }}>
+        <Col style={{ display: "inline-block" }}>
+          <Button
+            variant="primary"
+            style={{ opacity: 0.8, maxWidth: "175px" }}
+            onClick={() => setSelectedCities(northAmericaList)}
+          >
+            {" "}
+            North America
+          </Button>{" "}
+          <Button
+            variant="primary"
+            style={{ opacity: 0.9, maxWidth: "100px" }}
+            onClick={() => setSelectedCities(europeList)}
+          >
+            {" "}
+            Europe
+          </Button>{" "}
+          <Button
+            variant="primary"
+            style={{ opacity: 0.9, maxWidth: "100px" }}
+            onClick={() => setSelectedCities(asiaList)}
+          >
+            {" "}
+            Asia
+          </Button>{" "}
+          <Button
+            variant="primary"
+            style={{ opacity: 0.9, maxWidth: "100px" }}
+            onClick={() => setSelectedCities(oceaniaList)}
+          >
+            {" "}
+            Oceania
+          </Button>
+        </Col>
       </Row>
     );
   }
@@ -347,9 +351,36 @@ function CategorySearch() {
   return (
     <div className="container">
       <div className="row">
-        <div 
-          className="col-5" 
-          style={{ paddingBottom: 400, marginTop:50 }}>
+        <div
+          className="col"
+          style={{ paddingBottom: 200, marginTop: 60, marginLeft: 60 }}
+        >
+          <h3 className="font-link">Choose a preset group of cities</h3>
+          {presetButtons()}
+
+          <h3 className="font-link" style={{ marginTop: 20 }}>
+            Add / remove cities from the list
+          </h3>
+          <div className="col-6" style={{ paddingBottom: 30 }}>
+            <div className="d-flex justify-content-center"></div>
+            <div style={{ width: 280, marginTop: 15 }}>
+              <ReactSearchAutocomplete
+                items={cities}
+                fuseOptions={{ keys: ["city", "country", "admin_name"] }}
+                resultStringKeyName="city"
+                onSelect={handleOnCitySelect}
+                autoFocus
+                formatResult={formatCityResult}
+                maxResults={5}
+                placeholder="Paris, France"
+                styling={{
+                  border: "3px solid rgba(54, 89, 161)",
+                  fontSize: "19px",
+                }}
+              />
+            </div>
+          </div>
+
           <div
             className="text-center justify-content-center"
             style={{
@@ -357,18 +388,23 @@ function CategorySearch() {
               fontSize: 20,
               fontWeight: "bold",
               opacity: 0.9,
-              borderRadius: 30,
               overflowX: "hidden",
-              marginTop: 50,
-              border: "3px solid #1190CB",
+              border: "3px solid rgba(54, 89, 161)",
+              width: 450,
+              marginBottom:30
             }}
           >
-        List of Cities
-        <div className="text-center" style={{ fontSize: 17, marginTop:10, width:400 }}>
-          {listSelectedCities(selectedCities)}
-        </div>
-      </div>
-      {presetButtons()}
+            List of Cities
+            <div
+              className="text-center"
+              style={{ fontSize: 17, marginTop: 10, width: 400 }}
+            >
+              {listSelectedCities(selectedCities)}
+            </div>
+          </div>
+          <h3 className="font-link" style={{ marginTop: 20 }}>
+            Search for what you want to do
+          </h3>
           <div className="d-flex justify-content-center"></div>
           <div style={{ width: 280 }}>
             <ReactSearchAutocomplete
@@ -380,27 +416,12 @@ function CategorySearch() {
               autoFocus
               formatResult={formatCategoryResult}
               maxResults={5}
-              placeholder="Search for a thing to do"
-              styling={{ border:'3px solid rgba(54, 89, 161)', fontSize:'19px', marginTop:30 }}
-            />
-          </div>
-        </div>
-        <div
-          className="col-6"
-          style={{ paddingBottom: 400, paddingRight: 100 }}
-        >
-        <div className="d-flex justify-content-center"></div>
-          <div style={{ width: 280, marginTop:300 }}>
-            <ReactSearchAutocomplete
-              items={cities}
-              fuseOptions={{ keys: ["city", "country", "admin_name"] }}
-              resultStringKeyName="city"
-              onSelect={handleOnCitySelect}
-              autoFocus
-              formatResult={formatCityResult}
-              maxResults={5}
-              placeholder="Add a city to the list"
-              styling={{ border: '3px solid rgba(54, 89, 161)', fontSize: '19px' }}
+              placeholder="Kayaking, Cycling, etc."
+              styling={{
+                border: "3px solid rgba(54, 89, 161)",
+                fontSize: "19px",
+                marginTop: 30,
+              }}
             />
           </div>
         </div>
