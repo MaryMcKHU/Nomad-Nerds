@@ -1,16 +1,17 @@
 import CitySearch from "./searchByCity/citySearch";
 import CategorySearch from "./searchByCategory/CategorySearch";
 import SuggestionList from "./SuggestionList";
-import CarouselFade from "./Carousel.js";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Button from 'react-bootstrap/Button';
 import curling from "./images/curling.svg";
+import HeroBanner from './HeroBanner';
 
 function MainPage() {
   return (
     <>
-      <CarouselFade />
+    <HeroBanner />
       <Container>
         <Row>
           <Col>
@@ -45,10 +46,13 @@ function MainPage() {
               </span>
             </h1>
             <div className="arrow-search" style={{ display: "inline-flex" }}>
-              <div style={{ marginTop: 7 }}>
-              <CategorySearch />
+              <div style={{ marginTop: 60, marginLeft: 350 }}>
+                <Button>
+                  Click Here!
+                </Button>
+              {/* <CategorySearch /> */}
               </div>
-              <img src={curling} style={{ height: 100, marginLeft: -30, transform:'scaleX(-1)' }}></img>
+              <img src={curling} style={{ height: 100, marginLeft: 50, transform:'scaleX(-1)' }}></img>
             </div>
           </Col>
         </Row>

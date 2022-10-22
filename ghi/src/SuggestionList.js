@@ -30,7 +30,6 @@ function SuggestionList() {
               className="card-title font-link"
               style={{
                 fontSize:'20px',
-                padding: 15,
                 paddingTop: 15,
                 marginTop:'50px'
               }}
@@ -42,7 +41,7 @@ function SuggestionList() {
                 .slice(lowerNum, higherNum)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "18rem", height:'28em', border:'none' }}>
+                    <Card style={{ width: "16rem", height:'28em', border:'none' }}>
                       <Card.Img
                         variant="top"
                         src={store.image_url}
@@ -50,10 +49,10 @@ function SuggestionList() {
                         style={{objectFit:'cover', borderRadius:10}}
                       />
                       <Card.Body>
-                        <Card.Title style={{ fontWeight: "bold" }}>
+                        <Card.Title style={{ fontWeight: "bold", fontSize:'18px' }}>
                           <Row>
                             <div>{store.name}</div>
-                            <div style={{ color: "green", fontSize: "16px" }}>
+                            <div style={{ color: "green", fontSize: "14px" }}>
                               {store.price ? store.price : ""}
                             </div>
                           </Row>
@@ -62,7 +61,7 @@ function SuggestionList() {
                               (_, i) => (
                                 <span key={i}>
                                   <BsStarFill
-                                    size="1em"
+                                    size="0.8em"
                                     color="black"
                                   />
                                 </span>
@@ -72,7 +71,7 @@ function SuggestionList() {
                           {store.rating ? (
                             String(store.rating).slice(-2) === ".5" ? (
                               <BsStarHalf
-                                size="1em"
+                                size="0.8em"
                                 color="black"
                               />
                             ) : (
@@ -82,7 +81,7 @@ function SuggestionList() {
                             ""
                           )}
                         </Card.Title>
-                        <Card.Text>
+                        <Card.Text style={{fontSize:'14px'}}>
                           {store.location.display_address[0]}
                           <br />
                           {store.location.display_address[1]}
