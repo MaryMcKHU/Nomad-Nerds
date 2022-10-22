@@ -283,7 +283,7 @@ function CategorySearch() {
         {city_list.map((item) => {
           return (
             <div key={item.id} className="row">
-              <div className="col-1">
+              <div className="col-1" >
                 <button
                   onClick={() =>
                     setSelectedCities(
@@ -307,10 +307,10 @@ function CategorySearch() {
 
   function presetButtons() {
     return (
-      <Row className="d-flex justify-content-center" style={{ marginTop: 10 }}>
+      <Row className="d-flex justify-content-center" style={{ marginTop: 30 }}>
         <Button
           variant="secondary"
-          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "175px" }}
+          style={{ borderRadius: 30, opacity: 0.8, maxWidth: "175px" }}
           onClick={() => setSelectedCities(northAmericaList)}
         >
           {" "}
@@ -350,6 +350,25 @@ function CategorySearch() {
         <div 
           className="col-5" 
           style={{ paddingBottom: 400, marginTop:50 }}>
+          <div
+            className="text-center justify-content-center"
+            style={{
+              backgroundColor: "white",
+              fontSize: 20,
+              fontWeight: "bold",
+              opacity: 0.9,
+              borderRadius: 30,
+              overflowX: "hidden",
+              marginTop: 50,
+              border: "3px solid #1190CB",
+            }}
+          >
+        List of Cities
+        <div className="text-center" style={{ fontSize: 17, marginTop:10, width:400 }}>
+          {listSelectedCities(selectedCities)}
+        </div>
+      </div>
+      {presetButtons()}
           <div className="d-flex justify-content-center"></div>
           <div style={{ width: 280 }}>
             <ReactSearchAutocomplete
@@ -362,7 +381,7 @@ function CategorySearch() {
               formatResult={formatCategoryResult}
               maxResults={5}
               placeholder="Search for a thing to do"
-              styling={{ border:'3px solid rgba(54, 89, 161)', fontSize: '19px' }}
+              styling={{ border:'3px solid rgba(54, 89, 161)', fontSize:'19px', marginTop:30 }}
             />
           </div>
         </div>
@@ -371,7 +390,7 @@ function CategorySearch() {
           style={{ paddingBottom: 400, paddingRight: 100 }}
         >
         <div className="d-flex justify-content-center"></div>
-          <div style={{ width: 280, marginTop:50 }}>
+          <div style={{ width: 280, marginTop:300 }}>
             <ReactSearchAutocomplete
               items={cities}
               fuseOptions={{ keys: ["city", "country", "admin_name"] }}
@@ -386,28 +405,8 @@ function CategorySearch() {
           </div>
         </div>
       </div>
-      <div
-        className="text-center justify-content-center"
-        style={{
-          backgroundColor: "white",
-          fontSize: 20,
-          fontWeight: "bold",
-          opacity: 0.9,
-          borderRadius: 30,
-          overflowX: "hidden",
-          marginTop: -200,
-          border: "3px solid #1190CB",
-        }}
-      >
-        List of Cities
-        <div className="text-center" style={{ fontSize: 17 }}>
-          {listSelectedCities(selectedCities)}
-        </div>
-      </div>
-      {presetButtons()}
     </div>
   );
 }
 
 export default CategorySearch;
-
