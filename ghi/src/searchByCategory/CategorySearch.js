@@ -5,7 +5,6 @@ import categories_id from "./categories_id.json";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import Container from 'react-bootstrap/Container';
 
 function CategorySearch() {
   const northAmericaList = [
@@ -83,12 +82,7 @@ function CategorySearch() {
       country: "Portugal",
       id: 1620619017,
     },
-    { 
-      city: "Porto",
-      admin_name: "Porto",
-      country: "Portugal",
-      id: 1620356810 
-    },
+    { city: "Porto", admin_name: "Porto", country: "Portugal", id: 1620356810 },
     {
       city: "Belgrade",
       admin_name: "Beograd",
@@ -169,12 +163,7 @@ function CategorySearch() {
       country: "Australia",
       id: 1036178956,
     },
-    { 
-      city: "Suva",
-      admin_name: "Rewa",
-      country: "Fiji",
-      id: 1242615095
-    },
+    { city: "Suva", admin_name: "Rewa", country: "Fiji", id: 1242615095 },
     {
       city: "Queenstown",
       admin_name: "Tasmania",
@@ -225,24 +214,14 @@ function CategorySearch() {
       country: "Thailand",
       id: 1764665411,
     },
-    { 
-      city: "Taipei",
-      admin_name: "Taipei",
-      country: "Taiwan",
-      id: 1158881289 
-    },
+    { city: "Taipei", admin_name: "Taipei", country: "Taiwan", id: 1158881289 },
     {
       city: "Singapore",
       admin_name: "Central Singapore",
       country: "Singapore",
       id: 1702341327,
     },
-    { 
-      city: "Ubud",
-      admin_name: "Bali",
-      country: "Indonesia",
-      id: 1360332409
-    },
+    { city: "Ubud", admin_name: "Bali", country: "Indonesia", id: 1360332409 },
     {
       city: "Ho Chi Minh City",
       admin_name: "Hồ Chí Minh",
@@ -326,13 +305,51 @@ function CategorySearch() {
     );
   }
 
+  function presetButtons() {
+    return (
+      <Row className="d-flex justify-content-center" style={{ marginTop: 10 }}>
+        <Button
+          variant="secondary"
+          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "175px" }}
+          onClick={() => setSelectedCities(northAmericaList)}
+        >
+          {" "}
+          North America
+        </Button>{" "}
+        <Button
+          variant="secondary"
+          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "100px" }}
+          onClick={() => setSelectedCities(europeList)}
+        >
+          {" "}
+          Europe
+        </Button>{" "}
+        <Button
+          variant="secondary"
+          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "100px" }}
+          onClick={() => setSelectedCities(asiaList)}
+        >
+          {" "}
+          Asia
+        </Button>{" "}
+        <Button
+          variant="secondary"
+          style={{ borderRadius: 30, opacity: 0.9, maxWidth: "100px" }}
+          onClick={() => setSelectedCities(oceaniaList)}
+        >
+          {" "}
+          Oceania
+        </Button>
+      </Row>
+    );
+  }
+
   return (
     <div className="container">
       <div className="row">
-        <div
-          className="col-5"
-          style={{ paddingBottom: 400, marginTop:50 }}
-        >
+        <div 
+          className="col-5" 
+          style={{ paddingBottom: 400, marginTop:50 }}>
           <div className="d-flex justify-content-center"></div>
           <div style={{ width: 280 }}>
             <ReactSearchAutocomplete
@@ -345,12 +362,15 @@ function CategorySearch() {
               formatResult={formatCategoryResult}
               maxResults={5}
               placeholder="Search for a thing to do"
-              styling={{ border: '3px solid rgba(54, 89, 161)', fontSize:'19px' }}
+              styling={{ border:'3px solid rgba(54, 89, 161)', fontSize: '19px' }}
             />
           </div>
         </div>
-        <div className="col-6" style={{ paddingBottom: 400 }}>
-          <div className="justify-content-center"></div>
+        <div
+          className="col-6"
+          style={{ paddingBottom: 400, paddingRight: 100 }}
+        >
+        <div className="d-flex justify-content-center"></div>
           <div style={{ width: 280, marginTop:50 }}>
             <ReactSearchAutocomplete
               items={cities}
@@ -360,14 +380,34 @@ function CategorySearch() {
               autoFocus
               formatResult={formatCityResult}
               maxResults={5}
-              placeholder="City"
-              styling={{ border: '3px solid rgba(54, 89, 161)', fontSize:'19px' }}
+              placeholder="Add a city to the list"
+              styling={{ border: '3px solid rgba(54, 89, 161)', fontSize: '19px' }}
             />
           </div>
         </div>
       </div>
+      <div
+        className="text-center justify-content-center"
+        style={{
+          backgroundColor: "white",
+          fontSize: 20,
+          fontWeight: "bold",
+          opacity: 0.9,
+          borderRadius: 30,
+          overflowX: "hidden",
+          marginTop: -200,
+          border: "3px solid #1190CB",
+        }}
+      >
+        List of Cities
+        <div className="text-center" style={{ fontSize: 17 }}>
+          {listSelectedCities(selectedCities)}
+        </div>
+      </div>
+      {presetButtons()}
     </div>
   );
 }
 
 export default CategorySearch;
+
