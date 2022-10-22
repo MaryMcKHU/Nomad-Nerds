@@ -345,7 +345,7 @@ function CategorySearch() {
               formatResult={formatCategoryResult}
               maxResults={5}
               placeholder="Search for a thing to do"
-              styling={{ borderRadius: "10px", border: "3px solid #1190CB" }}
+              styling={{ border: '3px solid rgba(54, 89, 161)', fontSize:'19px' }}
             />
           </div>
         </div>
@@ -361,7 +361,7 @@ function CategorySearch() {
               formatResult={formatCityResult}
               maxResults={5}
               placeholder="City"
-              styling={{ borderRadius: "10px", border: "3px solid #1190CB" }}
+              styling={{ border: '3px solid rgba(54, 89, 161)', fontSize:'19px' }}
             />
           </div>
         </div>

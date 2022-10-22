@@ -16,7 +16,7 @@ function MainPage() {
           <Col>
             <h1
               className="citysearch-header"
-              style={{ marginTop: 80, fontSize: "30px", marginLeft: -100 }}
+              style={{ marginTop: 80, fontSize: "30px", marginLeft: -80 }}
             >
               <span className="font-link">
                 <div>
@@ -26,8 +26,8 @@ function MainPage() {
               </span>
             </h1>
             <div className="arrow-search" style={{ display: "inline-flex" }}>
-              <img src={curling} style={{ height: 100, marginLeft: -60 }}></img>
-              <div className="city-search" style={{ marginTop: 55 }}>
+              <img src={curling} style={{ height: 100, marginLeft: -80 }}></img>
+              <div style={{ marginTop: 55 }}>
                 <CitySearch />
               </div>
             </div>
@@ -35,7 +35,7 @@ function MainPage() {
           <Col>
             <h1
               className="citysearch-header"
-              style={{ marginTop: 80, fontSize: "30px", marginLeft: 50 }}
+              style={{ marginTop: 80, fontSize: "30px", marginLeft: 150 }}
             >
               <span className="font-link">
                 <div>
@@ -44,7 +44,12 @@ function MainPage() {
                 <div>but not sure where to do it?</div>
               </span>
             </h1>
-            <CategorySearch />
+            <div className="arrow-search" style={{ display: "inline-flex" }}>
+              <div style={{ marginTop: 7 }}>
+              <CategorySearch />
+              </div>
+              <img src={curling} style={{ height: 100, marginLeft: -30, transform:'scaleX(-1)' }}></img>
+            </div>
           </Col>
         </Row>
       </Container>
