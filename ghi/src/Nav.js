@@ -25,7 +25,7 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-dark" style={{zIndex:10, backgroundColor:'transparent'}}>
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          <img className="d-block w-100" src={logo} height={40} alt='logo' />
+          {/* <img className="d-block w-100" src={logo} height={40} alt='logo' /> */}
         </NavLink>
         <div className="fw-bold" to="/"></div>
         <div
@@ -36,7 +36,7 @@ function Nav() {
             {links.map((link, index) => (
               <li className="px-2" key={index}>
                 <NavLink to={link.path}>
-                  <Button variant="outline-light">{link.name}</Button>
+                  <Button variant="outline-light" className='font-link2'>{link.name}</Button>
                 </NavLink>
               </li>
             ))}

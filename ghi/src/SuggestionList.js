@@ -17,9 +17,10 @@ function SuggestionList() {
         style={{
           paddingTop: 15,
           textAlign: "center",
-          fontSize:'35px'
+          fontSize:'35px',
+          marginTop:100,
         }}
-        className='font-link'
+        className='font-link2'
       >
         Recommendations for Popular Destinations
       </h2>
@@ -27,11 +28,12 @@ function SuggestionList() {
         <div key={index}>
           <Container className="container-fluid">
             <h3
-              className="card-title font-link"
+              className="card-title font-link2"
               style={{
                 fontSize:'20px',
                 paddingTop: 15,
-                marginTop:'50px'
+                marginTop:50,
+                fontWeight:'bolder'
               }}
             >
               {Object.keys(location)}

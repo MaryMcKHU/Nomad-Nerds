@@ -1,20 +1,45 @@
 import React from 'react';
-import airballoons from "./images/airballoons.jpg";
+import background from "./images/airballoons.jpg";
+import CitySearch from './searchByCity/citySearch';
 
 function HeroBanner() {
     return (
-        <div>
-            <img 
-                src={airballoons}
-                style={{ overflow: "hidden", display:'flex', position:'relative' }}
+        <article 
+            style={{
+                height:'100%',
+                position:'relative',
+                overflow:'hidden'
+            }}>
+            <img
+                src={background}
+                style=
+                {{
+                    objectFit:'cover', 
+                    width:'100%', 
+                    height:'100%',
+                }}
             >
             </img>
-            <h1 className="display-5 text-on-image" style={{color:'black'}}>
-              <span className='font-link'>
-                Find your next adventure...
-              </span>
+            
+            <h1
+                className='font-link2' 
+                style={{
+                    fontSize:'50px',
+                    color:'white',
+                    textAlign:'center',
+                    position:'absolute',
+                    top:320,
+                    bottom:0,
+                    left:0,
+                    right:0,
+                    height:'fit-content',
+                    margin:'auto',
+                    fontWeight:'bolder',
+                }}>
+                Your next adventure awaits...<CitySearch />
             </h1>
-          </div>
+            
+          </article>
     )
 }
 

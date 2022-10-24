@@ -13,8 +13,8 @@ function MainPage() {
     <>
     <HeroBanner />
       <Container>
-        <Row>
-          <Col>
+        {/* <Row> */}
+          {/* <Col>
             <h1
               className="citysearch-header"
               style={{ marginTop: 80, fontSize: "30px", marginLeft: -80 }}
@@ -33,12 +33,12 @@ function MainPage() {
               </div>
             </div>
           </Col>
-          <Col>
+          <Col> */}
             <h1
               className="citysearch-header"
-              style={{ marginTop: 80, fontSize: "30px", marginLeft: 150 }}
+              style={{ marginTop: 60, fontSize: "30px", textAlign:'center' }}
             >
-              <span className="font-link">
+              <span className="font-link2">
                 <div>
                   Or know what you want to do <br />
                 </div>
@@ -46,7 +46,7 @@ function MainPage() {
               </span>
             </h1>
             <div className="arrow-search" style={{ display: "inline-flex" }}>
-              <div style={{ marginTop: 60, marginLeft: 350 }}>
+              <div style={{ marginTop: 60 }}>
                 <Button>
                   Click Here!
                 </Button>
@@ -54,8 +54,8 @@ function MainPage() {
               </div>
               <img src={curling} style={{ height: 100, marginLeft: 50, transform:'scaleX(-1)' }}></img>
             </div>
-          </Col>
-        </Row>
+          {/* </Col> */}
+        {/* </Row> */}
       </Container>
       <Container>
         <SuggestionList />

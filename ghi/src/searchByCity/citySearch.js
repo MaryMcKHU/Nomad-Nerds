@@ -20,22 +20,18 @@ function CitySearch() {
   };
 
   return (
-    <div className="Test">
-      <header className="Test-header">
-        <div style={{ width: 420, marginBottom:'200px', display:'block', marginLeft:'auto', marginRight:'auto' }}>
-          <ReactSearchAutocomplete
-            items={cities}
-            fuseOptions={{ keys: ["city", "country", "admin_name"] }}
-            resultStringKeyName="city"
-            onSelect={handleOnSelect}
-            autoFocus
-            placeholder="Where to?"
-            formatResult={formatResult}
-            maxResults={5}
-            styling={{border:'3px solid rgba(54, 89, 161)', fontSize:'19px'}}
-          />
-        </div>
-      </header>
+    <div style={{ width: 475, display:'block', marginLeft:'auto', marginRight:'auto', marginTop:180 }}>
+      <ReactSearchAutocomplete
+        items={cities}
+        fuseOptions={{ keys: ["city", "country", "admin_name"] }}
+        resultStringKeyName="city"
+        onSelect={handleOnSelect}
+        autoFocus
+        placeholder="Where to?"
+        formatResult={formatResult}
+        maxResults={5}
+        styling={{border:'3px solid rgba(255, 171, 56)', fontSize:'19px'}}
+      />
     </div>
   );
 }

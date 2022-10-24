@@ -200,12 +200,13 @@ function CategoryList() {
   return (
     <ul>
       <h1
+        className='font-link2'
         style={{
-          fontFamily: "verdana",
           fontWeight: "bold",
           fontSize: "40px",
           textAlign: "center",
           paddingTop: 30,
+          marginTop: 80,
         }}
       >
         {city.replace("%20", " ")}
@@ -254,7 +255,7 @@ function CategoryList() {
                                 (_, i) => (
                                   <span key={i}>
                                     <BsStarFill
-                                      size="1em"
+                                      size="0.8em"
                                       color="black"
                                     />
                                   </span>
@@ -264,7 +265,7 @@ function CategoryList() {
                           {store.rating ? (
                             String(store.rating).slice(-2) === ".5" ? (
                               <BsStarHalf
-                                size="1em"
+                                size="0.8em"
                                 color="black"
                               />
                             ) : (
