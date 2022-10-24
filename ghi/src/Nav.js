@@ -24,7 +24,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark" style={{zIndex:10, backgroundColor:'transparent'}}>
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand font-link2" to="/" style={{fontWeight:'bolder'}}>nomad nerds
           {/* <img className="d-block w-100" src={logo} height={40} alt='logo' /> */}
         </NavLink>
         <div className="fw-bold" to="/"></div>
