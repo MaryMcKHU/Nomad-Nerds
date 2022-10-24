@@ -350,96 +350,93 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <div className="row">
+      <h3 className="font-link2" style={{ fontSize: 25 }}>1. Choose a preset group of cities</h3>
+      {presetButtons()}
+      <h3
+        className="font-link2"
+        style={{ marginTop: 25, textAlign: "center", fontSize: 25 }}
+      >
+        2. Add / remove cities from the list
+      </h3>
+      <div
+        style={{
+          width: 450,
+          marginTop: 15,
+          marginBottom: 80,
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <ReactSearchAutocomplete
+          items={cities}
+          fuseOptions={{ keys: ["city", "country", "admin_name"] }}
+          resultStringKeyName="city"
+          onSelect={handleOnCitySelect}
+          autoFocus
+          formatResult={formatCityResult}
+          maxResults={5}
+          placeholder="Paris, France"
+          styling={{
+            border: "3px solid rgba(54, 89, 161)",
+            fontSize: "19px",
+          }}
+        />
+      </div>
+      <div
+        className="font-link2"
+        style={{
+          backgroundColor: "white",
+          fontSize: 18,
+          fontWeight: "bold",
+          opacity: 0.9,
+          overflowX: "hidden",
+          border: "3px solid rgba(54, 89, 161)",
+          width: 450,
+          marginBottom: 30,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginTop: 200,
+        }}
+      >
+        List of Cities
         <div
-          className="col"
-          style={{ paddingBottom: 200, marginTop: 60, textAlign: "center" }}
+          className="text-center"
+          style={{ fontSize: 17, marginTop: 10, width: 400 }}
         >
-          <h3 className="font-link2">1. Choose a preset group of cities</h3>
-          {presetButtons()}
-          <h3
-            className="font-link2"
-            style={{ marginTop: 20, textAlign: "center" }}
-          >
-            2. Add / remove cities from the list
-          </h3>
-          <div
-            style={{
-              width: 280,
-              marginTop: 15,
-              marginBottom: 80,
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
-            <ReactSearchAutocomplete
-              items={cities}
-              fuseOptions={{ keys: ["city", "country", "admin_name"] }}
-              resultStringKeyName="city"
-              onSelect={handleOnCitySelect}
-              autoFocus
-              formatResult={formatCityResult}
-              maxResults={5}
-              placeholder="Paris, France"
-              styling={{
-                border: "3px solid rgba(54, 89, 161)",
-                fontSize: "19px",
-              }}
-            />
-          </div>
-          <div
-            className="text-center justify-content-center"
-            style={{
-              backgroundColor: "white",
-              fontSize: 18,
-              fontWeight: "bold",
-              opacity: 0.9,
-              overflowX: "hidden",
-              border: "3px solid rgba(54, 89, 161)",
-              width: 450,
-              marginBottom: 30,
-            }}
-          >
-            List of Cities
-            <div
-              className="text-center"
-              style={{ fontSize: 17, marginTop: 10, width: 400 }}
-            >
-              {listSelectedCities(selectedCities)}
-            </div>
-          </div>
-          <h3 className="font-link2" style={{ marginTop: 20 }}>
-            3. Search for what you want to do
-          </h3>
-          <div className="d-flex justify-content-center"></div>
-          <div
-            style={{
-              width: 280,
-              textAlign: "center",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
-            <ReactSearchAutocomplete
-              key="category search"
-              items={categories_id}
-              fuseOptions={{ keys: ["title", "alias"] }}
-              resultStringKeyName="title"
-              onSelect={handleOnCategorySelect}
-              autoFocus
-              formatResult={formatCategoryResult}
-              maxResults={5}
-              placeholder="Kayaking, Cycling, etc."
-              styling={{
-                border: "3px solid rgba(54, 89, 161)",
-                fontSize: "19px",
-                marginTop: 30,
-              }}
-            />
-          </div>
+          {listSelectedCities(selectedCities)}
         </div>
       </div>
-    </div>
+      <h3 className="font-link2" style={{ marginTop: 25, fontSize: 25 }}>
+        3. Search for what you want to do
+      </h3>
+      <div className="d-flex justify-content-center"></div>
+      <div
+        style={{
+          width: 280,
+          textAlign: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: 15
+        }}
+      >
+        <ReactSearchAutocomplete
+          key="category search"
+          items={categories_id}
+          fuseOptions={{ keys: ["title", "alias"] }}
+          resultStringKeyName="title"
+          onSelect={handleOnCategorySelect}
+          autoFocus
+          formatResult={formatCategoryResult}
+          maxResults={5}
+          placeholder="Kayaking, Cycling, etc."
+          styling={{
+            border: "3px solid rgba(54, 89, 161)",
+            fontSize: "19px",
+            marginTop: 30,
+          }}
+        />
+      </div>
+        </div>
   );
 }
 
