@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import CitySearch from "./searchByCity/citySearch";
 import CategorySearch from "./searchByCategory/CategorySearch";
 import SuggestionList from "./SuggestionList";
@@ -7,55 +8,57 @@ import Row from "react-bootstrap/Row";
 import Button from 'react-bootstrap/Button';
 import curling from "./images/curling.svg";
 import HeroBanner from './HeroBanner';
+import Modal from 'react-bootstrap/Modal';
 
 function MainPage() {
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
     <HeroBanner />
       <Container>
-        {/* <Row> */}
-          {/* <Col>
-            <h1
-              className="citysearch-header"
-              style={{ marginTop: 80, fontSize: "30px", marginLeft: -80 }}
-            >
-              <span className="font-link">
-                <div>
-                  Know where you're going <br />
-                </div>
-                <div>but not sure what to do while there?</div>
-              </span>
-            </h1>
-            <div className="arrow-search" style={{ display: "inline-flex" }}>
-              <img src={curling} style={{ height: 100, marginLeft: -80 }}></img>
-              <div style={{ marginTop: 55 }}>
-                <CitySearch />
+          <h1
+            className="citysearch-header"
+            style={{ marginTop: 80, fontSize: "30px", textAlign:'center' }}
+          >
+            <span className="font-link2">
+              <div>
+                Know what you want to do <br />
               </div>
-            </div>
-          </Col>
-          <Col> */}
-            <h1
-              className="citysearch-header"
-              style={{ marginTop: 60, fontSize: "30px", textAlign:'center' }}
-            >
-              <span className="font-link2">
-                <div>
-                  Or know what you want to do <br />
-                </div>
-                <div>but not sure where to do it?</div>
-              </span>
-            </h1>
-            <div className="arrow-search" style={{ display: "inline-flex" }}>
-              <div style={{ marginTop: 60 }}>
-                <Button>
+              <div>but not sure where to do it?</div>
+            </span>
+          </h1>
+            <div className="arrow-search">
+              <div style={{ marginTop:60, marginLeft:600, display: "inline-flex" }}>
+                <Button 
+                  variant='primary' 
+                  style={{fontSize:20, fontWeight:'bold', paddingBottom:10 }}
+                  onClick={handleShow}
+                >
                   Click Here!
                 </Button>
-              {/* <CategorySearch /> */}
+                <Modal 
+                  show={show} 
+                  onHide={handleClose} 
+                  dialogClassName='modal-lg'
+                >
+                  <Modal.Header closeButton>
+                  </Modal.Header>
+                  <Modal.Body style={{width:900}}>
+                    <CategorySearch />
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer> 
+                </Modal>
               </div>
-              <img src={curling} style={{ height: 100, marginLeft: 50, transform:'scaleX(-1)' }}></img>
+              <img src={curling} style={{ height: 100, marginLeft:50, transform:'scaleX(-1)' }}></img>
             </div>
-          {/* </Col> */}
-        {/* </Row> */}
       </Container>
       <Container>
         <SuggestionList />
