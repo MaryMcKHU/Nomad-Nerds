@@ -28,7 +28,7 @@ function HeroBanner() {
                     color:'white',
                     textAlign:'center',
                     position:'absolute',
-                    top:320,
+                    top:550,
                     bottom:0,
                     left:0,
                     right:0,
@@ -38,7 +38,6 @@ function HeroBanner() {
                 }}>
                 Your next adventure awaits...<CitySearch />
             </h1>
-            
           </article>
     )
 }

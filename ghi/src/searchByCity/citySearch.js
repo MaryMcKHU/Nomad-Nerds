@@ -20,7 +20,7 @@ function CitySearch() {
   };
 
   return (
-    <div style={{ width: 475, display:'block', marginLeft:'auto', marginRight:'auto', marginTop:180 }}>
+    <div style={{ width: 475, display:'block', marginLeft:'auto', marginRight:'auto', marginTop:120, marginBottom:200 }}>
       <ReactSearchAutocomplete
         items={cities}
         fuseOptions={{ keys: ["city", "country", "admin_name"] }}
