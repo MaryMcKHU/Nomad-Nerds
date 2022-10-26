@@ -32,7 +32,7 @@ function MainPage() {
             </span>
           </h1>
             <div className="arrow-search">
-              <div style={{ marginTop:60, marginLeft:600, display: "inline-flex" }}>
+              <div style={{ marginTop:20, marginLeft:600, display: "inline-flex" }}>
                 <Button 
                   variant='primary' 
                   style={{fontSize:20, fontWeight:'bold', paddingBottom:10 }}
@@ -57,7 +57,7 @@ function MainPage() {
                   </Modal.Footer> 
                 </Modal>
               </div>
-              <img src={curling} style={{ height: 100, marginLeft:50, transform:'scaleX(-1)' }}></img>
+              {/* <img src={curling} style={{ height: 90, marginLeft:50, transform:'scaleX(-1)' }}></img> */}
             </div>
       </Container>
       <Container>

@@ -19,6 +19,8 @@ function SuggestionList() {
           textAlign: "center",
           fontSize:'35px',
           marginTop:100,
+          fontWeight:'bolder',
+          color:'purple'
         }}
         className='font-link2'
       >
