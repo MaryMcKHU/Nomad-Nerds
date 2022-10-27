@@ -203,27 +203,26 @@ function CityList() {
   return (
     <ul>
       <h1
+        className='font-link2'
         style={{
-          fontFamily: "verdana",
           fontWeight: "bold",
           fontSize: "40px",
           textAlign: "center",
-          paddingTop: 30,
-          marginTop: 50
+          paddingTop: 15,
+          marginTop: 80
         }}
       >
         {category.title}
       </h1>
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid">
+          <Container className="container-fluid font-link2">
             <h1
               className="card-title"
               style={{
-                fontFamily: "verdana",
-                fontWeight: "bold",
-                padding: 20,
-                paddingTop: 90,
+                fontWeight: "bolder",
+                paddingTop: 25,
+                marginTop: 50
               }}
             >
               {Object.keys(business)}
@@ -236,15 +235,16 @@ function CityList() {
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "18rem" }}>
+                    <Card style={{ width: "16rem", border:'none', marginTop:15 }}>
                       <Card.Img
                         variant="top"
                         src={store.image_url}
                         onError={(e) => (e.target.src = no_info)}
                         height={250}
+                        style={{objectFit:'cover', borderRadius:10}}
                       />
                       <Card.Body>
-                        <Card.Title style={{ fontWeight: "bold" }}>
+                        <Card.Title style={{ fontWeight: "bold", fontSize:'18px' }}>
                           <Row
                             style={{
                               flexDirection: "row",
@@ -252,8 +252,8 @@ function CityList() {
                             }}
                           >
                             <div>{store.name}</div>
-                            <div style={{ color: "green", fontSize: "16px" }}>
-                              {store.price ? store.price : ""}
+                            <div style={{ color: "green", fontSize: "14px" }}>
+                              {store.price ? store.price : " "}
                             </div>
                           </Row>
                           {store.rating
@@ -261,8 +261,8 @@ function CityList() {
                                 (_, i) => (
                                   <span key={i}>
                                     <BsStarFill
-                                      size="1em"
-                                      color="rgb(222, 190, 60)"
+                                      size="0.8em"
+                                      color="black"
                                     />
                                   </span>
                                 )
@@ -271,8 +271,8 @@ function CityList() {
                           {store.rating ? (
                             String(store.rating).slice(-2) === ".5" ? (
                               <BsStarHalf
-                                size="1em"
-                                color="rgb(222, 190, 60)"
+                                size="0.8em"
+                                color="black"
                               />
                             ) : (
                               ""
@@ -287,7 +287,7 @@ function CityList() {
                           {store.location.display_address[1]}
                           <br />
                           {store.location.display_address[2]}
-                          <Button variant="light" style={{ float: "right" }}>
+                          <button style={{ float: "right", backgroundColor:'white', border:'none' }}>
                             {favoriteList.includes(store.id) ? (
                               <AiFillHeart
                                 size="1.8em"
@@ -297,6 +297,7 @@ function CityList() {
                             ) : (
                               <AiOutlineHeart
                                 size="1.8em"
+                                style={{ color:'black' }}
                                 onClick={() =>
                                   addFavorite(
                                     store.id,
@@ -311,7 +312,7 @@ function CityList() {
                                 }
                               />
                             )}
-                          </Button>
+                          </button>
                         </Card.Text>
                       </Card.Body>
                     </Card>
