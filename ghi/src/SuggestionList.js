@@ -18,7 +18,7 @@ function SuggestionList() {
           paddingTop: 15,
           textAlign: "center",
           fontSize:'35px',
-          marginTop:100,
+          marginTop:200,
           fontWeight:'bolder',
           color:'purple'
         }}

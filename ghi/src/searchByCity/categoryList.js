@@ -214,11 +214,10 @@ function CategoryList() {
       </h1>
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid">
+          <Container className="container-fluid font-link2">
             <h1
-              className="card-title"
+              className="card-title font-link2"
               style={{
-                fontFamily: "verdana",
                 fontWeight: "bold",
                 padding: 20,
                 paddingTop: 90,
@@ -245,8 +244,8 @@ function CategoryList() {
                       <Card.Body>
                         <Card.Title style={{ fontWeight: "bold" }}>
                           <Row>
-                            <div>{store.name}</div>
-                            <div style={{ color: "green", fontSize: "16px" }}>
+                            <div className='font-link2'>{store.name}</div>
+                            <div className='font-link2' style={{ color: "green", fontSize: "16px" }}>
                               {store.price ? store.price : ""}
                             </div>
                           </Row>
@@ -281,7 +280,7 @@ function CategoryList() {
                           {store.location.display_address[1]}
                           <br />
                           {store.location.display_address[2]}
-                          <Button variant="light" style={{ float: "right" }}>
+                          <button style={{ float: "right", backgroundColor:'transparent', border:'none' }}>
                             {favoriteList.includes(store.id) ? (
                               <AiFillHeart
                                 size="1.8em"
@@ -291,6 +290,7 @@ function CategoryList() {
                             ) : (
                               <AiOutlineHeart
                                 size="1.8em"
+                                style={{ color: "black" }}
                                 onClick={() =>
                                   addFavorite(
                                     store.id,
@@ -305,7 +305,7 @@ function CategoryList() {
                                 }
                               />
                             )}
-                          </Button>
+                          </button>
                         </Card.Text>
                       </Card.Body>
                     </Card>

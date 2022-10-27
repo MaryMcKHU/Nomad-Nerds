@@ -350,7 +350,7 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <h3 className="font-link2" style={{ fontSize: 25 }}>1. Choose a preset group of cities</h3>
+      <h3 className="font-link2" style={{ fontSize: 25, textAlign:'center' }}>1. Choose a preset group of cities</h3>
       {presetButtons()}
       <h3
         className="font-link2"
@@ -391,6 +391,7 @@ function CategorySearch() {
           opacity: 0.9,
           overflowX: "hidden",
           border: "3px solid rgba(54, 89, 161)",
+          borderRadius:10,
           width: 450,
           marginBottom: 30,
           marginLeft: 'auto',
@@ -401,7 +402,7 @@ function CategorySearch() {
         List of Cities
         <div
           className="text-center"
-          style={{ fontSize: 17, marginTop: 10, width: 400 }}
+          style={{ fontSize: 17, marginTop: 10, width: 400, textAlign:'center' }}
         >
           {listSelectedCities(selectedCities)}
         </div>
@@ -412,7 +413,7 @@ function CategorySearch() {
       <div className="d-flex justify-content-center"></div>
       <div
         style={{
-          width: 280,
+          width: 450,
           textAlign: "center",
           marginLeft: "auto",
           marginRight: "auto",
@@ -428,7 +429,7 @@ function CategorySearch() {
           autoFocus
           formatResult={formatCategoryResult}
           maxResults={5}
-          placeholder="Kayaking, Cycling, etc."
+          placeholder="Kayaking, Cycling, Axe Throwing, etc."
           styling={{
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "19px",
