@@ -287,7 +287,7 @@ function CategorySearch() {
             <div key={item.id} className="row">
               <div className="col-1">
                 <Button
-                  variant="danger"
+                  variant="dark"
                   style={{fontWeight:'bolder'}}
                   onClick={() =>
                     setSelectedCities(

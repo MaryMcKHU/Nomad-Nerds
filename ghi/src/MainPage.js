@@ -22,7 +22,7 @@ function MainPage() {
       <Container>
           <h1
             className="citysearch-header"
-            style={{ fontSize: "30px", textAlign:'center' }}
+            style={{ fontSize: "30px", textAlign:'center', marginTop:100 }}
           >
             <span className="font-link2">
               <div>

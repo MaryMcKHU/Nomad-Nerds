@@ -7,7 +7,6 @@ function HeroBanner() {
         <article 
             style={{
                 height:'100%',
-                position:'relative',
                 overflow:'hidden'
             }}>
             <img
@@ -33,7 +32,7 @@ function HeroBanner() {
                     left:0,
                     right:0,
                     height:'fit-content',
-                    marginTop:400,
+                    marginTop: 330,
                     fontWeight:'bolder',
                 }}>
                 Your next adventure awaits...<CitySearch />
