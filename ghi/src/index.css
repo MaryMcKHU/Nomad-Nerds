@@ -85,10 +85,6 @@ p {
   font-size: 18px;
 }
 
-.category-title {
-  font: "papyrus";
-}
-
 .card:hover {
   transform: scale(1.03);
 }

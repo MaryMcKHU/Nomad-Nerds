@@ -205,7 +205,7 @@ function CategoryList() {
           fontWeight: "bold",
           fontSize: "40px",
           textAlign: "center",
-          paddingTop: 30,
+          paddingTop: 15,
           marginTop: 80,
         }}
       >
@@ -216,11 +216,11 @@ function CategoryList() {
         <div key={index}>
           <Container className="container-fluid font-link2">
             <h1
-              className="card-title font-link2"
+              className="card-title"
               style={{
-                fontWeight: "bold",
-                padding: 20,
-                paddingTop: 90,
+                fontWeight: "bolder",
+                paddingTop: 25,
+                marginTop: 50
               }}
             >
               {Object.keys(business)}
@@ -233,7 +233,7 @@ function CategoryList() {
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "18rem", border:'none' }}>
+                    <Card style={{ width: "16rem", border:'none', marginTop:15 }}>
                       <Card.Img
                         variant="top"
                         src={store.image_url}
@@ -242,11 +242,11 @@ function CategoryList() {
                         style={{objectFit:'cover', borderRadius:10}}
                       />
                       <Card.Body>
-                        <Card.Title style={{ fontWeight: "bold" }}>
+                        <Card.Title style={{ fontWeight: "bold", fontSize:'18px' }}>
                           <Row>
-                            <div className='font-link2'>{store.name}</div>
-                            <div className='font-link2' style={{ color: "green", fontSize: "16px" }}>
-                              {store.price ? store.price : ""}
+                            <div>{store.name}</div>
+                            <div style={{ color: "green", fontSize: "14px" }}>
+                              {store.price ? store.price : " "}
                             </div>
                           </Row>
                           {store.rating
@@ -280,7 +280,7 @@ function CategoryList() {
                           {store.location.display_address[1]}
                           <br />
                           {store.location.display_address[2]}
-                          <button style={{ float: "right", backgroundColor:'transparent', border:'none' }}>
+                          <button style={{ float: "right", backgroundColor:'white', border:'none' }}>
                             {favoriteList.includes(store.id) ? (
                               <AiFillHeart
                                 size="1.8em"

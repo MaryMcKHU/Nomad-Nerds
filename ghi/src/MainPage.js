@@ -41,16 +41,16 @@ function MainPage() {
                   Click Here!
                 </Button>
               </div>
-              <div style={{textAlign:'center', position:'fixed', marginLeft:'auto', marginRight:'auto'}}>
+              <div>
                 <Modal 
                   show={show} 
                   onHide={handleClose} 
-                  dialogClassName='modal-lg'
+                  dialogClassName='modal-md'
                   style={{textAlign:'center'}}
                 >
                   <Modal.Header closeButton>
                   </Modal.Header>
-                  <Modal.Body style={{width:900}}>
+                  <Modal.Body style={{width:500}}>
                     <CategorySearch />
                   </Modal.Body>
                   <Modal.Footer>

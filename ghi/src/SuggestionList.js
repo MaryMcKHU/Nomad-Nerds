@@ -28,9 +28,9 @@ function SuggestionList() {
       </h2>
       {activities.map((location, index) => (
         <div key={index}>
-          <Container className="container-fluid">
+          <Container className="container-fluid font-link2">
             <h3
-              className="card-title font-link2"
+              className="card-title"
               style={{
                 fontSize:'20px',
                 paddingTop: 15,
