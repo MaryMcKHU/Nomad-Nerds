@@ -286,16 +286,17 @@ function CategorySearch() {
           return (
             <div key={item.id} className="row">
               <div className="col-1">
-                <button
+                <Button
+                  variant="danger"
+                  style={{fontWeight:'bolder'}}
                   onClick={() =>
                     setSelectedCities(
                       selectedCities.filter((city) => city.id !== item.id)
                     )
                   }
-                  className="btn-red"
                 >
                   X
-                </button>
+                </Button>
               </div>
               <div className="col-11" style={{ height: 30 }}>
                 {item.city}, {item.admin_name}, {item.country}
@@ -313,7 +314,7 @@ function CategorySearch() {
         <Col style={{ display: "inline-block" }}>
           <Button
             variant="primary"
-            style={{ opacity: 0.8, maxWidth: "175px" }}
+            style={{ opacity: 0.9, maxWidth: "175px" }}
             onClick={() => setSelectedCities(northAmericaList)}
           >
             {" "}
@@ -350,11 +351,11 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <h3 className="font-link2" style={{ fontSize: 25, textAlign:'center' }}>1. Choose a preset group of cities</h3>
+      <h3 className="font-link2" style={{ fontSize: 22, textAlign:'center' }}>1. Choose a preset group of cities</h3>
       {presetButtons()}
       <h3
         className="font-link2"
-        style={{ marginTop: 25, textAlign: "center", fontSize: 25 }}
+        style={{ marginTop: 25, textAlign: "center", fontSize: 22 }}
       >
         2. Add / remove cities from the list
       </h3>
@@ -407,7 +408,7 @@ function CategorySearch() {
           {listSelectedCities(selectedCities)}
         </div>
       </div>
-      <h3 className="font-link2" style={{ marginTop: 25, fontSize: 25 }}>
+      <h3 className="font-link2" style={{ marginTop: 25, fontSize: 22 }}>
         3. Search for what you want to do
       </h3>
       <div className="d-flex justify-content-center"></div>

@@ -20,7 +20,6 @@ function SuggestionList() {
           fontSize:'35px',
           marginTop:200,
           fontWeight:'bolder',
-          color:'purple'
         }}
         className='font-link2'
       >

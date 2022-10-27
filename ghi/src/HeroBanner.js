@@ -28,12 +28,12 @@ function HeroBanner() {
                     color:'white',
                     textAlign:'center',
                     position:'absolute',
-                    top:550,
+                    top:0,
                     bottom:0,
                     left:0,
                     right:0,
                     height:'fit-content',
-                    margin:'auto',
+                    marginTop:400,
                     fontWeight:'bolder',
                 }}>
                 Your next adventure awaits...<CitySearch />
