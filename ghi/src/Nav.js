@@ -6,8 +6,8 @@ import logo from "./images/logo.png";
 import "./index.css";
 
 export const loggedIn = [
-  { name: "Favorites", path: "user/favorites/" },
-  { name: "Log Out", path: "user/logout/" },
+  { name: "favorites", path: "user/favorites/" },
+  { name: "log out", path: "user/logout/" },
 ];
 
 export const loggedOut = [
@@ -37,7 +37,7 @@ function Nav() {
             {links.map((link, index) => (
               <li className="px-2" key={index}>
                 <NavLink to={link.path}>
-                  <Button variant="outline-dark" className='font-link2'>{link.name}</Button>
+                  <Button variant="outline-dark" style={{fontWeight:'bolder'}} className='font-link2'>{link.name}</Button>
                 </NavLink>
               </li>
             ))}
