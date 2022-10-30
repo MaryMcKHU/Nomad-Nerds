@@ -4,7 +4,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineLinkedin } from "react-icons/ai";
-import logo from "./images/logo.png";
 
 function Footer() {
   return (
@@ -65,24 +64,6 @@ function Footer() {
                 >
                   Mary
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/calebrdgz/"
-                  className="dropdown-item"
-                >
-                  Caleb
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/arthur-cronin/"
-                  className="dropdown-item"
-                >
-                  Arthur
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/emmaoh5"
-                  className="dropdown-item"
-                >
-                  Emma
-                </a>
               </div>
             </li>
           </ul>
@@ -93,8 +74,8 @@ function Footer() {
         to="/"
         className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
       >
-        <div className="justify-content-center">
-          <img src={logo} style={{ height: 40 }} alt='logo' />
+        <div className="justify-content-center font-link2" style={{fontWeight:'bolder', fontSize:'30px'}}>
+          nomad nerds .
         </div>
       </NavLink>
     </footer>
