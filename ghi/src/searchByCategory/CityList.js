@@ -229,7 +229,7 @@ function CityList() {
             </h1>
             <Row
               className="flex-nowrap flex-row"
-              style={{ overflowX: "scroll" }}
+              style={{ overflowX: "auto" }}
             >
               {Object.values(business)[0]
                 .slice(0, 15)

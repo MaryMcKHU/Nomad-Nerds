@@ -181,7 +181,7 @@ function Favorites() {
               </h1>
               <Row
                 className="flex-nowrap flex-row"
-                style={{ overflowX: "scroll" }}
+                style={{ overflowX: "auto" }}
               >
                 {sortedBusinesses[location].map((store, idx) => (
                   <Col key={idx} className="col-3">

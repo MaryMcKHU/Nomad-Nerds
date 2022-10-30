@@ -84,7 +84,7 @@ function SuggestionList() {
                             ""
                           )}
                         </Card.Title>
-                        <Card.Text style={{fontSize:'14px'}}>
+                        <Card.Text style={{fontSize:'16px'}}>
                           {store.location.display_address[0]}
                           <br />
                           {store.location.display_address[1]}
