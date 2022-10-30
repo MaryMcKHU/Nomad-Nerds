@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useToken } from "./users/Auth";
+import { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
 import logo from "./images/logo.png";
 import "./index.css";
@@ -24,7 +25,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark" style={{zIndex:10, backgroundColor:'transparent'}}>
       <div className="container-fluid">
-        <NavLink className="navbar-brand font-link2" to="/" style={{fontWeight:'bolder'}}>nomad nerds .
+        <NavLink className="navbar-brand font-link2" to="/" style={{fontWeight:'bolder', color:'black'}}>nomad nerds .
           {/* <img className="d-block w-100" src={logo} height={40} alt='logo' /> */}
         </NavLink>
         <div className="fw-bold" to="/"></div>
@@ -36,7 +37,7 @@ function Nav() {
             {links.map((link, index) => (
               <li className="px-2" key={index}>
                 <NavLink to={link.path}>
-                  <Button variant="outline-light" className='font-link2'>{link.name}</Button>
+                  <Button variant="outline-dark" className='font-link2'>{link.name}</Button>
                 </NavLink>
               </li>
             ))}

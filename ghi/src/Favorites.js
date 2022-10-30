@@ -90,6 +90,7 @@ function Favorites() {
         src={store["business_image"]}
         onError={(e) => (e.target.src = no_info)}
         height={250}
+        style={{objectFit:'cover', borderRadius:10}}
       />
     );
   };
@@ -99,25 +100,25 @@ function Favorites() {
       <Card.Title
         style={{
           fontWeight: "bold",
-          backgroundColor: "rgb(250, 250, 250)",
+          fontSize:'18px',
           padding: 20,
           paddingTop: 10,
         }}
       >
         {store["business_name"]}
-        <div style={{ color: "green", fontSize: "16px" }}>
+        <div style={{ color: "green", fontSize: "14px" }}>
           {store["business_price"] ? store["business_price"] : ""}
         </div>
         {store["business_rating"]
           ? [...Array(Math.floor(store["business_rating"]))].map((_, i) => (
               <span key={i}>
-                <BsStarFill size="1em" color="rgb(222, 190, 60)" />
+                <BsStarFill size="0.8em" color="black" />
               </span>
             ))
           : ""}
         {store["business_rating"] ? (
           String(store["business_rating"]).slice(-2) === ".5" ? (
-            <BsStarHalf size="1em" color="rgb(222, 190, 60)" />
+            <BsStarHalf size="0.8em" color="black" />
           ) : (
             ""
           )
@@ -139,7 +140,7 @@ function Favorites() {
           {store["business_display_address"][2]}
           <Button
             variant="light"
-            style={{ float: "right" }}
+            style={{ float: "right", backgroundColor:'white', border:'none' }}
             onClick={(e) => deleteFavorite(store["business_id"])}
           >
             <AiFillHeart size="1.8em" color="red" />
@@ -152,12 +153,13 @@ function Favorites() {
   return (
     <div>
       <h1
+        className='font-link2'
         style={{
-          fontFamily: "verdana",
           fontWeight: "bold",
           fontSize: "40px",
           textAlign: "center",
-          paddingTop: 30,
+          paddingTop: 15,
+          marginTop:80
         }}
       >
         {parseJwt(token)}'s Favorites{" "}
@@ -165,14 +167,13 @@ function Favorites() {
       <ul>
         {Object.keys(sortedBusinesses).map((location, index) => (
           <div key={index}>
-            <Container className="container-fluid">
+            <Container className="container-fluid font-link2">
               <h1
                 className="card-title"
                 style={{
-                  fontFamily: "verdana",
-                  fontWeight: "bold",
-                  fontSize: "30px",
-                  paddingBottom: 20,
+                  fontWeight: "bolder",
+                  fontSize: '20px',
+                  paddingBottom: 25,
                   paddingTop: 50,
                 }}
               >
@@ -186,8 +187,9 @@ function Favorites() {
                   <Col key={idx} className="col-3">
                     <Card
                       style={{
-                        width: "18rem",
-                        backgroundColor: "rgb(250, 250, 250)",
+                        width: "16rem",
+                        border:'none',
+                        marginTop:15
                       }}
                     >
                       {cardImage(store)}
