@@ -18,6 +18,7 @@ function Footer() {
         <li className="nav-item">
           <a
             href="mailto:nomadnerds1@gmail.com"
+            target="_blank"
             className="nav-link px-2 text-muted"
           >
             < AiOutlineMail size="1.5em" />
@@ -26,6 +27,7 @@ function Footer() {
         <li className="nav-item">
           <a
             href="https://www.instagram.com/nomad.nerds/"
+            target="_blank"
             className="nav-link px-2 text-muted"
           >
             < AiOutlineInstagram size="1.5em" />
@@ -34,6 +36,7 @@ function Footer() {
         <li className="nav-item">
           <a
             href="https://www.facebook.com/"
+            target="_blank"
             className="nav-link px-2 text-muted"
           >
             < AiOutlineFacebook size="1.5em" />
@@ -60,6 +63,7 @@ function Footer() {
               >
                 <a
                   href="https://www.linkedin.com/in/mary-mckinnon/"
+                  target="_blank"
                   className="dropdown-item"
                 >
                   Mary
