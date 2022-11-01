@@ -45,7 +45,7 @@ build-ghi-job:
     PUBLIC_URL: https://maryamckinnon.gitlab.io/nomad-nerds-revamped
   needs:
     # - django-app-unit-test-job
-    - yelp-api-unit-test-job
+    # - yelp-api-unit-test-job
     - lint-test-job
   script:
     - cd ghi
