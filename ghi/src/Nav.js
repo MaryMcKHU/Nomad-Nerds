@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useToken } from "./users/Auth";
-import { useEffect } from 'react';
 import Button from "react-bootstrap/Button";
-import logo from "./images/logo.png";
 import "./index.css";
 
 export const loggedIn = [

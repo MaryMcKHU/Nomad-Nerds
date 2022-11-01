@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import CitySearch from "./searchByCity/citySearch";
 import CategorySearch from "./searchByCategory/CategorySearch";
 import SuggestionList from "./SuggestionList";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Button from 'react-bootstrap/Button';
 import HeroBanner from './HeroBanner';
 import Modal from 'react-bootstrap/Modal';
