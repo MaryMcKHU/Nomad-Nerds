@@ -30,13 +30,13 @@ lint-test-job:
 #     - pip install -r requirements.txt
 #     - python manage.py test
 
-yelp-api-unit-test-job:
-  image: python:3-bullseye
-  stage: test
-  script:
-    - cd api-yelp
-    - pip install -r requirements.txt
-    - python -m pytest
+# yelp-api-unit-test-job:
+#   image: python:3-bullseye
+#   stage: test
+#   script:
+#     - cd api-yelp
+#     - pip install -r requirements.txt
+#     - python -m pytest
 
 build-ghi-job:
   stage: build
