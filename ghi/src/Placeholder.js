@@ -21,9 +21,9 @@ function Loading() {
           paddingTop: 15,
           marginTop: 110,
         }}
-      >
+      ></h1>
         <Placeholder xs={10} animation="glow"/>
-      </h1>
+      
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid font-link2">

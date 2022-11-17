@@ -204,7 +204,7 @@ function CityList() {
           fontSize: "40px",
           textAlign: "center",
           paddingTop: 15,
-          marginTop: 80
+          marginTop: 110
         }}
       >
         {category.title}
