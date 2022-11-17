@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Loading from '../Placeholder.js'
 import { useAuthContext } from "../users/Auth";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
@@ -30,7 +31,7 @@ function CityList() {
     if (token) {
       const fetchConfig = {
         credentials: "include",
-        method: "get",
+        method: "GET",
         headers: {
           "Access-Control-Request-Headers": "*",
           Authorization: `Bearer ${token}`,
@@ -46,7 +47,7 @@ function CityList() {
 
   async function getCities() {
     const fetchConfig = {
-      method: "get",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -64,7 +65,7 @@ function CityList() {
 
   function fetchBusinesses(cat, city) {
     const fetchConfig = {
-      method: "get",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
@@ -108,7 +109,7 @@ function CityList() {
     };
     const fetchConfig = {
       credentials: "include",
-      method: "post",
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -137,7 +138,7 @@ function CityList() {
   async function deleteFavorite(id) {
     const fetchConfig = {
       credentials: "include",
-      method: "delete",
+      method: "DELETE",
       headers: {
         "Access-Control-Request-Headers": "*",
         Authorization: `Bearer ${token}`,
@@ -189,12 +190,7 @@ function CityList() {
   } else if (businessesLoading === true) {
     return (
       <div className="text-center">
-        <img
-          src="https://theimaa.com.au/wp-content/uploads/2022/06/IMAA_Plan_Around_Globe_Gif_one.gif"
-          style={{ height: 350, marginTop: 100, marginBottom: 30 }}
-          alt="loading"
-        />
-        <h1 style={{ marginBottom: 100 }}>Loading...</h1>
+        <Loading />
       </div>
     );
   }

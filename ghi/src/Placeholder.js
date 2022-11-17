@@ -14,7 +14,6 @@ function Loading() {
     return (
     <ul>
       <h1
-        className='font-link2'
         style={{
           fontWeight: "bold",
           fontSize: "40px",
@@ -23,7 +22,7 @@ function Loading() {
           marginTop: 110,
         }}
       >
-        <Placeholder xs={6} animation="glow"/>
+        <Placeholder xs={10} animation="glow"/>
       </h1>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
