@@ -1,6 +1,9 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
+import Loading from '../Placeholder.js'
+import Button from "react-bootstrap/Button";
+import Placeholder from "react-bootstrap/Placeholder";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -30,7 +33,7 @@ function CategoryList() {
     if (token) {
       const fetchConfig = {
         credentials: "include",
-        method: "get",
+        method: "GET",
         headers: {
           "Access-Control-Request-Headers": "*",
           Authorization: `Bearer ${token}`,
@@ -48,7 +51,7 @@ function CategoryList() {
 
   async function getCategories() {
     const fetchConfig = {
-      method: "get",
+      method: "GET",
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
@@ -65,7 +68,7 @@ function CategoryList() {
 
   function fetchBusinesses(category) {
     const fetchConfig = {
-      method: "get",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
@@ -110,7 +113,7 @@ function CategoryList() {
     };
     const fetchConfig = {
       credentials: "include",
-      method: "post",
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -138,7 +141,7 @@ function CategoryList() {
   async function deleteFavorite(id) {
     const fetchConfig = {
       credentials: "include",
-      method: "delete",
+      method: "DELETE",
       headers: {
         "Access-Control-Request-Headers": "*",
         Authorization: `Bearer ${token}`,
@@ -185,16 +188,11 @@ function CategoryList() {
     );
   } else if (businessesLoading === true) {
     return (
-      <div className="text-center">
-        <img
-          src="https://theimaa.com.au/wp-content/uploads/2022/06/IMAA_Plan_Around_Globe_Gif_one.gif"
-          style={{ height: 350, marginTop: 100, marginBottom: 30 }}
-          alt="loading"
-        />
-        <h1 style={{ marginBottom: 100 }}>Loading...</h1>
-      </div>
+      <Loading />
     );
   }
+
+
 
   return (
     <ul>
@@ -205,7 +203,7 @@ function CategoryList() {
           fontSize: "40px",
           textAlign: "center",
           paddingTop: 15,
-          marginTop: 80,
+          marginTop: 110,
         }}
       >
         {city.replace("%20", " ")}
@@ -289,7 +287,7 @@ function CategoryList() {
                             ) : (
                               <AiOutlineHeart
                                 size="1.8em"
-                                style={{ color: "black" }}
+                                style={{ color: "gray" }}
                                 onClick={() =>
                                   addFavorite(
                                     store.id,

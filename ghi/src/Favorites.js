@@ -28,7 +28,7 @@ function Favorites() {
   async function getFavorites() {
     const fetchConfig = {
       credentials: "include",
-      method: "get",
+      method: "GET",
       headers: {
         "Access-Control-Request-Headers": "*",
         Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ function Favorites() {
   async function deleteFavorite(id) {
     const fetchConfig = {
       credentials: "include",
-      method: "delete",
+      method: "DELETE",
       headers: {
         "Access-Control-Request-Headers": "*",
         Authorization: `Bearer ${token}`,
