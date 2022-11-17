@@ -292,7 +292,7 @@ function CityList() {
                             ) : (
                               <AiOutlineHeart
                                 size="1.8em"
-                                style={{ color:'black' }}
+                                style={{ color:'gray' }}
                                 onClick={() =>
                                   addFavorite(
                                     store.id,

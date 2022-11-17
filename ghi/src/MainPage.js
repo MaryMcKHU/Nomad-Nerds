@@ -44,15 +44,12 @@ function MainPage() {
                   dialogClassName='modal-md'
                   style={{textAlign:'center'}}
                 >
-                  <Modal.Header closeButton>
+                  <Modal.Header closeButton>Search an activity in a group of cities
                   </Modal.Header>
                   <Modal.Body style={{width:500}}>
                     <CategorySearch />
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Close
-                    </Button>
                   </Modal.Footer> 
                 </Modal>
               </div>

@@ -355,15 +355,39 @@ function CategorySearch() {
       {presetButtons()}
       <h3
         className="font-link2"
-        style={{ marginTop: 25, textAlign: "center", fontSize: 22 }}
+        style={{ marginTop: 40, textAlign: "center", fontSize: 22 }}
       >
         2. Add / remove cities from the list
       </h3>
       <div
+        className="font-link2"
+        style={{
+          backgroundColor: "white",
+          fontSize: 18,
+          fontWeight: "bold",
+          opacity: 0.9,
+          overflowX: "hidden",
+          border: "3px solid rgba(54, 89, 161)",
+          borderRadius:10,
+          width: 450,
+          marginBottom: 30,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginTop: 20,
+        }}
+      >
+        List of Cities
+        <div
+          className="text-center"
+          style={{ fontSize: 17, marginTop: 10, width: 400, textAlign:'center' }}
+        >
+          {listSelectedCities(selectedCities)}
+        </div>
+      </div>
+      <div
         style={{
           width: 450,
-          marginTop: 15,
-          marginBottom: 80,
+          marginTop: 5,
           marginLeft: "auto",
           marginRight: "auto",
         }}
@@ -383,32 +407,7 @@ function CategorySearch() {
           }}
         />
       </div>
-      <div
-        className="font-link2"
-        style={{
-          backgroundColor: "white",
-          fontSize: 18,
-          fontWeight: "bold",
-          opacity: 0.9,
-          overflowX: "hidden",
-          border: "3px solid rgba(54, 89, 161)",
-          borderRadius:10,
-          width: 450,
-          marginBottom: 30,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          marginTop: 200,
-        }}
-      >
-        List of Cities
-        <div
-          className="text-center"
-          style={{ fontSize: 17, marginTop: 10, width: 400, textAlign:'center' }}
-        >
-          {listSelectedCities(selectedCities)}
-        </div>
-      </div>
-      <h3 className="font-link2" style={{ marginTop: 25, fontSize: 22 }}>
+      <h3 className="font-link2" style={{ marginTop: 160, fontSize: 22 }}>
         3. Search for what you want to do
       </h3>
       <div className="d-flex justify-content-center"></div>
@@ -434,7 +433,6 @@ function CategorySearch() {
           styling={{
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "19px",
-            marginTop: 30,
           }}
         />
       </div>
