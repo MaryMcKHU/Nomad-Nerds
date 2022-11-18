@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CategorySearch from "./searchByCategory/CategorySearch";
+import CategorySearch from "../searchByCategory/CategorySearch";
 import SuggestionList from "./SuggestionList";
 import Container from "react-bootstrap/Container";
 import Button from 'react-bootstrap/Button';

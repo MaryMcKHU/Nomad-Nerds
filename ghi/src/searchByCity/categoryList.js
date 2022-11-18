@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import Loading from '../Placeholder.js'
+import Loading from '../Components/Placeholder.js'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

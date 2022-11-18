@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useToken } from './Auth';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 function ModalLogin(props) {
     const [username, setUsername] = useState("");
@@ -102,3 +103,4 @@ function ModalLogin(props) {
         </Modal>
     )
 }
+export default ModalLogin;

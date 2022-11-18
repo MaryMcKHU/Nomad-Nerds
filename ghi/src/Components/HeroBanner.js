@@ -1,6 +1,6 @@
 import React from 'react';
-import background from "./images/airballoons.jpg";
-import CitySearch from './searchByCity/citySearch';
+import background from "../images/airballoons.jpg";
+import CitySearch from '../searchByCity/citySearch';
 
 function HeroBanner() {
     return (

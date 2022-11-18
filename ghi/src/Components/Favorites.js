@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuthContext } from "./users/Auth";
+import { useAuthContext } from "../users/Auth";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import { AiFillHeart } from "react-icons/ai";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import no_info from "./images/no_info.png";
+import no_info from "../images/no_info.png";
 
 function Favorites() {
   const { token } = useAuthContext();

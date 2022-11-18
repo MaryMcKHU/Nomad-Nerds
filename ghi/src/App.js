@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Nav from "./Nav";
-import MainPage from "./MainPage";
+import Nav from "./Components/Nav";
+import MainPage from "./Components/MainPage";
 import { useToken } from "./users/Auth";
-import Footer from "./Footer";
+import Footer from "./Components/Footer";
 import Login from "./users/Login";
 import Signup from "./users/SignupForm";
-import Favorites from "./Favorites";
+import Favorites from "./Components/Favorites";
 import Logout from "./users/Logout";
 import { AuthProvider } from "./users/Auth";
 import CityList from "./searchByCategory/CityList";
@@ -25,7 +25,7 @@ function App() {
     <AuthProvider>
       <Nav token={token} username={userName} />
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage />}/>
         <Route path="user">
           <Route
             path="signup"
