@@ -34,10 +34,9 @@ function Nav() {
           <ul className={token ? ifLoggedIn : ifLoggedOut}>
             {links.map((link, index) => (
               <li className="px-2" key={index}>
-                {/* <NavLink to={link.path}> */}
-                <Button variant="outline-dark" style={{fontWeight:'bolder'}} className='font-link2'>{link.name}</Button>
-
-                {/* </NavLink> */}
+                <NavLink to={link.path}>
+                  <Button variant="outline-dark" style={{fontWeight:'bolder'}} className='font-link2'>{link.name}</Button>
+                </NavLink>
               </li>
             ))}
           </ul>

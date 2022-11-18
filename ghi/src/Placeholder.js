@@ -19,11 +19,12 @@ function Loading() {
           fontSize: "40px",
           textAlign: "center",
           paddingTop: 15,
-          marginTop: 110,
+          marginTop: 150,
         }}
       ></h1>
+      <p aria-hidden="true">
         <Placeholder xs={10} animation="glow"/>
-      
+      </p>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid font-link2">
@@ -52,16 +53,12 @@ function Loading() {
                       />
                       <Card.Body>
                         <Placeholder as={Card.Title} animation="glow" style={{ fontWeight: "bold", fontSize:'18px' }}>
-                          <Row>
-                            <div><Placeholder xs={6} animation="glow" /></div>
-                          </Row>
+                            <Placeholder xs={10} />
                         </Placeholder>
                         <Placeholder as={Card.Text} animation="glow">
-                          <Placeholder xs={7} /> 
-                          <Placeholder xs={4} /> 
-                          <Placeholder xs={4} />{' '}
-                          <Placeholder xs={6} /> 
-                          <Placeholder xs={8} />
+                          <Placeholder xs={5} /> 
+                          <Placeholder xs={8} /> 
+                          <Placeholder xs={10} />
                         </Placeholder>
                       </Card.Body>
                     </Card>
