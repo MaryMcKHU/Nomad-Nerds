@@ -18,14 +18,18 @@ function Loading() {
       const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Placeholder.Button variant="secondary" xs={10} style={{borderRadius:30, marginTop:120}}/>
+          <Button variant="secondary" style={{borderRadius:30, marginTop:120}}>
+            <img src={LeftArrowIcon} height={20} alt='right-arrow' />
+          </Button>
       )
   }
     const RightArrow = () => {
         const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
   
         return (
-            <Placeholder.Button variant="secondary" xs={10} style={{borderRadius:30, marginTop:120}}/>
+            <Button variant="secondary" style={{borderRadius:30, marginTop:120}}>
+              <img src={RightArrowIcon} height={20} style={{color:'gray'}} alt='right-arrow' />
+            </Button>
         )
     }
     
