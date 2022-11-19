@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Loading from '../Components/Placeholder.js'
 import Container from "react-bootstrap/Container";
@@ -11,6 +11,10 @@ import { AiFillHeart } from "react-icons/ai";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import Button from 'react-bootstrap/Button';
+import RightArrowIcon from '../images/right-arrow.png';
+import LeftArrowIcon from '../images/left-arrow.png';
 
 
 function CategoryList() {
@@ -189,6 +193,114 @@ function CategoryList() {
     );
   }
 
+  const cardImage = (store) => {
+    return (
+      <Card.Img
+        variant="top"
+        src={store.image_url}
+        onError={(e) => (e.target.src = no_info)}
+        height={250}
+        style={{objectFit:'cover', borderRadius:10}}
+      />
+    )
+  }
+
+  const cardTitle = (store) => {
+    return (
+      <Card.Title 
+        style={{ fontWeight: "bold", fontSize:'18px' }}>
+        <Row>
+          <div>{store.name}</div>
+          <div style={{ color: "green", fontSize: "14px" }}>
+            {store.price ? store.price : " "}
+          </div>
+        </Row>
+        {store.rating
+          ? [...Array(Math.floor(store.rating))].map(
+              (_, i) => (
+                <span key={i}>
+                  <BsStarFill
+                    size="0.8em"
+                    color="black"
+                  />
+                </span>
+              )
+            )
+          : ""}
+        {store.rating ? (
+          String(store.rating).slice(-2) === ".5" ? (
+            <BsStarHalf
+              size="0.8em"
+              color="black"
+            />
+          ) : (
+            ""
+          )
+        ) : (
+          ""
+        )}
+      </Card.Title>
+    )
+  }
+
+  const cardText = (store) => {
+    return (
+      <Card.Text>
+        {store.location.display_address[0]}
+        <br />
+        {store.location.display_address[1]}
+        <br />
+        {store.location.display_address[2]}
+        <button style={{ float: "right", backgroundColor:'white', border:'none' }}>
+          {favoriteList.includes(store.id) ? (
+            <AiFillHeart
+              size="1.8em"
+              style={{ color: "red" }}
+              onClick={() => deleteFavorite(store.id)}
+            />
+          ) : (
+            <AiOutlineHeart
+              size="1.8em"
+              style={{ color: "gray" }}
+              onClick={() =>
+                addFavorite(
+                  store.id,
+                  store.name,
+                  store.image_url,
+                  store.rating,
+                  store.price,
+                  store.location.display_address,
+                  store.location.city,
+                  store.location.state
+                )
+              }
+            />
+          )}
+        </button>
+      </Card.Text>
+    )
+  }
+
+  const LeftArrow = () => {
+    const { scrollPrev } = useContext(VisibilityContext);
+
+    return (
+        <Button variant='secondary' onClick={() => scrollPrev()} className='right-arrow'>
+            <img src={LeftArrowIcon} alt='right-arrow' />
+        </Button>
+    );
+  }
+
+  const RightArrow = () => {
+      const { scrollNext } = useContext(VisibilityContext);
+
+      return (
+          <Button variant='secondary' onClick={() => scrollNext()} className='left-arrow'>
+              <img src={RightArrowIcon} alt='right-arrow' />
+          </Button>
+      )
+  }
+
   return (
     <ul>
       <h1
@@ -201,10 +313,10 @@ function CategoryList() {
           marginTop: 110,
         }}
       >
-        {console.log(categories)}
         {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
+      
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid font-link2">
@@ -222,88 +334,21 @@ function CategoryList() {
               className="flex-nowrap flex-row"
               style={{ overflowX: "auto" }}
             >
+              <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
               {Object.values(business)[0]
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
                     <Card style={{ width: "16rem", border:'none', marginTop:15 }}>
-                      <Card.Img
-                        variant="top"
-                        src={store.image_url}
-                        onError={(e) => (e.target.src = no_info)}
-                        height={250}
-                        style={{objectFit:'cover', borderRadius:10}}
-                      />
+                        {cardImage(store)}
                       <Card.Body>
-                        <Card.Title style={{ fontWeight: "bold", fontSize:'18px' }}>
-                          <Row>
-                            <div>{store.name}</div>
-                            <div style={{ color: "green", fontSize: "14px" }}>
-                              {store.price ? store.price : " "}
-                            </div>
-                          </Row>
-                          {store.rating
-                            ? [...Array(Math.floor(store.rating))].map(
-                                (_, i) => (
-                                  <span key={i}>
-                                    <BsStarFill
-                                      size="0.8em"
-                                      color="black"
-                                    />
-                                  </span>
-                                )
-                              )
-                            : ""}
-                          {store.rating ? (
-                            String(store.rating).slice(-2) === ".5" ? (
-                              <BsStarHalf
-                                size="0.8em"
-                                color="black"
-                              />
-                            ) : (
-                              ""
-                            )
-                          ) : (
-                            ""
-                          )}
-                        </Card.Title>
-                        <Card.Text>
-                          {store.location.display_address[0]}
-                          <br />
-                          {store.location.display_address[1]}
-                          <br />
-                          {store.location.display_address[2]}
-                          <button style={{ float: "right", backgroundColor:'white', border:'none' }}>
-                            {favoriteList.includes(store.id) ? (
-                              <AiFillHeart
-                                size="1.8em"
-                                style={{ color: "red" }}
-                                onClick={() => deleteFavorite(store.id)}
-                              />
-                            ) : (
-                              <AiOutlineHeart
-                                size="1.8em"
-                                style={{ color: "gray" }}
-                                onClick={() =>
-                                  addFavorite(
-                                    store.id,
-                                    store.name,
-                                    store.image_url,
-                                    store.rating,
-                                    store.price,
-                                    store.location.display_address,
-                                    store.location.city,
-                                    store.location.state
-                                  )
-                                }
-                              />
-                            )}
-                          </button>
-                        </Card.Text>
+                        {cardTitle(store)}
+                        {cardText(store)}
                       </Card.Body>
                     </Card>
                   </Col>
                 ))}
+                </ScrollMenu>
             </Row>
           </Container>
         </div>

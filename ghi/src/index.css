@@ -47,7 +47,7 @@ p {
 /* -------------------------------------------- NAVBAR -------------------------------------------- */
 
 .navbar {
-  position:relative;
+  position: relative;
   margin-bottom:-100px;
   z-index: 1;
 }
