@@ -285,7 +285,7 @@ function CategoryList() {
     const { scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button variant='secondary' onClick={() => scrollPrev()} className='right-arrow'>
+        <Button variant='secondary' style={{borderRadius:30}} onClick={() => scrollPrev()} className='right-arrow'>
             <img src={LeftArrowIcon} alt='right-arrow' />
         </Button>
     );
@@ -295,7 +295,7 @@ function CategoryList() {
       const { scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Button variant='secondary' onClick={() => scrollNext()} className='left-arrow'>
+          <Button variant='secondary' style={{borderRadius:30}} onClick={() => scrollNext()} className='left-arrow'>
               <img src={RightArrowIcon} alt='right-arrow' />
           </Button>
       )
@@ -331,8 +331,8 @@ function CategoryList() {
               {Object.keys(business)}
             </h1>
             <Row
-              className="flex-nowrap flex-row"
-              style={{ overflowX: "auto" }}
+              // className="flex-nowrap flex-row"
+              // style={{ overflowX: "auto" }}
             >
               <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
               {Object.values(business)[0]
