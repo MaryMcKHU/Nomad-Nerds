@@ -128,9 +128,8 @@ function CategoryList() {
       if (
         window.confirm(
           "You cannot save favorites because you are not currently logged in. Would you like to log in?"
-        )
-      ) {
-        navigate("/user/login/");
+        )) 
+        { navigate("/user/login/");
       } else {
       }
     }
@@ -190,8 +189,6 @@ function CategoryList() {
     );
   }
 
-
-
   return (
     <ul>
       <h1
@@ -204,7 +201,8 @@ function CategoryList() {
           marginTop: 110,
         }}
       >
-        {city.replace("%20", " ")}
+        {console.log(categories)}
+        {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
       {businesses.map((business, index) => (
