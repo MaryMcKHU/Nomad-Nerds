@@ -1,14 +1,33 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import Button from 'react-bootstrap/Button';
+import RightArrowIcon from '../images/right-arrow.png';
+import LeftArrowIcon from '../images/left-arrow.png';
 
 
 function Loading() {
     const dummyBusinessList = [0,1,2,3,4]
     const dummyBusinessInfoList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+  
+    const LeftArrow = () => {
+      const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+
+      return (
+          <Placeholder.Button variant="secondary" xs={10} style={{borderRadius:30, marginTop:120}}/>
+      )
+  }
+    const RightArrow = () => {
+        const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+  
+        return (
+            <Placeholder.Button variant="secondary" xs={10} style={{borderRadius:30, marginTop:120}}/>
+        )
+    }
     
     return (
     <ul>
@@ -37,14 +56,12 @@ function Loading() {
             >
               <Placeholder xs={6} animation="glow" />
             </h1>
-            <Row
-              className="flex-nowrap flex-row"
-              style={{ overflowX: "auto" }}
-            >
+            <Row>
+            <ScrollMenu RightArrow={RightArrow} LeftArrow={LeftArrow}>
               {dummyBusinessInfoList
                 .map((dummy, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "16rem", border:'none', marginTop:15 }}>
+                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:25 }}>
                       <Card.Img
                         variant="top"
                         height={250}
@@ -63,6 +80,7 @@ function Loading() {
                     </Card>
                   </Col>
                 ))}
+              </ScrollMenu>
             </Row>
           </Container>
         </div>

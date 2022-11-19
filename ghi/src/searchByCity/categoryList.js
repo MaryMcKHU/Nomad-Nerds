@@ -282,20 +282,20 @@ function CategoryList() {
   }
 
   const LeftArrow = () => {
-    const { scrollPrev } = useContext(VisibilityContext);
+    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollPrev()} className='right-arrow'>
+        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollPrev()} className='right-arrow'>
             <img src={LeftArrowIcon} height={20} alt='right-arrow' />
         </Button>
     );
   }
 
   const RightArrow = () => {
-      const { scrollNext } = useContext(VisibilityContext);
+      const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Button variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollNext()} className='left-arrow'>
+          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollNext()} className='left-arrow'>
               <img src={RightArrowIcon} height={20} alt='right-arrow' />
           </Button>
       )
@@ -335,7 +335,7 @@ function CategoryList() {
               {Object.values(business)[0]
                 .slice(0, 15)
                 .map((store, idx) => (
-                  <Col key={idx} className="col-3">
+                  <Col key={store.id || store} itemID={store.id || store} title={store.id || store} className="col-3">
                     <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:25 }}>
                         {cardImage(store)}
                       <Card.Body>
