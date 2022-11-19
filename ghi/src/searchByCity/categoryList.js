@@ -285,8 +285,8 @@ function CategoryList() {
     const { scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button variant='secondary' style={{borderRadius:30}} onClick={() => scrollPrev()} className='right-arrow'>
-            <img src={LeftArrowIcon} alt='right-arrow' />
+        <Button variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollPrev()} className='right-arrow'>
+            <img src={LeftArrowIcon} height={20} alt='right-arrow' />
         </Button>
     );
   }
@@ -295,8 +295,8 @@ function CategoryList() {
       const { scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Button variant='secondary' style={{borderRadius:30}} onClick={() => scrollNext()} className='left-arrow'>
-              <img src={RightArrowIcon} alt='right-arrow' />
+          <Button variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollNext()} className='left-arrow'>
+              <img src={RightArrowIcon} height={20} alt='right-arrow' />
           </Button>
       )
   }
@@ -319,7 +319,7 @@ function CategoryList() {
       
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2">
+          <Container className="container-fluid font-link2" style={{maxWidth:1225}}>
             <h1
               className="card-title"
               style={{
@@ -339,7 +339,7 @@ function CategoryList() {
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "16rem", border:'none', marginTop:15 }}>
+                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:25 }}>
                         {cardImage(store)}
                       <Card.Body>
                         {cardTitle(store)}
