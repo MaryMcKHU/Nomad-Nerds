@@ -6,8 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loading from '../Components/Placeholder.js'
 import { useAuthContext } from "../users/Auth";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";

@@ -6,8 +6,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useAuthContext } from "../users/Auth";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
@@ -15,6 +13,8 @@ import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import Button from 'react-bootstrap/Button';
 import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
+import HeartFilled from '../images/heartfilled.png';
+import Heart from '../images/heart.png';
 
 
 function CategoryList() {
@@ -195,6 +195,7 @@ function CategoryList() {
 
   const cardImage = (store) => {
     return (
+      <div>
       <Card.Img
         variant="top"
         src={store.image_url}
@@ -202,6 +203,26 @@ function CategoryList() {
         height={250}
         style={{objectFit:'cover', borderRadius:10}}
       />
+      <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235 }}>
+      {favoriteList.includes(store.id) ? (
+        <img src={HeartFilled} onClick={() => deleteFavorite(store.id)}></img>
+      ) : (
+        <img src={Heart} height={35}
+          onClick={() =>
+            addFavorite(
+              store.id,
+              store.name,
+              store.image_url,
+              store.rating,
+              store.price,
+              store.location.display_address,
+              store.location.city,
+              store.location.state
+            )
+          }></img>
+      )}
+      </button>
+    </div>
     )
   }
 
@@ -251,32 +272,6 @@ function CategoryList() {
         {store.location.display_address[1]}
         <br />
         {store.location.display_address[2]}
-        <button style={{ float: "right", backgroundColor:'white', border:'none' }}>
-          {favoriteList.includes(store.id) ? (
-            <AiFillHeart
-              size="1.8em"
-              style={{ color: "red" }}
-              onClick={() => deleteFavorite(store.id)}
-            />
-          ) : (
-            <AiOutlineHeart
-              size="1.8em"
-              style={{ color: "gray" }}
-              onClick={() =>
-                addFavorite(
-                  store.id,
-                  store.name,
-                  store.image_url,
-                  store.rating,
-                  store.price,
-                  store.location.display_address,
-                  store.location.city,
-                  store.location.state
-                )
-              }
-            />
-          )}
-        </button>
       </Card.Text>
     )
   }
