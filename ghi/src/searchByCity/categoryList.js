@@ -330,10 +330,7 @@ function CategoryList() {
             >
               {Object.keys(business)}
             </h1>
-            <Row
-              // className="flex-nowrap flex-row"
-              // style={{ overflowX: "auto" }}
-            >
+            <Row>
               <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
               {Object.values(business)[0]
                 .slice(0, 15)

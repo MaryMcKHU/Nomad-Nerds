@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-
 function Loading() {
     const dummyBusinessList = [0,1,2,3,4]
     const dummyBusinessInfoList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
@@ -27,7 +26,7 @@ function Loading() {
       </p>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2">
+          <Container className="container-fluid font-link2" style={{maxWidth:1225}}>
             <h1
               className="card-title"
               style={{
