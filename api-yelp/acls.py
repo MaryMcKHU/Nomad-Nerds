@@ -12,7 +12,7 @@ def categories_request(location="", quantity=1):
             "limit": 50,
             "offset": offset,
             "sort_by": "rating",
-            "categories": "amusementparks,aquariums,archery,axethrowing,boating,climbing,scuba,fishing,hiking,mountainbiking,paddleboarding,rafting,sailing,rock_climbing,snorkeling,skydiving,skatingrinks,surfing,tubing,waterparks,zipline,horsebackriding,hot_air_balloons,jetskis,skiing,kiteboarding,mini_golf,nightlife,walkingtours,historicaltours,localflavor",
+            "categories": "amusementparks,aquariums,archery,axethrowing,boating,climbing,scuba,fishing,hiking,mountainbiking,paddleboarding,rafting,sailing,rock_climbing,snorkeling,skydiving,skatingrinks,surfing,tubing,waterparks,zipline,horsebackriding,hot_air_balloons,jetskis,skiing,kiteboarding,mini_golf,walkingtours,historicaltours,localflavor",
         }
         res = requests.get(url, headers=headers, params=params)
         if res.status_code == 200:
