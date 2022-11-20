@@ -84,12 +84,12 @@ export function useToken() {
   }
 
   async function login(username, password) {
-    const url = `${process.env.REACT_APP_USER}`;
+    const url = `${process.env.REACT_APP_USER}/login/`;
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
     const response = await fetch(url, {
-      method: "POST",
+      method: "post",
       credentials: "include",
       body: form,
     });
@@ -108,7 +108,7 @@ export function useToken() {
   async function signup(username, password, email, firstName, lastName) {
     const url = `${process.env.REACT_APP_USER}/user/signup/`;
     const response = await fetch(url, {
-      method: "POST",
+      method: "post",
       body: JSON.stringify({
         username,
         password,
