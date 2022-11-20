@@ -207,7 +207,7 @@ function CategoryList() {
       {favoriteList.includes(store.id) ? (
         <img src={HeartFilled} onClick={() => deleteFavorite(store.id)}></img>
       ) : (
-        <img src={Heart} height={35}
+        <img src={Heart} height={30}
           onClick={() =>
             addFavorite(
               store.id,

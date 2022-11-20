@@ -213,7 +213,7 @@ function CityList() {
       {favoriteList.includes(store.id) ? (
         <img src={HeartFilled} onClick={() => deleteFavorite(store.id)}></img>
       ) : (
-        <img src={Heart} height={35}
+        <img src={Heart} height={30}
           onClick={() =>
             addFavorite(
               store.id,
@@ -285,7 +285,7 @@ function CityList() {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollPrev()} className='right-arrow'>
+        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
             <img src={LeftArrowIcon} height={20} alt='right-arrow' />
         </Button>
     );
@@ -295,7 +295,7 @@ function CityList() {
       const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollNext()} className='left-arrow'>
+          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingLeft:15}} onClick={() => scrollNext()} className='left-arrow'>
               <img src={RightArrowIcon} height={20} alt='right-arrow' />
           </Button>
       )
