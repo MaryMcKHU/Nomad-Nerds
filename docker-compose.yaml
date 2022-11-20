@@ -40,7 +40,7 @@ services:
     environment:
       DATABASE_URL: postgresql://users:password@postgres/users
       WAIT_HOSTS: postgres:5432
-      DJWTO_SIGNING_KEY: f5bf450eedad440bcc71ec45fd069ef3e1ba88009d9d92600b6c2fd82d2ec343
+      DJWTO_SIGNING_KEY: 26e7594eaae00351c1beeed9f357e35c12d7d3c86d3a90175f747a5892dff30a
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh

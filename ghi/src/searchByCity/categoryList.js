@@ -13,7 +13,7 @@ import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import Button from 'react-bootstrap/Button';
 import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
-import HeartFilled from '../images/heartfilled.png';
+import HeartFilled from '../images/heart-filled.png';
 import Heart from '../images/heart.png';
 
 
@@ -203,11 +203,11 @@ function CategoryList() {
         height={250}
         style={{objectFit:'cover', borderRadius:10}}
       />
-      <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235 }}>
+      <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235, marginRight:8 }}>
       {favoriteList.includes(store.id) ? (
-        <img src={HeartFilled} onClick={() => deleteFavorite(store.id)}></img>
+        <img src={HeartFilled} height={25} onClick={() => deleteFavorite(store.id)}></img>
       ) : (
-        <img src={Heart} height={30}
+        <img src={Heart} height={25}
           onClick={() =>
             addFavorite(
               store.id,
