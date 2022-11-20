@@ -280,7 +280,7 @@ function CategoryList() {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollPrev()} className='right-arrow'>
+        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, marginRight:5}} onClick={() => scrollPrev()} className='right-arrow'>
             <img src={LeftArrowIcon} height={20} alt='right-arrow' />
         </Button>
     );
@@ -290,7 +290,7 @@ function CategoryList() {
       const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:3}} onClick={() => scrollNext()} className='left-arrow'>
+          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2}} onClick={() => scrollNext()} className='left-arrow'>
               <img src={RightArrowIcon} height={20} alt='right-arrow' />
           </Button>
       )
@@ -314,7 +314,7 @@ function CategoryList() {
       
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2" style={{maxWidth:1225}}>
+          <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
             <h1
               className="card-title"
               style={{
@@ -331,7 +331,7 @@ function CategoryList() {
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={store.id || store} itemID={store.id || store} title={store.id || store} className="col-3">
-                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:25 }}>
+                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:10, marginLeft:10 }}>
                         {cardImage(store)}
                       <Card.Body>
                         {cardTitle(store)}

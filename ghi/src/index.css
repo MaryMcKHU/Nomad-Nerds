@@ -52,29 +52,6 @@ p {
   z-index: 1;
 }
 
-/* -------------------------------------------- CAROUSEL -------------------------------------------- */
-
-.text-on-image {
-  font-family: "cursive";
-  font-size: 60px;
-  font-weight: 400;
-  right: 50%;
-  left: 50%;
-  top: 50%;
-  bottom: 50%;
-  margin-top: 100px;
-  color: white;
-}
-
-.carousel .carousel-item {
-  height: 530px;
-}
-
-.carousel-caption {
-  top: 0;
-  bottom: auto;
-}
-
 /* -------------------------------------------- CARDS -------------------------------------------- */
 
 .card-body {

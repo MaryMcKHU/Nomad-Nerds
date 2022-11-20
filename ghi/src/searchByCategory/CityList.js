@@ -335,7 +335,7 @@ function CityList() {
                 .slice(0, 15)
                 .map((store, idx) => (
                   <Col key={idx} className="col-3">
-                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:20 }}>
+                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:10, marginLeft:10 }}>
                       {cardImage(store)}
                       <Card.Body>
                         {cardTitle(store)}
