@@ -80,19 +80,27 @@ function SuggestionList() {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
+        isFirstItemVisible ? (
+          null) 
+          : (
+          <Button variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
             <img src={LeftArrowIcon} height={20} alt='right-arrow' />
-        </Button>
-    );
+          </Button>
+          )
+    )
   }
 
   const RightArrow = () => {
       const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
       return (
+        isLastItemVisible ? (
+          null
+        ): (
           <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingLeft:15}} onClick={() => scrollNext()} className='left-arrow'>
               <img src={RightArrowIcon} height={20} alt='right-arrow' />
           </Button>
+        )
       )
   }
 

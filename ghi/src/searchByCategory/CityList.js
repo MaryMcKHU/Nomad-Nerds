@@ -318,7 +318,7 @@ function CityList() {
       </h1>
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2" style={{maxWidth:1225}}>
+          <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
             <h1
               className="card-title"
               style={{
