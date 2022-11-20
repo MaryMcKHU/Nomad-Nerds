@@ -14,15 +14,15 @@ function Loading() {
     const dummyBusinessList = [0,1,2,3,4]
     const dummyBusinessInfoList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
   
-    const LeftArrow = () => {
-      const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
+    // const LeftArrow = () => {
+    //   const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
   
-      return (
-          <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
-              <img src={LeftArrowIcon} height={20} alt='right-arrow' />
-          </Button>
-      );
-    }
+    //   return (
+    //       <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
+    //           <img src={LeftArrowIcon} height={20} alt='right-arrow' />
+    //       </Button>
+    //   );
+    // }
   
     const RightArrow = () => {
         const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
@@ -62,7 +62,7 @@ function Loading() {
               <Placeholder xs={6} animation="glow" />
             </h1>
             <Row>
-            <ScrollMenu RightArrow={RightArrow} LeftArrow={LeftArrow}>
+            <ScrollMenu RightArrow={RightArrow}>
               {dummyBusinessInfoList
                 .map((dummy, idx) => (
                   <Col key={idx} className="col-3">
