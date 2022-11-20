@@ -280,7 +280,7 @@ function CategoryList() {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, marginRight:5}} onClick={() => scrollPrev()} className='right-arrow'>
+        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
             <img src={LeftArrowIcon} height={20} alt='right-arrow' />
         </Button>
     );
@@ -290,7 +290,7 @@ function CategoryList() {
       const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
       return (
-          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2}} onClick={() => scrollNext()} className='left-arrow'>
+          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingLeft:15}} onClick={() => scrollNext()} className='left-arrow'>
               <img src={RightArrowIcon} height={20} alt='right-arrow' />
           </Button>
       )
