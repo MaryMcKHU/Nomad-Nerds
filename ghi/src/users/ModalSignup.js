@@ -27,7 +27,7 @@ function ModalSignup() {
     <>
         <Button
             variant="outline-dark"
-            style={{ fontWeight: "bolder" }}
+            style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
             onClick={handleShow}
             className="font-link2"
         >sign up

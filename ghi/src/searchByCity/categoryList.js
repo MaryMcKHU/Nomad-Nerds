@@ -15,9 +15,6 @@ import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
 import HeartFilled from '../images/heart-filled.png';
 import Heart from '../images/heart.png';
-import Pin from '../images/locationpin.png';
-import GoogleMapReact from 'google-map-react';
-import Modal from 'react-bootstrap/Modal';
 
 
 function CategoryList() {
@@ -31,9 +28,6 @@ function CategoryList() {
   const city = location.state.city.city.replace(/ /g, "%20");
   const state = location.state.city.admin_name.replace(/ /g, "%20");
   const cityAndState = city + "%2C%20" + state;
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const navigate = useNavigate();
 

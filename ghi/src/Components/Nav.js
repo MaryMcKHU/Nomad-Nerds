@@ -4,24 +4,10 @@ import Button from "react-bootstrap/Button";
 import ModalLogin from '../users/ModalLogin';
 import ModalSignup from '../users/ModalSignup';
 import "../index.css";
-import Logout from "../users/Logout";
 
-// export const loggedIn = [
-//   { name: "favorites", path: "user/favorites/" },
-//   { name: "log out", path: "user/logout/" },
-// ];
-
-// export const loggedOut = [
-//   { name: "log in", path: "user/login/" },
-//   { name: "sign up", path: "user/signup/" },
-// ];
-
-// const ifLoggedIn = "navbar-nav";
-// const ifLoggedOut = "navbar-nav";
 
 function Nav() {
   const [token] = useToken();
-  // const links = token ? loggedIn : loggedOut;
 
   return (
     <>
@@ -44,7 +30,7 @@ function Nav() {
           <ul>
             {token ? (
               <div>
-              <NavLink to="user/favorites/">
+              <NavLink to="user/favorites/" style={{marginRight:10}}>
                 <Button
                   variant="outline-dark"
                   style={{ fontWeight: "bolder" }}
@@ -72,22 +58,6 @@ function Nav() {
           }
 
           </ul>
-          
-          {/* <ul className={ token ? ifLoggedIn : ifLoggedOut}>
-            {links.map((link, index) => (
-              <li className="px-2" key={index}>
-                <NavLink to={link.path}>
-                  <Button
-                    variant="outline-dark"
-                    style={{ fontWeight: "bolder" }}
-                    className="font-link2"
-                  >
-                    {link.name}
-                  </Button>
-                </NavLink>
-              </li>
-            ))}
-          </ul> */}
         </div>
       </div>
     </nav>
