@@ -65,3 +65,5 @@ def get_business(id=""):
     res = requests.get(url, headers=headers)
     data = res.json()
     return data, res.status_code
+
+

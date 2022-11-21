@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Button from 'react-bootstrap/Button';
 import HeroBanner from './HeroBanner';
 import Modal from 'react-bootstrap/Modal';
+import Map from './Map';
 
 function MainPage() {
 
@@ -15,6 +16,7 @@ function MainPage() {
   return (
     <>
     <HeroBanner />
+    
       <Container>
           <h1
             className="citysearch-header"

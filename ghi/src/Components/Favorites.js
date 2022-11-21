@@ -97,7 +97,7 @@ function Favorites() {
         style={{objectFit:'cover', borderRadius:10}}
       />
       <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235, marginRight:8 }}>
-        <img src={HeartFilled} height={25} onClick={(e) => deleteFavorite(store["business_id"])}></img>
+        <img src={HeartFilled} height={22} onClick={(e) => deleteFavorite(store["business_id"])}></img>
       </button>
       </div>
     );
@@ -191,17 +191,6 @@ function Favorites() {
       >
         {parseJwt(token)}'s Favorites{" "}
       </h1>
-      <Container>
-        <Row>
-          <Col className="col-3">
-        {Object.keys(sortedBusinesses).map((location, index) => (
-          <div key={index}>
-            <button>{location}</button>
-          </div>))}
-          </Col>
-          </Row>
-      </Container>
-      
         {Object.keys(sortedBusinesses).map((location, index) => (
           <div key={index}>
 

@@ -15,6 +15,7 @@ import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
 import HeartFilled from '../images/heart-filled.png';
 import Heart from '../images/heart.png';
+import Map from '../Components/Map';
 
 function CityList() {
   const location = useLocation();
@@ -211,9 +212,9 @@ function CityList() {
       />
       <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235, marginRight:8 }}>
       {favoriteList.includes(store.id) ? (
-        <img src={HeartFilled} height={25} onClick={() => deleteFavorite(store.id)}></img>
+        <img src={HeartFilled} height={22} onClick={() => deleteFavorite(store.id)}></img>
       ) : (
-        <img src={Heart} height={25}
+        <img src={Heart} height={22}
           onClick={() =>
             addFavorite(
               store.id,

@@ -79,7 +79,7 @@ def get_business_list(category: str, location: str, quantity: int = 1):
     return raw_data
 
 
-# Input a business ID: Return business Info + Pic
+# Input a business ID: Return business info and photo
 @yelp_router.get("/api-yelp/businesses/details")
 def get_business_info(id: str):
     raw_data = get_business(id)
@@ -87,12 +87,15 @@ def get_business_info(id: str):
     data["name"] = raw_data.get("name", "")
     data["id"] = raw_data.get("id", "")
     data["image_url"] = raw_data.get("image_url", "")
+    data["photos"] = raw_data.get("photos", "")
     data["rating"] = raw_data.get("rating", "")
     data["price"] = raw_data.get("price", "")
     try:
         data["display_address"] = raw_data.get("location").get(
             "display_address", ["", "", ""]
         )
+        data["latitude"] = raw_data.get("coordinates").get("latitude", "")
+        data["longitude"] = raw_data.get("coordinates").get("longitude", "")
         data["state"] = raw_data.get("location").get("state", "")
         data["city"] = raw_data.get("location").get("city", "")
         data["country"] = raw_data.get("location").get("country", "")
@@ -101,4 +104,6 @@ def get_business_info(id: str):
         data["state"] = ""
         data["city"] = ""
         data["country"] = ""
+        data["latitude"] = ""
+        data["longitude"] = ""
     return JSONResponse(content=data)

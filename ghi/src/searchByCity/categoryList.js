@@ -15,6 +15,9 @@ import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
 import HeartFilled from '../images/heart-filled.png';
 import Heart from '../images/heart.png';
+import Pin from '../images/locationpin.png';
+import GoogleMapReact from 'google-map-react';
+import Modal from 'react-bootstrap/Modal';
 
 
 function CategoryList() {
@@ -28,6 +31,9 @@ function CategoryList() {
   const city = location.state.city.city.replace(/ /g, "%20");
   const state = location.state.city.admin_name.replace(/ /g, "%20");
   const cityAndState = city + "%2C%20" + state;
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const navigate = useNavigate();
 
@@ -76,8 +82,8 @@ function CategoryList() {
         "Access-Control-Allow-Origin": "*",
       },
     };
-    const url = `${process.env.REACT_APP_API_YELP}/api-yelp/businesses/list?category=${category}&location=${cityAndState}&quantity=1`;
-    return fetch(url, fetchConfig);
+    const business_url = `${process.env.REACT_APP_API_YELP}/api-yelp/businesses/list?category=${category}&location=${cityAndState}&quantity=1`;
+    return fetch(business_url, fetchConfig);
   }
 
   function getBusinesses() {
@@ -157,6 +163,7 @@ function CategoryList() {
     }
   }
 
+
   useEffect(() => {
     getFavorites();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -205,9 +212,9 @@ function CategoryList() {
       />
       <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235, marginRight:8 }}>
       {favoriteList.includes(store.id) ? (
-        <img src={HeartFilled} height={25} onClick={() => deleteFavorite(store.id)}></img>
+        <img src={HeartFilled} height={22} onClick={() => deleteFavorite(store.id)}></img>
       ) : (
-        <img src={Heart} height={25}
+        <img src={Heart} height={22}
           onClick={() =>
             addFavorite(
               store.id,
@@ -222,7 +229,7 @@ function CategoryList() {
           }></img>
       )}
       </button>
-    </div>
+      </div>
     )
   }
 
@@ -307,11 +314,11 @@ function CategoryList() {
           paddingTop: 15,
           marginTop: 110,
         }}
-      >
+      >Things to do in {" "}
         {city.replace("%20", " ").replace("%20", " ")}
-        {state ? ", " + location.state.city.admin_name : " "}
+         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      
+      {console.log('business', businesses)}
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
@@ -327,6 +334,7 @@ function CategoryList() {
             </h1>
             <Row>
               <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+                
               {Object.values(business)[0]
                 .slice(0, 15)
                 .map((store, idx) => (
