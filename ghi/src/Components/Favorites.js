@@ -191,8 +191,20 @@ function Favorites() {
       >
         {parseJwt(token)}'s Favorites{" "}
       </h1>
+      <Container>
+        <Row>
+          <Col className="col-3">
         {Object.keys(sortedBusinesses).map((location, index) => (
           <div key={index}>
+            <button>{location}</button>
+          </div>))}
+          </Col>
+          </Row>
+      </Container>
+      
+        {Object.keys(sortedBusinesses).map((location, index) => (
+          <div key={index}>
+
             <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
               <h1
                 className="card-title"
