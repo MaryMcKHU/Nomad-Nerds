@@ -30,12 +30,12 @@ function App() {
           <Route
             path="signup"
             element={
-              <Signup token={token} signup={signup} setUN={setUserName} />
+              <Signup token={token} signup={signup} setUserName={setUserName} />
             }
           />
           <Route
             path="login"
-            element={<Login token={token} login={login} setUN={setUserName} />}
+            element={<Login token={token} login={login} setUserName={setUserName} />}
           />
           <Route path="logout" element={<Logout logout={logout} />} />
           <Route path="favorites" element={<Favorites token={token} />} />

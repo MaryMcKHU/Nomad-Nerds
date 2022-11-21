@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useAuthContext } from "./Auth";
-import traveler from "../images/traveler.png";
+import { useToken } from "./Auth";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function Signup(props) {
-  const { token } = useAuthContext();
+function ModalSignup() {
+  const [token, signup] = useToken();
   const [username, setUsername] = useState("");
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -15,7 +14,6 @@ function Signup(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { signup } = props;
 
   if (token) {
     return <Navigate to="/" />;
@@ -23,7 +21,6 @@ function Signup(props) {
   var handleUserName = function (e) {
     const value = e.target.value;
     setUsername(value);
-    props.setUN(value);
   };
 
   return (
@@ -133,4 +130,4 @@ function Signup(props) {
   );
 }
 
-export default Signup;
+export default ModalSignup;

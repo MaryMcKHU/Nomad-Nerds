@@ -4,7 +4,7 @@ import { useToken } from './Auth';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function ModalLogin(props) {
+function ModalLogin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [show, setShow] = useState(false);
@@ -18,7 +18,6 @@ function ModalLogin(props) {
     var handleUserName = function (e) {
         const value = e.target.value;
         setUsername(value);
-        props.setUN(value);
     };
     return (
       <>
