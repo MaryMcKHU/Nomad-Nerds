@@ -21,22 +21,28 @@ function ModalLogin(props) {
         props.setUN(value);
     };
     return (
+      <>
+        <Button
+          variant="outline-dark"
+          style={{ fontWeight: "bolder" }}
+          onClick={handleShow}
+          className="font-link2"
+        >log in</Button>
         <Modal
             show={show} 
             onHide={handleClose} 
-            dialogClassName='modal-md'
-            style={{textAlign:'center'}}
+            dialogClassName='modal-sm'
+            className="font-link2"
         >
             <Modal.Header closeButton>
-                Log In
             </Modal.Header>
             <Modal.Body
-                style={{width: 500}}
+                style={{width: 450}}
             >
             <form>
-              <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                <h4 style={{ color: "royalblue", fontWeight: "bold" }}>
-                  LOG IN TO NOMAD NERDS
+              <div className="d-flex flex-row">
+                <h4 style={{ fontSize:20, color: "royalblue", fontWeight: "bold", textAlign:'center' }}>
+                Have an account? Log in.
                 </h4>
               </div>
               <div className="form-outline mb-4">
@@ -45,7 +51,7 @@ function ModalLogin(props) {
                   required
                   type="text"
                   id="username"
-                  className="form-control form-control-lg"
+                  className="form-control form-control-md"
                   placeholder="Username"
                   value={username}
                 />
@@ -56,7 +62,7 @@ function ModalLogin(props) {
                   required
                   type="password"
                   id="password"
-                  className="form-control form-control-lg"
+                  className="form-control form-control-md"
                   placeholder="Password"
                   value={password}
                 />
@@ -77,13 +83,9 @@ function ModalLogin(props) {
               <div className="text-center text-lg-start mt-4 pt-2">
                 <button
                   type="button"
-                  className="btn btn-primary btn-lg"
-                  style={{
-                    paddingLeft: "2.5rem",
-                    paddingRight: "2.5rem",
-                    paddingBottom: "2.5rem",
-                  }}
+                  className="btn btn-primary"
                   onClick={() => login(username, password)}
+                  style={{width:250}}
                 >
                   Login
                 </button>
@@ -96,11 +98,8 @@ function ModalLogin(props) {
               </div>
             </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                </Button>
-            </Modal.Footer> 
         </Modal>
+        </>
     )
 }
 export default ModalLogin;
