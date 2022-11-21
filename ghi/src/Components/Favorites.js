@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useAuthContext } from "../users/Auth";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { AiFillHeart } from "react-icons/ai";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import RightArrowIcon from '../images/right-arrow.png';
+import LeftArrowIcon from '../images/left-arrow.png';
+import HeartFilled from '../images/heart-filled.png';
 
 function Favorites() {
   const { token } = useAuthContext();
@@ -85,6 +88,7 @@ function Favorites() {
 
   const cardImage = (store) => {
     return (
+      <div>
       <Card.Img
         variant="top"
         src={store["business_image"]}
@@ -92,6 +96,10 @@ function Favorites() {
         height={250}
         style={{objectFit:'cover', borderRadius:10}}
       />
+      <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235, marginRight:8 }}>
+        <img src={HeartFilled} height={25} onClick={(e) => deleteFavorite(store["business_id"])}></img>
+      </button>
+      </div>
     );
   };
 
@@ -101,14 +109,14 @@ function Favorites() {
         style={{
           fontWeight: "bold",
           fontSize:'18px',
-          padding: 20,
-          paddingTop: 10,
         }}
       >
-        {store["business_name"]}
+        <Row>
+        <div>{store["business_name"]}</div>
         <div style={{ color: "green", fontSize: "14px" }}>
-          {store["business_price"] ? store["business_price"] : ""}
+          {store["business_price"] ? store["business_price"] : " "}
         </div>
+        </Row>
         {store["business_rating"]
           ? [...Array(Math.floor(store["business_rating"]))].map((_, i) => (
               <span key={i}>
@@ -129,29 +137,48 @@ function Favorites() {
     );
   };
 
-  const cardBody = (store) => {
+  const cardText = (store) => {
     return (
-      <Card.Body>
         <Card.Text>
           {store["business_display_address"][0]}
           <br />
           {store["business_display_address"][1]}
           <br />
           {store["business_display_address"][2]}
-          <Button
-            variant="light"
-            style={{ float: "right", backgroundColor:'white', border:'none' }}
-            onClick={(e) => deleteFavorite(store["business_id"])}
-          >
-            <AiFillHeart size="1.8em" color="red" />
-          </Button>
         </Card.Text>
-      </Card.Body>
     );
   };
 
+  const LeftArrow = () => {
+    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
+
+    return (
+        isFirstItemVisible ? (
+          null) 
+          : (
+          <Button variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
+            <img src={LeftArrowIcon} height={20} alt='right-arrow' />
+          </Button>
+          )
+    )
+  }
+
+  const RightArrow = () => {
+      const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+
+      return (
+        isLastItemVisible ? (
+          null
+        ): (
+          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingLeft:15}} onClick={() => scrollNext()} className='left-arrow'>
+              <img src={RightArrowIcon} height={20} alt='right-arrow' />
+          </Button>
+        )
+      )
+  }
+
   return (
-    <div>
+    <ul>
       <h1
         className='font-link2'
         style={{
@@ -159,51 +186,51 @@ function Favorites() {
           fontSize: "40px",
           textAlign: "center",
           paddingTop: 15,
-          marginTop:80
+          marginTop:110
         }}
       >
         {parseJwt(token)}'s Favorites{" "}
       </h1>
-      <ul>
         {Object.keys(sortedBusinesses).map((location, index) => (
           <div key={index}>
-            <Container className="container-fluid font-link2">
+            <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
               <h1
                 className="card-title"
                 style={{
                   fontWeight: "bolder",
-                  fontSize: '20px',
-                  paddingBottom: 25,
-                  paddingTop: 50,
+                  paddingTop: 25,
+                  marginTop: 50
                 }}
               >
                 {location}
               </h1>
-              <Row
-                className="flex-nowrap flex-row"
-                style={{ overflowX: "auto" }}
-              >
+              <Row>
+                <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
                 {sortedBusinesses[location].map((store, idx) => (
                   <Col key={idx} className="col-3">
                     <Card
                       style={{
                         width: "16rem",
                         border:'none',
-                        marginTop:15
+                        marginTop:15,
+                        marginRight:10, 
+                        marginLeft:10
                       }}
                     >
                       {cardImage(store)}
-                      {cardTitle(store)}
-                      {cardBody(store)}
+                      <Card.Body>
+                        {cardTitle(store)}
+                        {cardText(store)}
+                      </Card.Body>
                     </Card>
                   </Col>
                 ))}
+                </ScrollMenu>
               </Row>
             </Container>
           </div>
         ))}
-      </ul>
-    </div>
+    </ul>
   );
 }
 export default Favorites;

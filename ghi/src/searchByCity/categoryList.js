@@ -340,7 +340,7 @@ function CategoryList() {
                     </Card>
                   </Col>
                 ))}
-                </ScrollMenu>
+              </ScrollMenu>
             </Row>
           </Container>
         </div>
