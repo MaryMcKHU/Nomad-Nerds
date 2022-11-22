@@ -3,6 +3,7 @@ import background from "../images/airballoons.jpg";
 import CitySearch from '../searchByCity/citySearch';
 
 function HeroBanner() {
+
     return (
         <article className='hero-banner'
             style={{
@@ -10,13 +11,6 @@ function HeroBanner() {
             }}>
             <img
                 src={background}
-                style=
-                {{
-                    objectFit:'cover', 
-                    width:'100%', 
-                    height:'100%',
-                    display:'flex'
-                }}
                 alt=""
             >
             </img>           
@@ -27,9 +21,10 @@ function HeroBanner() {
                     color:'white',
                     textAlign:'center',
                     position:'absolute',
-                    height:'fit-content',
+                    height:'100%',
                     fontWeight:'bolder',
-                    display:'inline-flex'
+                    display:'flex',
+                    marginTop:'25%'
                 }}>
                 Your next adventure awaits...
                 <CitySearch />
