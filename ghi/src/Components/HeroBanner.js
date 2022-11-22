@@ -5,12 +5,18 @@ import CitySearch from '../searchByCity/citySearch';
 function HeroBanner() {
 
     return (
-        <article className='hero-banner'
-            style={{
-                height:'100%',
-            }}>
+        <article className='hero-banner'>
             <img
                 src={background}
+                style=
+                {{
+                    objectFit:'cover', 
+                    position:'top-center',
+                    marginTop:0,
+                    width:'100%', 
+                    height:'100%',
+                    display:'flex'
+                }}
                 alt=""
             >
             </img>           
@@ -19,12 +25,11 @@ function HeroBanner() {
                 style={{
                     fontSize:'2rem',
                     color:'white',
-                    textAlign:'center',
                     position:'absolute',
                     height:'100%',
                     fontWeight:'bolder',
-                    display:'flex',
-                    marginTop:'25%'
+                    display:'block',
+                    marginTop:'50%',
                 }}>
                 Your next adventure awaits...
                 <CitySearch />
