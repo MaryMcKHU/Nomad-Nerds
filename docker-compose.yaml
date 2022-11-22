@@ -27,18 +27,6 @@ services:
       DATABASE_URL: postgresql://users:password@postgres/users
       WAIT_HOSTS: postgres:5432
       API_YELP_KEY: ${API_YELP_KEY}
-  api-google:
-    build:
-      context: ./api-google
-      dockerfile: ./Dockerfile.dev
-    ports:
-      - "8002:8000"
-    volumes:
-      - ./api-yelp:/app
-    environment:
-      DATABASE_URL: postgresql://users:password@postgres/users
-      WAIT_HOSTS: postgres:5432
-      API_YELP_KEY: ${API_GOOGLE_KEY}
   user:
     build:
       context: ./user

@@ -20,7 +20,7 @@ function MainPage() {
       <Container>
           <h1
             className="citysearch-header"
-            style={{ fontSize: "30px", textAlign:'center', marginTop:100 }}
+            style={{ fontSize: "30px", textAlign:'center', marginTop:'20%' }}
           >
             <span className="font-link2">
               <div>
@@ -30,7 +30,7 @@ function MainPage() {
             </span>
           </h1>
           <div className="arrow-search">
-            <div style={{ marginTop:20, marginLeft:600, display: "inline-flex" }}>
+            <div style={{ marginTop:20, marginLeft:'50%', display: "inline-flex" }}>
               <Button 
                 variant='primary' 
                 style={{fontSize:20, fontWeight:'bold', paddingBottom:10 }}

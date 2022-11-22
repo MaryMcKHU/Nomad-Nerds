@@ -30,10 +30,10 @@ function Nav() {
           <ul>
             {token ? (
               <div>
-              <NavLink to="user/favorites/" style={{marginRight:10}}>
+              <NavLink to="user/favorites/" >
                 <Button
                   variant="outline-dark"
-                  style={{ fontWeight: "bolder" }}
+                  style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
                   className="font-link2"
                 >
                   favorites
@@ -42,7 +42,7 @@ function Nav() {
               <NavLink to="user/logout/">
               <Button
                 variant="outline-dark"
-                style={{ fontWeight: "bolder" }}
+                style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
                 className="font-link2"
               >
                 log out
