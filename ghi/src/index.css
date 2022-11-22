@@ -9,6 +9,13 @@ body,
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -47,9 +54,35 @@ p {
 /* -------------------------------------------- NAVBAR -------------------------------------------- */
 
 .navbar {
-  position: relative;
+  /* position: relative;
   margin-bottom:-100px;
-  z-index: 1;
+  z-index: 1; */
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  position: relative;
+}
+
+.navbar-toggler {
+  color: white;
+  background-color: black;
+
+}
+
+.nav-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width:600px) {
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 64px;
+  }
 }
 
 /* -------------------------------------------- CARDS -------------------------------------------- */
@@ -66,10 +99,6 @@ p {
   transform: scale(1.03);
 }
 
-.font-link {
-  font-family: 'Permanent Marker', cursive;
-}
-
 
 /* -------------------------------------------- MAIN PAGE -------------------------------------------- */
 .font-link2 {
@@ -83,7 +112,16 @@ p {
   -ms-flex-align: center;
   align-items: center;
   min-height: 500px;
-  margin-top: 0;
   width: 100%;
   object-fit: cover;
+}
+
+.hero-container {
+  background:url('./images/airballoons.jpg');
+  background-position: center;
+  object-fit: cover;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  display: flex;
 }
