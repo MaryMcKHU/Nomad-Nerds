@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import ModalLogin from '../users/ModalLogin';
 import ModalSignup from '../users/ModalSignup';
 import "../index.css";
+import { useEffect } from "react";
 
 
 function Nav() {

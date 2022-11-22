@@ -19,7 +19,7 @@ function MainPage() {
       <Container>
           <h1
             className="citysearch-header"
-            style={{ fontSize: "2rem", textAlign:'center', marginTop:'20%' }}
+            style={{ fontSize: "2rem", textAlign:'center', marginTop:'10%' }}
           >
             <span className="font-link2">
               <div>
@@ -29,15 +29,13 @@ function MainPage() {
             </span>
           </h1>
           <div className="arrow-search">
-            <div style={{ marginTop:'2%', display: "inline-flex", marginLeft:'auto', marginRight:'auto' }}>
-              <Button 
+            <Button
                 variant='dark' 
-                style={{fontSize:"1.2rem", fontWeight:'bold', paddingBottom:'5%' }}
+                style={{fontSize:"1.2rem", fontWeight:'bold', display:'relative' }}
                 onClick={handleShow}
               >
                 Click Here!
-              </Button>
-            </div>
+            </Button>
             <div>
               <Modal 
                 show={show} 

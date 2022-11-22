@@ -29,7 +29,8 @@ function HeroBanner() {
                     height:'100%',
                     fontWeight:'bolder',
                     display:'block',
-                    marginTop:'50%',
+                    marginTop:'60%',
+                    marginLeft:'40%'
                 }}>
                 Your next adventure awaits...
                 <CitySearch />
