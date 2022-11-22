@@ -116,17 +116,11 @@ p {
   object-fit: cover;
 } */
 
-@media screen and (max-width:480px) {
-  .hero-container {
-    height:200px;
-  }
-}
-
 .hero-container {
   background:url('./images/airballoons.jpg');
   background-position: center;
   object-fit: cover;
-  height: 65vh;
+  height: 70vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -146,6 +140,14 @@ p {
 .city-search {
   display: block;
   position: relative;
-  width: 460px;
+  width: 500px;
   margin: 30% auto;
+}
+
+.cat-search {
+  display: flex;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 2% auto;
 }

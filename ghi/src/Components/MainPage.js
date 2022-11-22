@@ -19,7 +19,7 @@ function MainPage() {
       <Container>
           <h1
             className="citysearch-header"
-            style={{ fontSize: "2rem", textAlign:'center', marginTop:'10%' }}
+            style={{ fontSize: "1.6rem", textAlign:'center', marginTop:'10%' }}
           >
             <span className="font-link2">
               <div>
@@ -30,8 +30,8 @@ function MainPage() {
           </h1>
           <div className="arrow-search">
             <Button
-                variant='dark' 
-                style={{fontSize:"1.2rem", fontWeight:'bold', display:'relative' }}
+                variant='dark'
+                className='cat-search'
                 onClick={handleShow}
               >
                 Click Here!
