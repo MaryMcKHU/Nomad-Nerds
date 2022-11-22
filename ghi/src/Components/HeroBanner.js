@@ -19,8 +19,7 @@ function HeroBanner() {
                 }}
                 alt=""
             >
-            </img>
-            
+            </img>           
             <h1
                 className='font-link2' 
                 style={{
@@ -30,7 +29,7 @@ function HeroBanner() {
                     position:'absolute',
                     height:'fit-content',
                     fontWeight:'bolder',
-                    display:'block'
+                    display:'inline-flex'
                 }}>
                 Your next adventure awaits...
                 <CitySearch />

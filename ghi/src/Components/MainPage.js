@@ -29,7 +29,7 @@ function MainPage() {
             </span>
           </h1>
           <div className="arrow-search">
-            <div style={{ marginTop:'2%', marginLeft:'50%', display: "inline-flex" }}>
+            <div style={{ marginTop:'2%', display: "inline-flex", marginLeft:'auto', marginRight:'auto' }}>
               <Button 
                 variant='dark' 
                 style={{fontSize:"1.2rem", fontWeight:'bold', paddingBottom:'5%' }}
