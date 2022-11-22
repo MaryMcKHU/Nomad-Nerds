@@ -145,9 +145,7 @@ p {
 
 .city-search {
   display: block;
-  position: absolute;
-  width: 400px;
-  margin-top: 30%;
-  left: 0;
-  right: 0;
+  position: relative;
+  width: 460px;
+  margin: 30% auto;
 }
