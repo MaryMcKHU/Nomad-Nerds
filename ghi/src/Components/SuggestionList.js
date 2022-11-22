@@ -110,8 +110,7 @@ function SuggestionList() {
         style={{
           paddingTop: 15,
           textAlign: "center",
-          fontSize:'40px',
-          marginTop:200,
+          marginTop: "20%",
           fontWeight:'bolder',
         }}
         className='font-link2'
@@ -124,8 +123,7 @@ function SuggestionList() {
             <h3
               className="card-title"
               style={{
-                fontSize: '20px',
-                paddingTop: 15,
+                paddingTop: '1%',
                 marginTop: 60,
                 fontWeight: 'bolder'
               }}
