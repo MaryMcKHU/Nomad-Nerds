@@ -47,7 +47,7 @@ function MainPage() {
               >
                 <Modal.Header closeButton>Search an activity in a group of cities
                 </Modal.Header>
-                <Modal.Body style={{maxWidth:500}}>
+                <Modal.Body style={{maxWidth:470}}>
                   <CategorySearch />
                 </Modal.Body>
                 <Modal.Footer>

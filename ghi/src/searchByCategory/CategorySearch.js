@@ -363,7 +363,7 @@ function CategorySearch() {
         className="font-link2"
         style={{
           backgroundColor: "white",
-          fontSize: 18,
+          fontSize: "1.1rem",
           fontWeight: "bold",
           opacity: 0.9,
           overflowX: "hidden",
@@ -371,12 +371,12 @@ function CategorySearch() {
           borderRadius:10,
           width: "100%",
           marginBottom: "5%",
-          marginTop: 20,
+          marginTop: "5%",
         }}
       >
         List of Cities
         <div
-          style={{ fontSize: '1rem', marginTop: 10, width: "95%", textAlign:'left' }}
+          style={{ fontSize: '1rem', marginTop: "5%", width: "95%", textAlign:'center' }}
         >
           {listSelectedCities(selectedCities)}
         </div>
@@ -395,10 +395,10 @@ function CategorySearch() {
           autoFocus
           formatResult={formatCityResult}
           maxResults={5}
-          placeholder="Paris, France"
+          placeholder="San Francisco, California"
           styling={{
             border: "3px solid rgba(54, 89, 161)",
-            fontSize: "1.2rem",
+            fontSize: "1.1rem",
             display: "flex"
           }}
         />
@@ -411,7 +411,6 @@ function CategorySearch() {
         style={{
           width: "95%",
           textAlign: "left",
-          marginTop: "5%",
         }}
       >
         <ReactSearchAutocomplete
@@ -423,10 +422,10 @@ function CategorySearch() {
           autoFocus
           formatResult={formatCategoryResult}
           maxResults={5}
-          placeholder="Kayaking, Cycling, Axe Throwing, etc."
+          placeholder="Kayaking, Tours, etc."
           styling={{
             border: "3px solid rgba(54, 89, 161)",
-            fontSize: "19px",
+            fontSize: "1.1rem",
             display: "flex"
           }}
         />
