@@ -7,7 +7,6 @@ function HeroBanner() {
         <article className='hero-banner'
             style={{
                 height:'100%',
-                overflow:'hidden'
             }}>
             <img
                 src={background}

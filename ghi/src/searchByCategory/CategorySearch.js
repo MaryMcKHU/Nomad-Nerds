@@ -277,7 +277,7 @@ function CategorySearch() {
         className="container vertical-scrollable"
         style={{
           maxHeight: 150,
-          width: 430,
+          width: "100%",
           overflowY: "scroll",
           backgroundColor: "white",
         }}
@@ -351,11 +351,11 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <h3 className="font-link2" style={{ fontSize: 22, textAlign:'center' }}>1. Choose a preset group of cities</h3>
+      <h3 className="font-link2" style={{ fontSize: '1.4rem', textAlign:'left' }}>1. Choose a preset group of cities</h3>
       {presetButtons()}
       <h3
         className="font-link2"
-        style={{ marginTop: 40, textAlign: "center", fontSize: 22 }}
+        style={{ marginTop: "10%", textAlign: "left", fontSize: '1.4rem' }}
       >
         2. Add / remove cities from the list
       </h3>
@@ -369,27 +369,23 @@ function CategorySearch() {
           overflowX: "hidden",
           border: "3px solid rgba(54, 89, 161)",
           borderRadius:10,
-          width: 450,
+          width: "100%",
           marginBottom: 30,
-          marginLeft: 'auto',
-          marginRight: 'auto',
           marginTop: 20,
         }}
       >
         List of Cities
         <div
           className="text-center"
-          style={{ fontSize: 17, marginTop: 10, width: 400, textAlign:'center' }}
+          style={{ fontSize: '1rem', marginTop: 10, width: "100%", textAlign:'center' }}
         >
           {listSelectedCities(selectedCities)}
         </div>
       </div>
       <div
         style={{
-          width: 450,
-          marginTop: 5,
-          marginLeft: "auto",
-          marginRight: "auto",
+          width: "100%",
+          marginTop: '5%',
         }}
       >
         <ReactSearchAutocomplete
@@ -403,21 +399,20 @@ function CategorySearch() {
           placeholder="Paris, France"
           styling={{
             border: "3px solid rgba(54, 89, 161)",
-            fontSize: "19px",
+            fontSize: "1.2rem",
+            display: "flex"
           }}
         />
       </div>
-      <h3 className="font-link2" style={{ marginTop: 160, fontSize: 22 }}>
+      <h3 className="font-link2" style={{ marginTop: "20%", fontSize:'1.4rem', textAlign:"left" }}>
         3. Search for what you want to do
       </h3>
       <div className="d-flex justify-content-center"></div>
       <div
         style={{
           width: 450,
-          textAlign: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginTop: 15
+          textAlign: "left",
+          marginTop: "5%"
         }}
       >
         <ReactSearchAutocomplete
