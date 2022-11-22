@@ -25,7 +25,7 @@ function Nav() {
       <div className="container-fluid">
       <button
           onClick={handleClick}
-          className={clicked ? (<GrClose style={{color:'black', zIndex:1}}/>) : "navbar-toggler"}
+          className={clicked ? (<GrClose />) : "navbar-toggler"}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
