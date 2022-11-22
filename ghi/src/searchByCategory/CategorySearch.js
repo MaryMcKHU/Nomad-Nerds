@@ -277,7 +277,7 @@ function CategorySearch() {
         className="container vertical-scrollable"
         style={{
           maxHeight: 150,
-          width: "100%",
+          width: "95%",
           overflowY: "scroll",
           backgroundColor: "white",
         }}
@@ -351,11 +351,11 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <h3 className="font-link2" style={{ fontSize: '1.4rem', textAlign:'left' }}>1. Choose a preset group of cities</h3>
+      <h3 className="font-link2" style={{ fontSize: '1.3rem', textAlign:'left' }}>1. Choose a preset group of cities</h3>
       {presetButtons()}
       <h3
         className="font-link2"
-        style={{ marginTop: "10%", textAlign: "left", fontSize: '1.4rem' }}
+        style={{ marginTop: "10%", textAlign: "left", fontSize: '1.3rem' }}
       >
         2. Add / remove cities from the list
       </h3>
@@ -370,21 +370,20 @@ function CategorySearch() {
           border: "3px solid rgba(54, 89, 161)",
           borderRadius:10,
           width: "100%",
-          marginBottom: 30,
+          marginBottom: "5%",
           marginTop: 20,
         }}
       >
         List of Cities
         <div
-          className="text-center"
-          style={{ fontSize: '1rem', marginTop: 10, width: "100%", textAlign:'center' }}
+          style={{ fontSize: '1rem', marginTop: 10, width: "95%", textAlign:'left' }}
         >
           {listSelectedCities(selectedCities)}
         </div>
       </div>
       <div
         style={{
-          width: "100%",
+          width: "95%",
           marginTop: '5%',
         }}
       >
@@ -404,15 +403,15 @@ function CategorySearch() {
           }}
         />
       </div>
-      <h3 className="font-link2" style={{ marginTop: "20%", fontSize:'1.4rem', textAlign:"left" }}>
+      <h3 className="font-link2" style={{ marginTop: "40%", fontSize:'1.3rem', textAlign:"left" }}>
         3. Search for what you want to do
       </h3>
       <div className="d-flex justify-content-center"></div>
       <div
         style={{
-          width: 450,
+          width: "95%",
           textAlign: "left",
-          marginTop: "5%"
+          marginTop: "5%",
         }}
       >
         <ReactSearchAutocomplete
@@ -428,6 +427,7 @@ function CategorySearch() {
           styling={{
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "19px",
+            display: "flex"
           }}
         />
       </div>
