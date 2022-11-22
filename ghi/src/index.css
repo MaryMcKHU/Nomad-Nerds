@@ -61,6 +61,7 @@ p {
   justify-content: space-between;
   background-color: transparent;
   position: relative;
+  margin-bottom:-100px;
 }
 
 .navbar-toggler {
@@ -141,6 +142,7 @@ p {
   display: block;
   position: relative;
   width: 500px;
+  min-width: 40%;
   margin: 30% auto;
 }
 

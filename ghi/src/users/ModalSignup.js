@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useToken } from "./Auth";
+import { useAuthContext, useToken } from "./Auth";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ModalLogin from './ModalLogin';
 
 function ModalSignup(props) {
-  const [token, signup] = useToken();
+  const { token } = useAuthContext();
+  const { signup } = props;
   const [username, setUsername] = useState("");
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -15,6 +16,7 @@ function ModalSignup(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  console.log(props)
 
   if (token) {
     return <Navigate to="/" />;
@@ -114,6 +116,7 @@ function ModalSignup(props) {
                   onClick={() =>
                     signup(username, password, email, first_name, last_name)
                   }
+                  
                 >
                   Sign Up
                 </button>

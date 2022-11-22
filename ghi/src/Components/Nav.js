@@ -9,8 +9,10 @@ import "../index.css";
 
 
 function Nav() {
-  const [token] = useToken();
+  const [token, signup] = useToken();
   const [clicked, setClicked] = useState(false);
+  const [userName, setUserName] = useState("");
+
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -72,6 +74,7 @@ function Nav() {
             ): 
             (<div>
               <ModalLogin/>
+              <ModalSignup token={token} signup={signup} setUserName={setUserName}/>
             </div>)
             
           }

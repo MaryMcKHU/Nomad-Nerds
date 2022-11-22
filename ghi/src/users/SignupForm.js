@@ -11,6 +11,7 @@ function Signup(props) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const { signup } = props;
+  console.log(props)
 
   if (token) {
     return <Navigate to="/" />;
