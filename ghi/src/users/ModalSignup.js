@@ -3,8 +3,9 @@ import { Navigate } from "react-router-dom";
 import { useToken } from "./Auth";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import ModalLogin from './ModalLogin';
 
-function ModalSignup() {
+function ModalSignup(props) {
   const [token, signup] = useToken();
   const [username, setUsername] = useState("");
   const [first_name, setFirstName] = useState("");
@@ -116,12 +117,10 @@ function ModalSignup() {
                 >
                   Sign Up
                 </button>
-                <p className="small fw-bold" style={{float:'left'}}>
+                {/* <p className="small fw-bold" style={{float:'left'}}>
                   Already have an account?{" "}
-                  <a href="/user/login/" className="link-danger">
-                    Log in
-                  </a>
-                </p>
+                  <ModalLogin />
+                </p> */}
               </div>
             </form>
             </Modal.Body>

@@ -18,7 +18,6 @@ function Signup(props) {
   var handleUserName = function (e) {
     const value = e.target.value;
     setUsername(value);
-    props.setUN(value);
   };
 
   return (

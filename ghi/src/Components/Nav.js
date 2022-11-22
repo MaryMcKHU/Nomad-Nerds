@@ -72,7 +72,6 @@ function Nav() {
             ): 
             (<div>
               <ModalLogin/>
-              <ModalSignup/>
             </div>)
             
           }

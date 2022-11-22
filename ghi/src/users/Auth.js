@@ -109,6 +109,7 @@ export function useToken() {
     const url = `${process.env.REACT_APP_USER}/user/signup/`;
     const response = await fetch(url, {
       method: "post",
+      credentials:'include',
       body: JSON.stringify({
         username,
         password,
