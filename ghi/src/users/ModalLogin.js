@@ -26,7 +26,7 @@ function ModalLogin() {
           variant="outline-dark"
           style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
           onClick={handleShow}
-          className="font-link2"
+          className="modal-login-btn"
         >log in</Button>
         <Modal
             show={show} 
