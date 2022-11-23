@@ -36,7 +36,7 @@ function MainPage() {
               >
                 Click Here!
             </Button>
-            <div>
+            <div className='cat-search-modal'>
               <Modal 
                 show={show} 
                 onHide={handleClose} 

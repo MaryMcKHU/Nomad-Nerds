@@ -15,7 +15,6 @@ import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
 import HeartFilled from '../images/heart-filled.png';
 import Heart from '../images/heart.png';
-import Map from '../Components/Map';
 
 function CityList() {
   const location = useLocation();

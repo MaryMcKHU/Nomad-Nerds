@@ -278,6 +278,7 @@ function CategorySearch() {
         style={{
           maxHeight: 150,
           width: "95%",
+          display:"block",
           overflowY: "scroll",
           backgroundColor: "white",
         }}

@@ -135,7 +135,7 @@ p {
   display: block;
   margin-top: 20%;
   left:0;
-  right:0
+  right:0;
 }
 
 .city-search {
@@ -152,4 +152,14 @@ p {
   font-weight: bold;
   font-size: 1.1rem;
   margin: 2% auto;
+}
+
+@media screen and (max-width:525px) {
+  .cat-search-modal {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: 64px;
+  }
 }
