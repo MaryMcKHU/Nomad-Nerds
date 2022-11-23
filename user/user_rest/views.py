@@ -27,7 +27,7 @@ class FavoriteEncoder(ModelEncoder):
         "business_price",
         "business_display_address",
         "business_city",
-        "business_state"
+        "business_state",
     ]
 
 
@@ -48,12 +48,11 @@ def user_favorites(request, business_id=None):
                 business_rating=content.get("business_rating"),
                 business_price=content.get("business_price", ""),
                 business_display_address=content.get(
-                    "business_display_address",
-                    ["", "", ""]
+                    "business_display_address", ["", "", ""]
                 ),
                 business_city=content.get("business_city", ""),
                 business_state=content.get("business_state", ""),
-                user=User.objects.get(id=user_id)
+                user=User.objects.get(id=user_id),
             )
             return JsonResponse({"message": "Done"})
         except Exception:
@@ -64,9 +63,7 @@ def user_favorites(request, business_id=None):
     elif request.method == "GET":
         try:
             favorite = list(
-                map(
-                    (lambda item: vars(item)),
-                    Favorite.objects.filter(user=user_id))
+                map((lambda item: vars(item)), Favorite.objects.filter(user=user_id))
             )
             for item in favorite:
                 item.pop("_state")

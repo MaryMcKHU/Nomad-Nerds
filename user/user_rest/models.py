@@ -18,11 +18,7 @@ class Favorite(models.Model):
     business_rating = models.FloatField(null=True)
     business_price = models.CharField(max_length=5, null=True)
     business_display_address = ArrayField(
-        models.CharField(
-            max_length=50,
-            blank=True),
-        size=3,
-        default=list
+        models.CharField(max_length=50, blank=True), size=3, default=list
     )
     business_city = models.CharField(max_length=30)
     business_state = models.CharField(max_length=25)

@@ -1,12 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from fastapi.responses import JSONResponse
-from acls import (
-    businesses_request,
-    category_request,
-    get_business,
-    categories_request
-)
+from acls import businesses_request, category_request, get_business, categories_request
 
 yelp_router = APIRouter()
 

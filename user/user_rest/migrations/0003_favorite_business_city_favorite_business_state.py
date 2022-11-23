@@ -6,20 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('user_rest', '0002_alter_favorite_business_display_address'),
+        ("user_rest", "0002_alter_favorite_business_display_address"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='favorite',
-            name='business_city',
-            field=models.CharField(default='', max_length=30),
+            model_name="favorite",
+            name="business_city",
+            field=models.CharField(default="", max_length=30),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='favorite',
-            name='business_state',
-            field=models.CharField(default='', max_length=25),
+            model_name="favorite",
+            name="business_state",
+            field=models.CharField(default="", max_length=25),
             preserve_default=False,
         ),
     ]

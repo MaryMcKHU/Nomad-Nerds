@@ -16,19 +16,41 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Favorite',
+            name="Favorite",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('business_id', models.CharField(max_length=30, null=True)),
-                ('business_name', models.CharField(max_length=100, null=True)),
-                ('business_image', models.URLField(null=True)),
-                ('business_rating', models.FloatField(null=True)),
-                ('business_price', models.CharField(max_length=5, null=True)),
-                ('business_display_address', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, max_length=50), size=None)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='favorite', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("business_id", models.CharField(max_length=30, null=True)),
+                ("business_name", models.CharField(max_length=100, null=True)),
+                ("business_image", models.URLField(null=True)),
+                ("business_rating", models.FloatField(null=True)),
+                ("business_price", models.CharField(max_length=5, null=True)),
+                (
+                    "business_display_address",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(blank=True, max_length=50),
+                        size=None,
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="favorite",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('business_id', 'user')},
+                "unique_together": {("business_id", "user")},
             },
         ),
     ]

@@ -7,13 +7,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('user_rest', '0001_initial'),
+        ("user_rest", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='favorite',
-            name='business_display_address',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, max_length=50), default=list, size=3),
+            model_name="favorite",
+            name="business_display_address",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(blank=True, max_length=50),
+                default=list,
+                size=3,
+            ),
         ),
     ]
