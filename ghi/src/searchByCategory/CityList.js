@@ -303,22 +303,15 @@ function CityList() {
   
 
   return (
-    <ul>
+    <>
       <h1
-        className='font-link2'
-        style={{
-          fontWeight: "bold",
-          fontSize: "40px",
-          textAlign: "center",
-          paddingTop: 15,
-          marginTop: 110
-        }}
+        className='city-list-header'
       >
-        {category.title}
+        Top recommendations for {category.title.toLowerCase()}
       </h1>
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
+          <Container className="container-fluid" style={{maxWidth:1215}}>
             <h1
               className="card-title"
               style={{
@@ -349,7 +342,7 @@ function CityList() {
           </Container>
         </div>
       ))}
-    </ul>
+    </>
   );
 }
 export default CityList;
