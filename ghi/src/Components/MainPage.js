@@ -29,7 +29,7 @@ function MainPage() {
                 
                 style={{ fontSize: "1.6rem", textAlign:'center', marginTop:'45%' }}
               >
-                <span className="font-link2">
+                <span className="citysearch-header">
                   <div>
                     Know what you want to do <br />
                   </div>
@@ -64,7 +64,7 @@ function MainPage() {
             </Container>
         </Col>
         <Col>
-          <Container style={{marginTop:'25%', alignItems:'center'}} data-aos="fade-right">
+          <Container style={{marginTop:'25%'}} data-aos="fade-right">
             <img src={activities} height={350}></img>
           </Container>
         </Col>

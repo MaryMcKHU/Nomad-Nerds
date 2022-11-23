@@ -71,49 +71,6 @@ p {
   background-color: black;
 }
 
-
-/* @media screen and (max-width: 960px) {
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-top: 1pxsolid #fff;
-    position: absolute;
-    top: 80px;
-    left: -110%;
-    opacity: 1;
-    transition: all 0.5s ease;
-  }
-
-  .nav-menu.active {
-    background: #1f5156;
-    left: 0px;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-  }
-  .nav-item .active {
-    color: #ffdd40;
-    border: none;
-  }
-  .nav-links {
-    padding: 1.5rem;
-    width: 100%;
-    display: table;
-  }
-
-  .nav-icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #ffdd40;
-  }
-} */
-
 .modal-login-btn {
   transition: all 0.5s ease 0s;
 }
@@ -176,7 +133,7 @@ p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   object-fit: cover;
-  height: 75vh;
+  height: 80vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -196,7 +153,28 @@ p {
   text-shadow: 3px 3px 3px white, 3px 3px 3px white;
 }
 
+.city-search {
+  display: block;
+  position: relative;
+  width: 500px;
+  min-width: 40%;
+  margin: 30% auto;
+}
+
+.city-searchbar {
+  font-size: 1.2rem
+}
+
+.citysearch-header {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
 @media screen and (max-width:600px) {
+  .hero-container {
+    height: 60vh;
+  }
+
   .hero-header {
     width: 100%;
     position: absolute;
@@ -205,20 +183,27 @@ p {
     margin-top: 40%;
   }
 
-  .
+  .city-search {
+    margin-top: 60%;
+    position: absolute;
+    display: block;
+    width: 95%;
+    left:0;
+    right:0;
+  }
+
+  .city-searchbar {
+    font: .8rem
+  }
+
+  .citysearch-header {
+    font-size: 1.2rem
+  }
 }
 
 
 /* -------------------------------------------- SEARCH BARS -------------------------------------------- */
 
-
-.city-search {
-  display: block;
-  position: relative;
-  width: 500px;
-  min-width: 40%;
-  margin: 30% auto;
-}
 
 .cat-search {
   display: flex;

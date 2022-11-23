@@ -20,7 +20,7 @@ function CitySearch() {
   };
 
   return (
-    <div className='search'>
+    <div className='city-searchbar'>
       <ReactSearchAutocomplete
         items={cities}
         fuseOptions={{ keys: ["city", "country", "admin_name"] }}
