@@ -39,7 +39,6 @@ function Nav() {
               <div>
                 <NavLink 
                   to="user/favorites/"
-                  // className="nav-link"
                 >
                   <Button
                     variant="outline-dark"
@@ -51,7 +50,6 @@ function Nav() {
                 </NavLink>
                 <NavLink 
                   to="user/logout/"
-                  // className="nav-link"
                 >
                   <Button
                     variant="outline-dark"
@@ -64,8 +62,20 @@ function Nav() {
           </div>
             ): 
             (<div>
+              <NavLink 
+                  to="/"
+                >
+                  <Button
+                    variant="outline-dark"
+                    style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
+                    className="logout-btn"
+                  >
+                    home
+                  </Button>
+                </NavLink>
+                {/* <ModalSignup/> */}
                 <ModalLogin/>
-                <ModalSignup/>
+                
             </div>)
             
           }
