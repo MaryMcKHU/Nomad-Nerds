@@ -17,7 +17,7 @@ export async function getTokenInternal() {
       internalToken = data.token;
       return internalToken;
     }
-  } catch (e) { }
+  } catch (e) {}
   return false;
 }
 
@@ -29,7 +29,7 @@ function handleErrorMessage(error) {
       if ("__all__" in error) {
         error = error.__all__;
       }
-    } catch { }
+    } catch {}
   }
   if (Array.isArray(error)) {
     error = error.join("<br>");
@@ -97,9 +97,8 @@ export function useToken() {
       const token = await getTokenInternal();
       setToken(token);
       return;
-    }
-    else {
-      window.alert("Incorrect username or password")
+    } else {
+      window.alert("Incorrect username or password");
     }
     let error = await response.json();
     return handleErrorMessage(error);
@@ -109,7 +108,7 @@ export function useToken() {
     const url = `${process.env.REACT_APP_USER}/user/signup/`;
     const response = await fetch(url, {
       method: "post",
-      credentials:'include',
+      credentials: "include",
       body: JSON.stringify({
         username,
         password,

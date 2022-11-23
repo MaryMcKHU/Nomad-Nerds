@@ -20,12 +20,12 @@ function App() {
   if (user && !userName) {
     setUserName(user.username);
   }
-  
+
   return (
     <AuthProvider>
       <Nav token={token} username={userName} />
       <Routes>
-        <Route path="/" element={<MainPage />}/>
+        <Route path="/" element={<MainPage />} />
         <Route path="user">
           <Route
             path="signup"
@@ -35,7 +35,9 @@ function App() {
           />
           <Route
             path="login"
-            element={<Login token={token} login={login} setUserName={setUserName} />}
+            element={
+              <Login token={token} login={login} setUserName={setUserName} />
+            }
           />
           <Route path="logout" element={<Logout logout={logout} />} />
           <Route path="favorites" element={<Favorites token={token} />} />

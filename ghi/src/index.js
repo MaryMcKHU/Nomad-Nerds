@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
 const domain = /https:\/\/[^/]+/;
-const basename = process.env.PUBLIC_URL.replace(domain, '');
+const basename = process.env.PUBLIC_URL.replace(domain, "");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

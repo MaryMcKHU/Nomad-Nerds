@@ -4,17 +4,17 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Loading from '../Components/Placeholder.js'
+import Loading from "../Components/Placeholder.js";
 import { useAuthContext } from "../users/Auth";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import Button from 'react-bootstrap/Button';
-import RightArrowIcon from '../images/right-arrow.png';
-import LeftArrowIcon from '../images/left-arrow.png';
-import HeartFilled from '../images/heart-filled.png';
-import Heart from '../images/heart.png';
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import Button from "react-bootstrap/Button";
+import RightArrowIcon from "../images/right-arrow.png";
+import LeftArrowIcon from "../images/left-arrow.png";
+import HeartFilled from "../images/heart-filled.png";
+import Heart from "../images/heart.png";
 
 function CityList() {
   const location = useLocation();
@@ -47,7 +47,8 @@ function CityList() {
         const data = await response.json();
         setFavorites(data);
       }
-  }}
+    }
+  }
 
   async function getCities() {
     const fetchConfig = {
@@ -87,7 +88,10 @@ function CityList() {
             .then((res) => res.json())
             .then((data) => ({ [city.replaceAll(",", ", ")]: data }))
         )
-      ).then(function(data) {setBusinessesLoading(false); setBusinesses(data)});
+      ).then(function (data) {
+        setBusinessesLoading(false);
+        setBusinesses(data);
+      });
     }
   }
   async function addFavorite(
@@ -202,39 +206,55 @@ function CityList() {
   const cardImage = (store) => {
     return (
       <div>
-      <Card.Img
-        variant="top"
-        src={store.image_url}
-        onError={(e) => (e.target.src = no_info)}
-        height={250}
-        style={{objectFit:'cover', borderRadius:10}}
-      />
-      <button style={{ float: "right", backgroundColor:'transparent', border:'none', position:'relative', marginTop:-235, marginRight:8 }}>
-      {favoriteList.includes(store.id) ? (
-        <img src={HeartFilled} height={22} onClick={() => deleteFavorite(store.id)}></img>
-      ) : (
-        <img src={Heart} height={22}
-          onClick={() =>
-            addFavorite(
-              store.id,
-              store.name,
-              store.image_url,
-              store.rating,
-              store.price,
-              store.location.display_address,
-              store.location.city,
-              store.location.state
-            )
-          }></img>
-      )}
-    </button>
-    </div>
-    )
-  }
+        <Card.Img
+          variant="top"
+          src={store.image_url}
+          onError={(e) => (e.target.src = no_info)}
+          height={250}
+          style={{ objectFit: "cover", borderRadius: 10 }}
+        />
+        <button
+          style={{
+            float: "right",
+            backgroundColor: "transparent",
+            border: "none",
+            position: "relative",
+            marginTop: -235,
+            marginRight: 8,
+          }}
+        >
+          {favoriteList.includes(store.id) ? (
+            <img
+              src={HeartFilled}
+              height={22}
+              onClick={() => deleteFavorite(store.id)}
+            ></img>
+          ) : (
+            <img
+              src={Heart}
+              height={22}
+              onClick={() =>
+                addFavorite(
+                  store.id,
+                  store.name,
+                  store.image_url,
+                  store.rating,
+                  store.price,
+                  store.location.display_address,
+                  store.location.city,
+                  store.location.state
+                )
+              }
+            ></img>
+          )}
+        </button>
+      </div>
+    );
+  };
 
   const cardTitle = (store) => {
     return (
-      <Card.Title style={{ fontWeight: "bold", fontSize:'18px' }}>
+      <Card.Title style={{ fontWeight: "bold", fontSize: "18px" }}>
         <Row>
           <div>{store.name}</div>
           <div style={{ color: "green", fontSize: "14px" }}>
@@ -242,23 +262,15 @@ function CityList() {
           </div>
         </Row>
         {store.rating
-          ? [...Array(Math.floor(store.rating))].map(
-              (_, i) => (
-                <span key={i}>
-                  <BsStarFill
-                    size="0.8em"
-                    color="black"
-                  />
-                </span>
-              )
-            )
+          ? [...Array(Math.floor(store.rating))].map((_, i) => (
+              <span key={i}>
+                <BsStarFill size="0.8em" color="black" />
+              </span>
+            ))
           : ""}
         {store.rating ? (
           String(store.rating).slice(-2) === ".5" ? (
-            <BsStarHalf
-              size="0.8em"
-              color="black"
-            />
+            <BsStarHalf size="0.8em" color="black" />
           ) : (
             ""
           )
@@ -266,8 +278,8 @@ function CityList() {
           ""
         )}
       </Card.Title>
-    )
-  }
+    );
+  };
 
   const cardText = (store) => {
     return (
@@ -278,65 +290,92 @@ function CityList() {
         <br />
         {store.location.display_address[2]}
       </Card.Text>
-    )
-  }
+    );
+  };
 
   const LeftArrow = () => {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
     return (
-        <Button disabled={isFirstItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingRight:15}} onClick={() => scrollPrev()} className='right-arrow'>
-            <img src={LeftArrowIcon} height={20} alt='right-arrow' />
-        </Button>
+      <Button
+        disabled={isFirstItemVisible}
+        variant="outline-secondary"
+        style={{
+          borderRadius: 30,
+          marginTop: 120,
+          borderWidth: 2,
+          paddingRight: 15,
+        }}
+        onClick={() => scrollPrev()}
+        className="right-arrow"
+      >
+        <img src={LeftArrowIcon} height={20} alt="right-arrow" />
+      </Button>
     );
-  }
+  };
 
   const RightArrow = () => {
-      const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+    const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
-      return (
-          <Button disabled={isLastItemVisible} variant='outline-secondary' style={{borderRadius:30, marginTop:120, borderWidth:2, paddingLeft:15}} onClick={() => scrollNext()} className='left-arrow'>
-              <img src={RightArrowIcon} height={20} alt='right-arrow' />
-          </Button>
-      )
-  }
-  
+    return (
+      <Button
+        disabled={isLastItemVisible}
+        variant="outline-secondary"
+        style={{
+          borderRadius: 30,
+          marginTop: 120,
+          borderWidth: 2,
+          paddingLeft: 15,
+        }}
+        onClick={() => scrollNext()}
+        className="left-arrow"
+      >
+        <img src={RightArrowIcon} height={20} alt="right-arrow" />
+      </Button>
+    );
+  };
 
   return (
     <>
-      <h1
-        className='city-list-header'
-      >
+      <h1 className="city-list-header">
         Top recommendations for {category.title.toLowerCase()}
       </h1>
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid" style={{maxWidth:1215}}>
+          <Container className="container-fluid" style={{ maxWidth: 1215 }}>
             <h1
               className="card-title"
               style={{
                 fontWeight: "bolder",
                 paddingTop: 25,
-                marginTop: 50
+                marginTop: 50,
               }}
             >
               {Object.keys(business)}
             </h1>
             <Row>
-            <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-              {Object.values(business)[0]
-                .slice(0, 15)
-                .map((store, idx) => (
-                  <Col key={idx} className="col-3">
-                    <Card style={{ width: "16rem", border:'none', marginTop:15, marginRight:10, marginLeft:10 }}>
-                      {cardImage(store)}
-                      <Card.Body>
-                        {cardTitle(store)}
-                        {cardText(store)}
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
+              <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+                {Object.values(business)[0]
+                  .slice(0, 15)
+                  .map((store, idx) => (
+                    <Col key={idx} className="col-3">
+                      <Card
+                        style={{
+                          width: "16rem",
+                          border: "none",
+                          marginTop: 15,
+                          marginRight: 10,
+                          marginLeft: 10,
+                        }}
+                      >
+                        {cardImage(store)}
+                        <Card.Body>
+                          {cardTitle(store)}
+                          {cardText(store)}
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
               </ScrollMenu>
             </Row>
           </Container>

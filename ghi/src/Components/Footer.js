@@ -7,8 +7,10 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 
 function Footer() {
   return (
-    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 border-top"
-    style={{marginTop:60}}>
+    <footer
+      className="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 border-top"
+      style={{ marginTop: 60 }}
+    >
       <ul className="nav col-md-4 justify-content-start">
         <li className="nav-item">
           <NavLink to="/" className="nav-link px-2 text-muted">
@@ -23,7 +25,7 @@ function Footer() {
             rel="noopener noreferrer"
             className="nav-link px-2 text-muted"
           >
-            < AiOutlineMail size="1.5em" />
+            <AiOutlineMail size="1.5em" />
           </a>
         </li>
         <li className="nav-item">
@@ -33,7 +35,7 @@ function Footer() {
             rel="noopener noreferrer"
             className="nav-link px-2 text-muted"
           >
-            < AiOutlineInstagram size="1.5em" />
+            <AiOutlineInstagram size="1.5em" />
           </a>
         </li>
         <li className="nav-item">
@@ -43,7 +45,7 @@ function Footer() {
             rel="noopener noreferrer"
             className="nav-link px-2 text-muted"
           >
-            < AiOutlineFacebook size="1.5em" />
+            <AiOutlineFacebook size="1.5em" />
           </a>
         </li>
         <li className="nav-item">
@@ -58,7 +60,7 @@ function Footer() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                < AiOutlineLinkedin size="1.5em" />
+                <AiOutlineLinkedin size="1.5em" />
               </NavLink>
               <div
                 style={{ left: "unset", right: "0" }}
@@ -83,7 +85,10 @@ function Footer() {
         to="/"
         className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
       >
-        <div className="justify-content-center font-link2" style={{fontWeight:'bolder', fontSize:'30px'}}>
+        <div
+          className="justify-content-center font-link2"
+          style={{ fontWeight: "bolder", fontSize: "30px" }}
+        >
           nomad nerds .
         </div>
       </NavLink>
@@ -92,4 +97,3 @@ function Footer() {
 }
 
 export default Footer;
-

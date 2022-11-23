@@ -278,7 +278,7 @@ function CategorySearch() {
         style={{
           maxHeight: 150,
           width: "95%",
-          display:"block",
+          display: "block",
           overflowY: "scroll",
           backgroundColor: "white",
         }}
@@ -289,7 +289,7 @@ function CategorySearch() {
               <div className="col-1">
                 <Button
                   variant="dark"
-                  style={{fontWeight:'bolder'}}
+                  style={{ fontWeight: "bolder" }}
                   onClick={() =>
                     setSelectedCities(
                       selectedCities.filter((city) => city.id !== item.id)
@@ -352,11 +352,16 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <h3 className="font-link2" style={{ fontSize: '1.3rem', textAlign:'left' }}>1. Choose a preset group of cities</h3>
+      <h3
+        className="font-link2"
+        style={{ fontSize: "1.3rem", textAlign: "left" }}
+      >
+        1. Choose a preset group of cities
+      </h3>
       {presetButtons()}
       <h3
         className="font-link2"
-        style={{ marginTop: "10%", textAlign: "left", fontSize: '1.3rem' }}
+        style={{ marginTop: "10%", textAlign: "left", fontSize: "1.3rem" }}
       >
         2. Add / remove cities from the list
       </h3>
@@ -369,7 +374,7 @@ function CategorySearch() {
           opacity: 0.9,
           overflowX: "hidden",
           border: "3px solid rgba(54, 89, 161)",
-          borderRadius:10,
+          borderRadius: 10,
           width: "100%",
           marginBottom: "5%",
           marginTop: "5%",
@@ -377,7 +382,12 @@ function CategorySearch() {
       >
         List of Cities
         <div
-          style={{ fontSize: '1rem', marginTop: "5%", width: "95%", textAlign:'center' }}
+          style={{
+            fontSize: "1rem",
+            marginTop: "5%",
+            width: "95%",
+            textAlign: "center",
+          }}
         >
           {listSelectedCities(selectedCities)}
         </div>
@@ -385,7 +395,7 @@ function CategorySearch() {
       <div
         style={{
           width: "95%",
-          marginTop: '5%',
+          marginTop: "5%",
         }}
       >
         <ReactSearchAutocomplete
@@ -400,11 +410,14 @@ function CategorySearch() {
           styling={{
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "1.1rem",
-            display: "flex"
+            display: "flex",
           }}
         />
       </div>
-      <h3 className="font-link2" style={{ marginTop: "40%", fontSize:'1.3rem', textAlign:"left" }}>
+      <h3
+        className="font-link2"
+        style={{ marginTop: "40%", fontSize: "1.3rem", textAlign: "left" }}
+      >
         3. Search for what you want to do
       </h3>
       <div className="d-flex justify-content-center"></div>
@@ -427,11 +440,11 @@ function CategorySearch() {
           styling={{
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "1.1rem",
-            display: "flex"
+            display: "flex",
           }}
         />
       </div>
-        </div>
+    </div>
   );
 }
 
