@@ -299,15 +299,7 @@ function CategoryList() {
 
   return (
     <ul>
-      <h1
-        className='font-link2'
-        style={{
-          fontWeight: "bold",
-          fontSize: "40px",
-          textAlign: "center",
-          paddingTop: 15,
-          marginTop: 110,
-        }}
+      <h1 className='cat-list-header'
       >Things to do in {" "}
         {city.replace("%20", " ").replace("%20", " ")}
          {state ? ", " + location.state.city.admin_name : " "}
@@ -315,7 +307,7 @@ function CategoryList() {
       {console.log('business', businesses)}
       {businesses.map((business, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2" style={{maxWidth:1215}}>
+          <Container className="container-fluid" style={{maxWidth:1215}}>
             <h1
               className="card-title"
               style={{

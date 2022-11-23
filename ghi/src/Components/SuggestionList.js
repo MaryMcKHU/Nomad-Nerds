@@ -11,7 +11,6 @@ import Button from 'react-bootstrap/Button';
 import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
 import 'react-multi-carousel/lib/styles.css';
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 function SuggestionList() {
@@ -117,7 +116,7 @@ function SuggestionList() {
       {activities.map((location, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{maxWidth:1225}}>
-            <h3 className="suggestion-card-title">
+            <h3 className="card-title">
               {Object.keys(location)}
             </h3>
             <Row className="flex-nowrap flex-row">
