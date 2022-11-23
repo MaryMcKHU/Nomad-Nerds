@@ -80,38 +80,18 @@ p {
   padding-bottom: 0;
 }
 
-.modal-login-btn {
-  transition: all 0.5s ease 0s;
-}
-
-.modal-login-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 5px 5px lightgray;
-}
-
-.modal-signup-btn {
-  transition: all 0.5s ease 0s;
-}
-
-.modal-signup-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 5px 5px lightgray;
-}
-
-.favorites-btn {
-  transition: all 0.5s ease 0s;
-}
-
-.favorites-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 5px 5px lightgray;
-}
-
+.home-btn,
+.favorites-btn, 
+.modal-login-btn, 
 .logout-btn {
   transition: all 0.5s ease 0s;
+  background-color: rgb(232, 230, 230, 0.5)
 }
 
-.logout-btn:hover {
+.home-btn:hover, 
+.favorites-btn:hover, 
+.logout-btn:hover,
+.modal-login-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0px 5px 5px lightgray;
 }
@@ -232,7 +212,9 @@ p {
   }
 }
 
+
 /* -------------------------------------------- SUGGESTION LIST -------------------------------------------- */
+
 
 .suggestion-list-header {
   padding-top: 15;
@@ -261,7 +243,9 @@ p {
   }
 }
 
+
 /* -------------------------------------------- CATEGORY LIST -------------------------------------------- */
+
 
 .cat-list-header {
   font-weight: bolder;
@@ -278,7 +262,9 @@ p {
   }
 }
 
+
 /* -------------------------------------------- CITY LIST -------------------------------------------- */
+
 
 .city-list-header {
   font-weight: bolder;

@@ -45,7 +45,17 @@ function Nav() {
       <ul className="navbar-nav ms-auto mb-2">
             {token ? (
               <div>
-                <li>
+                <NavLink 
+                  to="/"
+                >
+                  <Button
+                    variant="outline-dark"
+                    style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
+                    className="home-btn"
+                  >
+                    home
+                  </Button>
+                </NavLink>
                 <NavLink 
                   to="user/favorites/"
                 >
@@ -57,8 +67,6 @@ function Nav() {
                     favorites
                   </Button>
                 </NavLink>
-                </li>
-                <li>
                 <NavLink 
                   to="user/logout/"
                 >
@@ -70,7 +78,6 @@ function Nav() {
                     log out
                   </Button>
                 </NavLink>
-                </li>
           </div>
             ): 
             (<div>
@@ -80,7 +87,7 @@ function Nav() {
                   <Button
                     variant="outline-dark"
                     style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
-                    className="logout-btn"
+                    className="home-btn"
                   >
                     home
                   </Button>
