@@ -3,19 +3,20 @@ import { NavLink } from "react-router-dom";
 import { useToken } from "../users/Auth";
 import Button from "react-bootstrap/Button";
 import ModalLogin from '../users/ModalLogin';
-import { FaBars } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
+import closebutton from '../images/close-button.png'
 import "../index.css";
 
 
 function Nav() {
   const [token] = useToken();
+  const [clicked, setClicked] = useState(false);
 
+  const handleClick = () => setClicked(!clicked);
 
   return (
     <>
     <nav
-      className="navbar navbar-expand-md navbar-dark"
+      className="navbar navbar-expand-lg navbar-dark"
       style={{ zIndex: 10 }}
     >
       <div className="container-fluid">
@@ -27,8 +28,17 @@ function Nav() {
           nomad nerds .
         </NavLink>
       
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
+      <button 
+        className="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarTogglerDemo02" 
+        aria-controls="navbarTogglerDemo02" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+        onClick={handleClick}
+      >
+        <span className={clicked ? "btn-close" : "navbar-toggler-icon"}></span>
       </button>
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
