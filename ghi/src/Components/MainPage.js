@@ -66,7 +66,7 @@ function MainPage() {
             </Container>
           </Col>
           <Col>
-            <Container style={{ marginTop: "25%" }} data-aos="fade-right">
+            <Container style={{ marginTop: "25%" }} data-aos="fade-left">
               <img src={activities} height={350}></img>
             </Container>
           </Col>
