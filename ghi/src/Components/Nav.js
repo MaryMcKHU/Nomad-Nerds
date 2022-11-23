@@ -4,7 +4,8 @@ import { useToken } from "../users/Auth";
 import Button from "react-bootstrap/Button";
 import ModalLogin from '../users/ModalLogin';
 import ModalSignup from '../users/ModalSignup';
-import { GrClose } from 'react-icons/gr';
+import { FaBars } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
 import "../index.css";
 
 
@@ -12,7 +13,6 @@ function Nav() {
   const [token, signup] = useToken();
   const [clicked, setClicked] = useState(false);
   const [userName, setUserName] = useState("");
-
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -25,21 +25,8 @@ function Nav() {
       style={{ zIndex: 10, backgroundColor: "transparent" }}
     >
       <div className="container-fluid">
-      <button
-          onClick={handleClick}
-          className={clicked ? (<GrClose />) : "navbar-toggler"}
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          style={{color:'black', zIndex:1}}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
         <NavLink
-          className="navbar-brand font-link2"
+          className="navbar-brand"
           to="/"
           style={{ fontWeight: "bolder", color: "black" }}
         >
@@ -49,37 +36,54 @@ function Nav() {
           className="collapse navbar-collapse justify-content-end"
           id="navbarCollapse"
         >
-          <ul className='nav-menu'>
+          <ul className={clicked ? "nav-menu active" : "nav-menu"}>
             {token ? (
               <div>
-              <NavLink to="user/favorites/" >
-                <Button
-                  variant="outline-dark"
-                  style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
-                  className="favorites-btn"
+              <li className="nav-item">
+                <NavLink 
+                  to="user/favorites/"
+                  activeClassName="active"
+                  className="nav-links"
+                  onClick={handleClick}
                 >
-                  favorites
-                </Button>
-              </NavLink>
-              <NavLink to="user/logout/">
-              <Button
-                variant="outline-dark"
-                style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
-                className="logout-btn"
-              >
-                log out
-              </Button>
-            </NavLink>
+                  <Button
+                    variant="outline-dark"
+                    style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
+                    className="favorites-btn"
+                  >
+                    favorites
+                  </Button>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink 
+                  to="user/logout/"
+                  activeClassName="active"
+                  className="nav-links"
+                  onClick={handleClick}
+                >
+                  <Button
+                    variant="outline-dark"
+                    style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
+                    className="logout-btn"
+                  >
+                    log out
+                  </Button>
+                </NavLink>
+              </li>
           </div>
             ): 
             (<div>
-              <ModalLogin/>
-              <ModalSignup token={token} signup={signup} setUserName={setUserName}/>
+                <ModalLogin/>
+                <ModalSignup/>
             </div>)
             
           }
 
           </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            <div className={clicked ? {AiOutlineClose} : {FaBars}}></div>
+          </div>
         </div>
       </div>
     </nav>

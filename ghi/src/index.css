@@ -12,7 +12,7 @@ body,
 * {
   padding:0;
   margin:0;
-  box-sizing:border-box;
+  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -28,6 +28,7 @@ p {
 
 /* -------------------------------------------- FORMS -------------------------------------------- */
 
+
 .form-control {
   width: 60%;
 }
@@ -36,7 +37,9 @@ p {
   max-height: 40px;
 }
 
+
 /* -------------------------------------------- FOOTER -------------------------------------------- */
+
 
 .main-footer {
   color: rgb(255, 255, 255);
@@ -51,12 +54,11 @@ p {
   color: black;
 }
 
+
 /* -------------------------------------------- NAVBAR -------------------------------------------- */
 
+
 .navbar {
-  /* position: relative;
-  margin-bottom:-100px;
-  z-index: 1; */
   display: flex;
   justify-content: space-between;
   background-color: transparent;
@@ -76,13 +78,45 @@ p {
   justify-content: space-between;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 960px) {
   .nav-menu {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    border-top: 1pxsolid #fff;
     position: absolute;
+    top: 80px;
+    left: -110%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: #1f5156;
+    left: 0px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  .nav-item .active {
+    color: #ffdd40;
+    border: none;
+  }
+  .nav-links {
+    padding: 1.5rem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-icon {
+    display: block;
+    position: absolute;
+    top: 0;
     right: 0;
-    top: 64px;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ffdd40;
   }
 }
 
@@ -125,6 +159,7 @@ p {
 
 /* -------------------------------------------- CARDS -------------------------------------------- */
 
+
 .card-body {
   font-size: 16px;
 }
@@ -138,25 +173,14 @@ p {
 }
 
 
-/* -------------------------------------------- MAIN PAGE -------------------------------------------- */
-.font-link2 {
-  font-family: 'Poppins', sans-serif;
-}
+/* -------------------------------------------- HERO BANNER -------------------------------------------- */
 
-/* -------------------------------------------- ANIMATIONS -------------------------------------------- */
-/* .hero-banner {
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-height: 500px;
-  width: 100%;
-  object-fit: cover;
-} */
 
 .hero-container {
   background:url('./images/airballoons.jpg');
   background-position: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   object-fit: cover;
   height: 75vh;
   width: 100%;
@@ -177,6 +201,10 @@ p {
   right:0;
   text-shadow: 3px 3px 3px white, 3px 3px 3px white;
 }
+
+
+/* -------------------------------------------- SEARCH BARS -------------------------------------------- */
+
 
 .city-search {
   display: block;
