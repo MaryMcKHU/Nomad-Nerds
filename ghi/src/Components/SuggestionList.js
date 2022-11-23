@@ -107,30 +107,17 @@ function SuggestionList() {
   }
 
   return (
-    <ul>
+    <>
       <h2
-        style={{
-          paddingTop: 15,
-          textAlign: "center",
-          marginTop: "20%",
-          fontWeight:'bolder',
-        }}
-        className='font-link2'
+        className='suggestion-list-header'
         data-aos="fade-up"
       >
         Recommendations for Popular Destinations
       </h2>
       {activities.map((location, index) => (
         <div key={index}>
-          <Container className="container-fluid font-link2" style={{maxWidth:1226}}>
-            <h3
-              className="card-title"
-              style={{
-                paddingTop: '1%',
-                marginTop: 60,
-                fontWeight: 'bolder'
-              }}
-            >
+          <Container className="container-fluid" style={{maxWidth:1225}}>
+            <h3 className="suggestion-card-title">
               {Object.keys(location)}
             </h3>
             <Row className="flex-nowrap flex-row">
@@ -152,8 +139,7 @@ function SuggestionList() {
             </Row>
           </Container>
         </div>
-      ))}
-    </ul>
+      ))}</>
   );
 }
 

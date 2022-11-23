@@ -222,3 +222,32 @@ p {
     top: 64px;
   }
 }
+
+/* -------------------------------------------- SUGGESTION LIST -------------------------------------------- */
+
+.suggestion-list-header {
+  padding-top: 15;
+  text-align: center;
+  margin-top: 20%;
+  font-weight: bolder;
+}
+
+.suggestion-card-title {
+  font-size: 1.2rem;
+  padding-top: 1%;
+  margin-top: 6%;
+  font-weight: bolder;
+}
+
+@media screen and (max-width:600px) {
+  .suggestion-list-header {
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+
+  .suggestion-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10%;
+  }
+}
