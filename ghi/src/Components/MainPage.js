@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CategorySearch from "../searchByCategory/CategorySearch";
 import SuggestionList from "./SuggestionList";
 import Container from "react-bootstrap/Container";
 import Button from 'react-bootstrap/Button';
 import HeroBanner from './HeroBanner';
 import Modal from 'react-bootstrap/Modal';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 function MainPage() {
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleScroll = event => {
+    console.log('scrollTop: ', event.currentTarget.scrollTop);
+    console.log('offsetHeight: ', event.currentTarget.offsetHeight);
+  };
 
   return (
     <>
@@ -19,6 +26,7 @@ function MainPage() {
       <Container>
           <h1
             className="citysearch-header"
+            data-aos="fade-up"
             style={{ fontSize: "1.6rem", textAlign:'center', marginTop:'10%' }}
           >
             <span className="font-link2">
