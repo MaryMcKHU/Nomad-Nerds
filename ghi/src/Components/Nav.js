@@ -3,22 +3,20 @@ import { NavLink } from "react-router-dom";
 import { useToken } from "../users/Auth";
 import Button from "react-bootstrap/Button";
 import ModalLogin from '../users/ModalLogin';
-import ModalSignup from '../users/ModalSignup';
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import "../index.css";
 
 
 function Nav() {
-  const [token, signup] = useToken();
-  const [userName, setUserName] = useState("");
+  const [token] = useToken();
 
 
   return (
     <>
     <nav
-      className="navbar navbar-expand-lg navbar-dark inline-block"
-      style={{ zIndex: 10, backgroundColor: "transparent" }}
+      className="navbar navbar-expand-md navbar-dark"
+      style={{ zIndex: 10 }}
     >
       <div className="container-fluid">
       <NavLink
@@ -29,14 +27,15 @@ function Nav() {
           nomad nerds .
         </NavLink>
       
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul className="navbar-nav ms-auto mb-2 inline-block">
+      <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul className="navbar-nav ms-auto mb-2">
             {token ? (
               <div>
+                <li>
                 <NavLink 
                   to="user/favorites/"
                 >
@@ -48,6 +47,8 @@ function Nav() {
                     favorites
                   </Button>
                 </NavLink>
+                </li>
+                <li>
                 <NavLink 
                   to="user/logout/"
                 >
@@ -59,6 +60,7 @@ function Nav() {
                     log out
                   </Button>
                 </NavLink>
+                </li>
           </div>
             ): 
             (<div>
