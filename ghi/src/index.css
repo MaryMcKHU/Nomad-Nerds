@@ -126,6 +126,7 @@ p {
   position: relative;
   display: flex;
   margin-top: 0;
+  overflow: hidden;
 }
 
 .hero-header {

@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button';
 import RightArrowIcon from '../images/right-arrow.png';
 import LeftArrowIcon from '../images/left-arrow.png';
 import 'react-multi-carousel/lib/styles.css';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 function SuggestionList() {
   const lowerNum = Math.floor(Math.random() * 11);
@@ -114,6 +116,7 @@ function SuggestionList() {
           fontWeight:'bolder',
         }}
         className='font-link2'
+        data-aos="fade-up"
       >
         Recommendations for Popular Destinations
       </h2>
