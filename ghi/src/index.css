@@ -60,8 +60,8 @@ p {
 
 .navbar {
   display: flex;
+  height: 80px;
   justify-content: space-between;
-  background-color: transparent;
   position: relative;
   margin-bottom:-100px;
 }
@@ -69,16 +69,10 @@ p {
 .navbar-toggler {
   color: white;
   background-color: black;
-
 }
 
-.nav-menu {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-}
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -118,7 +112,7 @@ p {
     cursor: pointer;
     color: #ffdd40;
   }
-}
+} */
 
 .modal-login-btn {
   transition: all 0.5s ease 0s;
@@ -200,6 +194,18 @@ p {
   left:0;
   right:0;
   text-shadow: 3px 3px 3px white, 3px 3px 3px white;
+}
+
+@media screen and (max-width:600px) {
+  .hero-header {
+    width: 100%;
+    position: absolute;
+    display: block;
+    right: 0;
+    margin-top: 40%;
+  }
+
+  .
 }
 
 

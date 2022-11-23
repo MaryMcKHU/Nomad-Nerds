@@ -11,40 +11,35 @@ import "../index.css";
 
 function Nav() {
   const [token, signup] = useToken();
-  const [clicked, setClicked] = useState(false);
   const [userName, setUserName] = useState("");
 
-  const handleClick = () => {
-    setClicked(!clicked);
-  }
 
   return (
     <>
     <nav
-      className="navbar navbar-expand-lg navbar-dark"
+      className="navbar navbar-expand-lg navbar-dark inline-block"
       style={{ zIndex: 10, backgroundColor: "transparent" }}
     >
       <div className="container-fluid">
-        <NavLink
+      <NavLink
           className="navbar-brand"
           to="/"
-          style={{ fontWeight: "bolder", color: "black" }}
+          style={{ fontWeight: "bolder", color: "black", marginLeft:'2%' }}
         >
           nomad nerds .
         </NavLink>
-        <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarCollapse"
-        >
-          <ul className={clicked ? "nav-menu active" : "nav-menu"}>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul className="navbar-nav ms-auto mb-2 inline-block">
             {token ? (
               <div>
-              <li className="nav-item">
                 <NavLink 
                   to="user/favorites/"
-                  activeClassName="active"
-                  className="nav-links"
-                  onClick={handleClick}
+                  // className="nav-link"
                 >
                   <Button
                     variant="outline-dark"
@@ -54,13 +49,9 @@ function Nav() {
                     favorites
                   </Button>
                 </NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink 
                   to="user/logout/"
-                  activeClassName="active"
-                  className="nav-links"
-                  onClick={handleClick}
+                  // className="nav-link"
                 >
                   <Button
                     variant="outline-dark"
@@ -70,7 +61,6 @@ function Nav() {
                     log out
                   </Button>
                 </NavLink>
-              </li>
           </div>
             ): 
             (<div>
@@ -79,12 +69,8 @@ function Nav() {
             </div>)
             
           }
-
-          </ul>
-          <div className="nav-icon" onClick={handleClick}>
-            <div className={clicked ? {AiOutlineClose} : {FaBars}}></div>
-          </div>
-        </div>
+      </ul>
+      </div>
       </div>
     </nav>
     </>
