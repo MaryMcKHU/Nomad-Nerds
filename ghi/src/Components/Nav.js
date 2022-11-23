@@ -56,7 +56,7 @@ function Nav() {
                 <Button
                   variant="outline-dark"
                   style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
-                  className="menu-btn"
+                  className="favorites-btn"
                 >
                   favorites
                 </Button>
@@ -65,7 +65,7 @@ function Nav() {
               <Button
                 variant="outline-dark"
                 style={{ fontWeight: "bolder", marginRight:10, marginTop:10 }}
-                className="menu-btn"
+                className="logout-btn"
               >
                 log out
               </Button>

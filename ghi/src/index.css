@@ -86,6 +86,43 @@ p {
   }
 }
 
+.modal-login-btn {
+  transition: all 0.5s ease 0s;
+}
+
+.modal-login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 5px lightgray;
+}
+
+.modal-signup-btn {
+  transition: all 0.5s ease 0s;
+}
+
+.modal-signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 5px lightgray;
+}
+
+.favorites-btn {
+  transition: all 0.5s ease 0s;
+}
+
+.favorites-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 5px lightgray;
+}
+
+.logout-btn {
+  transition: all 0.5s ease 0s;
+}
+
+.logout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 5px lightgray;
+}
+
+
 /* -------------------------------------------- CARDS -------------------------------------------- */
 
 .card-body {
@@ -165,22 +202,4 @@ p {
     right: 0;
     top: 64px;
   }
-}
-
-.modal-login-btn {
-  transition: all 0.5s ease 0s;
-}
-
-.modal-signup-btn {
-  transition: all 0.5s ease 0s;
-}
-
-.modal-login-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 5px 5px lightgray;
-}
-
-.modal-signup-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 5px 5px lightgray;
 }
