@@ -18,9 +18,3 @@ Our expected intended market are people who are interested in a specific activit
 * Filtering function specific to location (i.e. specific continent)
 * Users can save businesses under their favorite page. 
 * Capability to poll from API to determine ranking system by rating for certain locations
-
-## Design
-* [API design](docs/apis.md)
-* [Data model](docs/data-model.md)
-* [GHI](docs/ghi.md)
-* [Integrations](docs/integrations.md)
