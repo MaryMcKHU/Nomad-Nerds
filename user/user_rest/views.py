@@ -63,7 +63,10 @@ def user_favorites(request, business_id=None):
     elif request.method == "GET":
         try:
             favorite = list(
-                map((lambda item: vars(item)), Favorite.objects.filter(user=user_id))
+                map(
+                    (lambda item: vars(item)),
+                    Favorite.objects.filter(user=user_id)
+                )
             )
             for item in favorite:
                 item.pop("_state")
