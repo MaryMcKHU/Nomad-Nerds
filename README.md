@@ -1,9 +1,4 @@
-# nomad-nerds
-
-Caleb
-Emma
-Arthur
-Mary
+# nomad-nerds-revamped
 
 A travel application that allows users to find businesses based on categories band locations.
 
