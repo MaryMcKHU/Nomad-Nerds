@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import { useToken } from "./Auth";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ModalSignup from "./ModalSignup";
 
 function ModalLogin() {
   const [username, setUsername] = useState("");

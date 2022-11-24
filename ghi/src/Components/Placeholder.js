@@ -60,30 +60,20 @@ function Loading() {
   return (
     <ul>
       <h1
-        style={{
-          fontWeight: "bold",
-          fontSize: "40px",
-          textAlign: "center",
-          paddingTop: 15,
-          marginTop: 150,
-        }}
-      ></h1>
+        className='cat-list-header'
+        style={{marginTop:'310px'}}
+      ><Placeholder xs={10} animation="glow" /></h1>
       <p aria-hidden="true">
         <Placeholder xs={10} animation="glow" />
       </p>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
           <Container
-            className="container-fluid font-link2"
+            className="container-fluid"
             style={{ maxWidth: 1215 }}
           >
             <h1
               className="card-title"
-              style={{
-                fontWeight: "bolder",
-                paddingTop: 25,
-                marginTop: 50,
-              }}
             >
               <Placeholder xs={6} animation="glow" />
             </h1>
@@ -96,7 +86,8 @@ function Loading() {
                         width: "16rem",
                         border: "none",
                         marginTop: 15,
-                        marginRight: 25,
+                        marginRight: 10,
+                        marginLeft: 10
                       }}
                     >
                       <Card.Img

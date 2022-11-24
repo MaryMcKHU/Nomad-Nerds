@@ -225,12 +225,14 @@ function CityList() {
         >
           {favoriteList.includes(store.id) ? (
             <img
+              alt="heart-filled"
               src={HeartFilled}
               height={22}
               onClick={() => deleteFavorite(store.id)}
             ></img>
           ) : (
             <img
+              alt="heart-outline"
               src={Heart}
               height={22}
               onClick={() =>

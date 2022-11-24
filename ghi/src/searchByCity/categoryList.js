@@ -217,12 +217,14 @@ function CategoryList() {
         >
           {favoriteList.includes(store.id) ? (
             <img
+              alt="filled-heart"
               src={HeartFilled}
               height={22}
               onClick={() => deleteFavorite(store.id)}
             ></img>
           ) : (
             <img
+              alt="heart-outline"
               src={Heart}
               height={22}
               onClick={() =>
@@ -246,10 +248,10 @@ function CategoryList() {
 
   const cardTitle = (store) => {
     return (
-      <Card.Title style={{ fontWeight: "bold", fontSize: "18px" }}>
+      <Card.Title style={{ fontWeight:"bold", fontSize:"18px" }}>
         <Row>
           <div>{store.name}</div>
-          <div style={{ color: "green", fontSize: "14px" }}>
+          <div style={{ color:"green", fontSize:"14px" }}>
             {store.price ? store.price : " "}
           </div>
         </Row>
@@ -333,17 +335,11 @@ function CategoryList() {
         Things to do in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      {console.log("business", businesses)}
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
             <h1
               className="card-title"
-              style={{
-                fontWeight: "bolder",
-                paddingTop: 25,
-                marginTop: 50,
-              }}
             >
               {Object.keys(business)}
             </h1>

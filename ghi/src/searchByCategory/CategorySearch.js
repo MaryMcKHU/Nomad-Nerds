@@ -264,7 +264,7 @@ function CategorySearch() {
   const formatCategoryResult = (item) => {
     return (
       <>
-        <span style={{ display: "block", textAlign: "left" }}>
+        <span style={{ display: "block", textAlign: "left", marginLeft:'5px' }}>
           {item.title}
         </span>
       </>
@@ -277,7 +277,7 @@ function CategorySearch() {
         className="container vertical-scrollable"
         style={{
           maxHeight: 150,
-          width: "95%",
+          width: "100%",
           display: "block",
           overflowY: "scroll",
           backgroundColor: "white",
@@ -394,7 +394,7 @@ function CategorySearch() {
       </div>
       <div
         style={{
-          width: "95%",
+          width: "100%",
           marginTop: "5%",
         }}
       >
@@ -423,7 +423,7 @@ function CategorySearch() {
       <div className="d-flex justify-content-center"></div>
       <div
         style={{
-          width: "95%",
+          width: "100%",
           textAlign: "left",
         }}
       >

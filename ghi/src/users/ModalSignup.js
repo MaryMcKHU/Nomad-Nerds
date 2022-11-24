@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { useAuthContext, useToken } from "./Auth";
+import { useAuthContext } from "./Auth";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ModalLogin from "./ModalLogin";
 
 function ModalSignup(props) {
   const { token } = useAuthContext();
