@@ -65,4 +65,3 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: person@email.com
       PGADMIN_DEFAULT_PASSWORD: password
-      
