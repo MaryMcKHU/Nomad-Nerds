@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CategorySearch from "../searchByCategory/CategorySearch";
 import SuggestionList from "./SuggestionList";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import HeroBanner from "./HeroBanner";
 import Modal from "react-bootstrap/Modal";
-import AOS from "aos";
+
 import "aos/dist/aos.css";
 import activities from "../images/activities.png";
 import Row from "react-bootstrap/Row";
@@ -67,7 +67,7 @@ function MainPage() {
           </Col>
           <Col>
             <Container style={{ marginTop: "25%" }} data-aos="fade-left">
-              <img src={activities} height={350}></img>
+              <img src={activities} alt="activities" height={350}></img>
             </Container>
           </Col>
         </Row>

@@ -14,12 +14,13 @@ def categories_request(location="", quantity=1):
             "sort_by": "rating",
             "categories": """amusementparks,aquariums,archery,axethrowing,beaches,
                 bicyclepaths,bowling,bungeejumping,boating,climbing,discgolf,diving,
-                hanggliding,lakes,publicplazas,skatingrinks,sledding,cabaret,festivals,
-                museums,rodeo,wineries,hotsprings,foodtrucks,campgrounds,skiresorts,
-                zoos,gardens,castles,fishing,hiking,mountainbiking,paddleboarding,rafting,
-                sailing,rock_climbing,snorkeling,skydiving,surfing,tubing,waterparks,
-                zipline,horsebackriding,hot_air_balloons,jetskis,skiing,kiteboarding,
-                mini_golf,walkingtours,historicaltours,localflavor""",
+                hanggliding,lakes,publicplazas,skatingrinks,sledding,cabaret,
+                festivals,museums,rodeo,wineries,hotsprings,foodtrucks,campgrounds,
+                skiresorts,zoos,gardens,castles,fishing,hiking,mountainbiking,
+                paddleboarding,rafting,sailing,rock_climbing,snorkeling,skydiving,
+                surfing,tubing,waterparks,zipline,horsebackriding,hot_air_balloons,
+                jetskis,skiing,kiteboarding,mini_golf,walkingtours,historicaltours,
+                localflavor""",
         }
         res = requests.get(url, headers=headers, params=params)
         if res.status_code == 200:

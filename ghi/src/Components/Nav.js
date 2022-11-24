@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useToken } from "../users/Auth";
 import Button from "react-bootstrap/Button";
 import ModalLogin from "../users/ModalLogin";
-import closebutton from "../images/close-button.png";
 import "../index.css";
 
 function Nav() {

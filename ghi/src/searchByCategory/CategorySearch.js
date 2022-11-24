@@ -264,7 +264,9 @@ function CategorySearch() {
   const formatCategoryResult = (item) => {
     return (
       <>
-        <span style={{ display: "block", textAlign: "left", marginLeft:'5px' }}>
+        <span
+          style={{ display: "block", textAlign: "left", marginLeft: "5px" }}
+        >
           {item.title}
         </span>
       </>

@@ -107,6 +107,7 @@ function Favorites() {
           }}
         >
           <img
+            alt="heart-filled"
             src={HeartFilled}
             height={22}
             onClick={(e) => deleteFavorite(store["business_id"])}
