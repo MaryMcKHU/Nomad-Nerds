@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Loading from "../Components/Placeholder.js";
 import Container from "react-bootstrap/Container";

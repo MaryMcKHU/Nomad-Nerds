@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../users/Auth";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,9 +7,8 @@ import Col from "react-bootstrap/Col";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import RightArrowIcon from "../images/right-arrow.png";
-import LeftArrowIcon from "../images/left-arrow.png";
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 import HeartFilled from "../images/heart-filled.png";
 
 function Favorites() {
@@ -27,6 +25,30 @@ function Favorites() {
     const token_info = JSON.parse(window.atob(base64));
     return token_info.user.username;
   }
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1200 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1200, min: 900 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 900, min: 600 },
+      items: 2,
+    },
+    smaller: {
+      breakpoint: { max: 600, min: 0 },
+      items: 1,
+    }
+
+  };
 
   async function getCurrentUser() {
     const fetchConfig = {
@@ -180,47 +202,6 @@ function Favorites() {
     );
   };
 
-  const LeftArrow = () => {
-    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-
-    return isFirstItemVisible ? null : (
-      <Button
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingRight: 15,
-        }}
-        onClick={() => scrollPrev()}
-        className="right-arrow"
-      >
-        <img src={LeftArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
-
-  const RightArrow = () => {
-    const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
-
-    return isLastItemVisible ? null : (
-      <Button
-        disabled={isLastItemVisible}
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingLeft: 15,
-        }}
-        onClick={() => scrollNext()}
-        className="left-arrow"
-      >
-        <img src={RightArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
-
   return (
     <ul>
       <h1
@@ -252,7 +233,19 @@ function Favorites() {
               {location}
             </h1>
             <Row>
-              <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+              <Carousel
+                  swipeable={true}
+                  draggable={true}
+                  showDots={true}
+                  responsive={responsive}
+                  ssr={true}
+                  infinite={false}
+                  keyBoardControl={true}
+                  containerClass="carousel-container"
+                  removeArrowOnDeviceType={["tablet", "mobile"]}
+                  dotListClass="custom-dot-list-style"
+                  itemClass="carousel-item-padding-20-px"
+                >
                 {sortedBusinesses[location].map((store, idx) => (
                   <Col key={idx} className="col-3">
                     <Card
@@ -272,7 +265,7 @@ function Favorites() {
                     </Card>
                   </Col>
                 ))}
-              </ScrollMenu>
+              </Carousel>
             </Row>
           </Container>
         </div>
