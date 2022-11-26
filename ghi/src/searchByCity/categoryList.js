@@ -15,6 +15,8 @@ import RightArrowIcon from "../images/right-arrow.png";
 import LeftArrowIcon from "../images/left-arrow.png";
 import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
 function CategoryList() {
   const location = useLocation();
@@ -29,6 +31,31 @@ function CategoryList() {
   const cityAndState = city + "%2C%20" + state;
 
   const navigate = useNavigate();
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1200 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1200, min: 900 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 900, min: 600 },
+      items: 2,
+    },
+    smaller: {
+      breakpoint: { max: 600, min: 0 },
+      items: 1,
+    }
+
+  };
+
 
   async function getFavorites() {
     if (token) {
@@ -287,48 +314,6 @@ function CategoryList() {
     );
   };
 
-  const LeftArrow = () => {
-    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-
-    return (
-      <Button
-        disabled={isFirstItemVisible}
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingRight: 15,
-        }}
-        onClick={() => scrollPrev()}
-        className="right-arrow"
-      >
-        <img src={LeftArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
-
-  const RightArrow = () => {
-    const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
-
-    return (
-      <Button
-        disabled={isLastItemVisible}
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingLeft: 15,
-        }}
-        onClick={() => scrollNext()}
-        className="left-arrow"
-      >
-        <img src={RightArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
-
   return (
     <ul>
       <h1 className="cat-list-header">
@@ -344,7 +329,19 @@ function CategoryList() {
               {Object.keys(business)}
             </h1>
             <Row>
-              <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+            <Carousel
+              swipeable={true}
+              draggable={true}
+              showDots={true}
+              responsive={responsive}
+              ssr={true}
+              infinite={false}
+              keyBoardControl={true}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-20-px"
+            >
                 {Object.values(business)[0]
                   .slice(0, 15)
                   .map((store, idx) => (
@@ -359,8 +356,6 @@ function CategoryList() {
                           width: "16rem",
                           border: "none",
                           marginTop: 15,
-                          marginRight: 10,
-                          marginLeft: 10,
                         }}
                       >
                         {cardImage(store)}
@@ -371,7 +366,7 @@ function CategoryList() {
                       </Card>
                     </Col>
                   ))}
-              </ScrollMenu>
+              </Carousel>
             </Row>
           </Container>
         </div>

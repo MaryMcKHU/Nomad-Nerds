@@ -6,10 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import Button from "react-bootstrap/Button";
-import RightArrowIcon from "../images/right-arrow.png";
-import LeftArrowIcon from "../images/left-arrow.png";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import "aos/dist/aos.css";
@@ -94,47 +90,6 @@ function SuggestionList() {
     );
   };
 
-  // const LeftArrow = () => {
-  //   const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-
-  //   return isFirstItemVisible ? null : (
-  //     <Button
-  //       variant="outline-secondary"
-  //       style={{
-  //         borderRadius: 30,
-  //         marginTop: 120,
-  //         borderWidth: 2,
-  //         paddingRight: 15,
-  //       }}
-  //       onClick={() => scrollPrev()}
-  //       className="right-arrow"
-  //     >
-  //       <img src={LeftArrowIcon} height={20} alt="right-arrow" />
-  //     </Button>
-  //   );
-  // };
-
-  // const RightArrow = () => {
-  //   const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
-
-  //   return isLastItemVisible ? null : (
-  //     <Button
-  //       disabled={isLastItemVisible}
-  //       variant="outline-secondary"
-  //       style={{
-  //         borderRadius: 30,
-  //         marginTop: 120,
-  //         borderWidth: 2,
-  //         paddingLeft: 15,
-  //       }}
-  //       onClick={() => scrollNext()}
-  //       className="left-arrow"
-  //     >
-  //       <img src={RightArrowIcon} height={20} alt="right-arrow" />
-  //     </Button>
-  //   );
-  // };
-
   return (
     <>
       <h2 className="suggestion-list-header" data-aos="fade-up">
@@ -150,12 +105,11 @@ function SuggestionList() {
               draggable={true}
               showDots={true}
               responsive={responsive}
-              ssr={true} // means to render carousel on server-side.
+              ssr={true}
               infinite={false}
               keyBoardControl={true}
               containerClass="carousel-container"
               removeArrowOnDeviceType={["tablet", "mobile"]}
-              // deviceType={this.props.deviceType}
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-20-px"
             >
