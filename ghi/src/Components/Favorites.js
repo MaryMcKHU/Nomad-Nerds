@@ -50,23 +50,6 @@ function Favorites() {
 
   };
 
-  async function getCurrentUser() {
-    const fetchConfig = {
-      credentials: "include",
-      method: 'GET',
-      headers: {
-        "Access-Control-Request-Headers": "*",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const url = `${process.env.REACT_APP_USER}/user/mine/`;
-    const response = await fetch(url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data, "user_data")
-    }
-  }
-
   async function getFavorites() {
     const fetchConfig = {
       credentials: "include",
