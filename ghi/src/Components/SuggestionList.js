@@ -10,12 +10,37 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import Button from "react-bootstrap/Button";
 import RightArrowIcon from "../images/right-arrow.png";
 import LeftArrowIcon from "../images/left-arrow.png";
+import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import "aos/dist/aos.css";
 
 function SuggestionList() {
   const lowerNum = Math.floor(Math.random() * 11);
   const higherNum = lowerNum + 4;
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1200 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1200, min: 992 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 992, min: 768 },
+      items: 2,
+    },
+    smaller: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+    }
+
+  };
 
   const cardImage = (store) => {
     return (
@@ -69,46 +94,46 @@ function SuggestionList() {
     );
   };
 
-  const LeftArrow = () => {
-    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
+  // const LeftArrow = () => {
+  //   const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
-    return isFirstItemVisible ? null : (
-      <Button
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingRight: 15,
-        }}
-        onClick={() => scrollPrev()}
-        className="right-arrow"
-      >
-        <img src={LeftArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
+  //   return isFirstItemVisible ? null : (
+  //     <Button
+  //       variant="outline-secondary"
+  //       style={{
+  //         borderRadius: 30,
+  //         marginTop: 120,
+  //         borderWidth: 2,
+  //         paddingRight: 15,
+  //       }}
+  //       onClick={() => scrollPrev()}
+  //       className="right-arrow"
+  //     >
+  //       <img src={LeftArrowIcon} height={20} alt="right-arrow" />
+  //     </Button>
+  //   );
+  // };
 
-  const RightArrow = () => {
-    const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+  // const RightArrow = () => {
+  //   const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
 
-    return isLastItemVisible ? null : (
-      <Button
-        disabled={isLastItemVisible}
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingLeft: 15,
-        }}
-        onClick={() => scrollNext()}
-        className="left-arrow"
-      >
-        <img src={RightArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
+  //   return isLastItemVisible ? null : (
+  //     <Button
+  //       disabled={isLastItemVisible}
+  //       variant="outline-secondary"
+  //       style={{
+  //         borderRadius: 30,
+  //         marginTop: 120,
+  //         borderWidth: 2,
+  //         paddingLeft: 15,
+  //       }}
+  //       onClick={() => scrollNext()}
+  //       className="left-arrow"
+  //     >
+  //       <img src={RightArrowIcon} height={20} alt="right-arrow" />
+  //     </Button>
+  //   );
+  // };
 
   return (
     <>
@@ -117,10 +142,23 @@ function SuggestionList() {
       </h2>
       {activities.map((location, index) => (
         <div key={index}>
-          <Container className="container-fluid" style={{ maxWidth: 1225 }}>
+          <Container className="container-fluid" style={{alignItems:'center'}}>
             <h3 className="card-title">{Object.keys(location)}</h3>
             <Row className="flex-nowrap flex-row">
-              <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+            <Carousel
+              swipeable={true}
+              draggable={true}
+              showDots={true}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              infinite={false}
+              keyBoardControl={true}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              // deviceType={this.props.deviceType}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-20-px"
+            >
                 {Object.values(location)[0]
                   .slice(lowerNum, higherNum)
                   .map((store, idx) => (
@@ -130,9 +168,9 @@ function SuggestionList() {
                           width: "16rem",
                           height: "28em",
                           border: "none",
-                          marginLeft: 10,
+                          // marginLeft: 10,
                           marginTop: 15,
-                          marginRight: 10,
+                          // marginRight: 10,
                         }}
                       >
                         {cardImage(store)}
@@ -143,7 +181,7 @@ function SuggestionList() {
                       </Card>
                     </Col>
                   ))}
-              </ScrollMenu>
+              </Carousel>
             </Row>
           </Container>
         </div>
