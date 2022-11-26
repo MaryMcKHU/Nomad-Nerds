@@ -33,7 +33,7 @@ function ModalLogin() {
         show={show}
         onHide={handleClose}
         dialogClassName="modal-sm"
-        className="font-link2"
+        className="modal-login"
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body style={{ width: 450 }}>
@@ -85,12 +85,12 @@ function ModalLogin() {
                 </label>
               </div>
             </div>
-            <div className="text-center text-lg-start mt-4 pt-2">
+            <div className="text-lg-start mt-4 pt-2">
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={() => login(username, password)}
-                style={{ width: 250 }}
+                style={{ width: 250, textAlign:'center' }}
               >
                 Login
               </button>

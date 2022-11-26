@@ -96,6 +96,10 @@ p {
   box-shadow: 0px 5px 5px lightgray;
 }
 
+.modal-login {
+  align-items: center
+}
+
 
 /* -------------------------------------------- CARDS -------------------------------------------- */
 

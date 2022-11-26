@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Placeholder from "react-bootstrap/Placeholder";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
