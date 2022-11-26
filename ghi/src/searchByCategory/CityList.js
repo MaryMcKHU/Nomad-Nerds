@@ -9,12 +9,10 @@ import { useAuthContext } from "../users/Auth";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import Button from "react-bootstrap/Button";
-import RightArrowIcon from "../images/right-arrow.png";
-import LeftArrowIcon from "../images/left-arrow.png";
 import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
 function CityList() {
   const location = useLocation();
@@ -30,6 +28,30 @@ function CityList() {
     .map((city) => [city.city, city.admin_name, city.country].join(","))
     .join(";");
   const navigate = useNavigate();
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1200 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1200, min: 900 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 900, min: 600 },
+      items: 2,
+    },
+    smaller: {
+      breakpoint: { max: 600, min: 0 },
+      items: 1,
+    }
+
+  };
 
   async function getFavorites() {
     if (token) {
@@ -294,48 +316,7 @@ function CityList() {
       </Card.Text>
     );
   };
-
-  const LeftArrow = () => {
-    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-
-    return (
-      <Button
-        disabled={isFirstItemVisible}
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingRight: 15,
-        }}
-        onClick={() => scrollPrev()}
-        className="right-arrow"
-      >
-        <img src={LeftArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
-
-  const RightArrow = () => {
-    const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
-
-    return (
-      <Button
-        disabled={isLastItemVisible}
-        variant="outline-secondary"
-        style={{
-          borderRadius: 30,
-          marginTop: 120,
-          borderWidth: 2,
-          paddingLeft: 15,
-        }}
-        onClick={() => scrollNext()}
-        className="left-arrow"
-      >
-        <img src={RightArrowIcon} height={20} alt="right-arrow" />
-      </Button>
-    );
-  };
+  // };
 
   return (
     <>
@@ -356,7 +337,19 @@ function CityList() {
               {Object.keys(business)}
             </h1>
             <Row>
-              <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+              <Carousel
+                swipeable={true}
+                draggable={true}
+                showDots={true}
+                responsive={responsive}
+                ssr={true}
+                infinite={false}
+                keyBoardControl={true}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-20-px"
+              >
                 {Object.values(business)[0]
                   .slice(0, 15)
                   .map((store, idx) => (
@@ -378,7 +371,7 @@ function CityList() {
                       </Card>
                     </Col>
                   ))}
-              </ScrollMenu>
+              </Carousel>
             </Row>
           </Container>
         </div>
