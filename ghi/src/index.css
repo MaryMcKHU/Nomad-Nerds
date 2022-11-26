@@ -167,6 +167,11 @@ p {
   text-align: center;
 }
 
+.activities-image {
+  margin-top: 25%;
+  align-items: center;
+}
+
 @media screen and (max-width:810px) {
   .hero-container {
     height: 60vh;
@@ -196,6 +201,11 @@ p {
 
   .citysearch-header {
     font-size: 1.2rem
+  }
+
+  .activities-image {
+    margin-top: 25%;
+    text-align: center;
   }
 
 }
@@ -246,8 +256,6 @@ p {
   margin-top: 20%;
   font-weight: bolder;
 }
-
-
 
 @media screen and (max-width:600px) {
   .suggestion-list-header {
