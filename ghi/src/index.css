@@ -167,7 +167,7 @@ p {
   text-align: center;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:810px) {
   .hero-container {
     height: 60vh;
   }
@@ -177,13 +177,13 @@ p {
     position: absolute;
     display: block;
     right: 0;
-    margin-top: 40%;
+    margin-top: 30%;
     font-size: 30px
   }
 
   .city-search {
-    margin-top: 55%;
-    position: absolute;
+    margin-top: 270px;
+    position: relative;
     display: block;
     width: 95%;
     left:0;
@@ -197,6 +197,7 @@ p {
   .citysearch-header {
     font-size: 1.2rem
   }
+
 }
 
 

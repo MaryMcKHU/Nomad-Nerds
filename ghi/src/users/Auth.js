@@ -96,6 +96,7 @@ export function useToken() {
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
+      navigate(-1);
       return;
     } else {
       window.alert("Incorrect username or password");
