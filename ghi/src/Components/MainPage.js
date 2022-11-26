@@ -25,11 +25,6 @@ function MainPage() {
             <Container data-aos="fade-right" className="citysearch-section">
               <h1
                 className="citysearch-header"
-                style={{
-                  fontSize: "1.6rem",
-                  textAlign: "center",
-                  marginTop: "45%",
-                }}
               >
                 <span className="citysearch-header">
                   <div>
