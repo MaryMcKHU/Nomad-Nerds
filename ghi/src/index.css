@@ -201,6 +201,20 @@ p {
 }
 
 
+/* -------------------------------------------- MAIN PAGE -------------------------------------------- */
+
+.activities-image {
+  margin-top: 25%;
+}
+
+@media screen and (max-width:810px) {
+  .activities-image {
+    align-items: center;
+    position: relative;
+  }
+}
+
+
 /* -------------------------------------------- SEARCH BARS -------------------------------------------- */
 
 

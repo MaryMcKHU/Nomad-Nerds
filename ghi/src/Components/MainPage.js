@@ -22,7 +22,7 @@ function MainPage() {
       <Container>
         <Row>
           <Col>
-            <Container data-aos="fade-right">
+            <Container data-aos="fade-right" className="citysearch-section">
               <h1
                 className="citysearch-header"
                 style={{
@@ -66,7 +66,7 @@ function MainPage() {
             </Container>
           </Col>
           <Col>
-            <Container style={{ marginTop: "25%" }} data-aos="fade-left">
+            <Container style={{ marginTop: "25%" }} data-aos="fade-left" className="activities-image">
               <img src={activities} alt="activities" height={350}></img>
             </Container>
           </Col>
