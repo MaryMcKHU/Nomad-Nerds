@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 function Loading() {
@@ -33,28 +33,21 @@ function Loading() {
     smaller: {
       breakpoint: { max: 600, min: 0 },
       items: 1,
-    }
-
+    },
   };
 
   return (
     <ul>
-      <h1
-        className='cat-list-header'
-        style={{marginTop:'310px'}}
-      ><Placeholder xs={10} animation="glow" /></h1>
+      <h1 className="cat-list-header" style={{ marginTop: "310px" }}>
+        <Placeholder xs={10} animation="glow" />
+      </h1>
       <p aria-hidden="true">
         <Placeholder xs={10} animation="glow" />
       </p>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
-          <Container
-            className="container-fluid"
-            style={{ maxWidth: 1215 }}
-          >
-            <h1
-              className="card-title"
-            >
+          <Container className="container-fluid" style={{ maxWidth: 1215 }}>
+            <h1 className="card-title">
               <Placeholder xs={6} animation="glow" />
             </h1>
             <Row>
@@ -77,7 +70,7 @@ function Loading() {
                         border: "none",
                         marginTop: 15,
                         marginRight: 10,
-                        marginLeft: 10
+                        marginLeft: 10,
                       }}
                     >
                       <Card.Img

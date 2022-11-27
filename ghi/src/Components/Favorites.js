@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import HeartFilled from "../images/heart-filled.png";
 
@@ -46,8 +46,7 @@ function Favorites() {
     smaller: {
       breakpoint: { max: 600, min: 0 },
       items: 1,
-    }
-
+    },
   };
 
   async function getFavorites() {
@@ -217,18 +216,18 @@ function Favorites() {
             </h1>
             <Row>
               <Carousel
-                  swipeable={true}
-                  draggable={true}
-                  showDots={true}
-                  responsive={responsive}
-                  ssr={true}
-                  infinite={false}
-                  keyBoardControl={true}
-                  containerClass="carousel-container"
-                  removeArrowOnDeviceType={["tablet", "mobile"]}
-                  dotListClass="custom-dot-list-style"
-                  itemClass="carousel-item-padding-20-px"
-                >
+                swipeable={true}
+                draggable={true}
+                showDots={true}
+                responsive={responsive}
+                ssr={true}
+                infinite={false}
+                keyBoardControl={true}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-20-px"
+              >
                 {sortedBusinesses[location].map((store, idx) => (
                   <Col key={idx} className="col-3">
                     <Card

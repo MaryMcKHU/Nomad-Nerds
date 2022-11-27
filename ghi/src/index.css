@@ -100,6 +100,19 @@ p {
   align-items: center
 }
 
+@media only screen and (max-width : 992px) {
+  .home-btn,
+  .modal-login-btn,
+  .logout-btn,
+  .favorites-btn {
+    align-items: right;
+  }
+
+  .navbar-collapse {
+    background: rgba(250, 250, 250, 0.651);
+  }
+}
+
 
 /* -------------------------------------------- CARDS -------------------------------------------- */
 

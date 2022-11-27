@@ -14,7 +14,7 @@ function Nav() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-dark"
+        className="navbar navbar-expand-lg navbar-dark "
         style={{ zIndex: 10 }}
       >
         <div className="container-fluid">

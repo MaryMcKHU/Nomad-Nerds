@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import activities from "./activities.json";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "aos/dist/aos.css";
 
@@ -34,8 +34,7 @@ function SuggestionList() {
     smaller: {
       breakpoint: { max: 768, min: 0 },
       items: 1,
-    }
-
+    },
   };
 
   const cardImage = (store) => {
@@ -97,22 +96,25 @@ function SuggestionList() {
       </h2>
       {activities.map((location, index) => (
         <div key={index}>
-          <Container className="container-fluid" style={{alignItems:'center'}}>
+          <Container
+            className="container-fluid"
+            style={{ alignItems: "center", maxWidth: 1215 }}
+          >
             <h3 className="card-title">{Object.keys(location)}</h3>
             <Row className="flex-nowrap flex-row">
-            <Carousel
-              swipeable={true}
-              draggable={true}
-              showDots={true}
-              responsive={responsive}
-              ssr={true}
-              infinite={false}
-              keyBoardControl={true}
-              containerClass="carousel-container"
-              removeArrowOnDeviceType={["tablet", "mobile"]}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-20-px"
-            >
+              <Carousel
+                swipeable={true}
+                draggable={true}
+                showDots={true}
+                responsive={responsive}
+                ssr={true}
+                infinite={false}
+                keyBoardControl={true}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-20-px"
+              >
                 {Object.values(location)[0]
                   .slice(lowerNum, higherNum)
                   .map((store, idx) => (
