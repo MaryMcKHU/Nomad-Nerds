@@ -74,3 +74,17 @@ def get_business(id=""):
     res = requests.get(url, headers=headers)
     data = res.json()
     return data, res.status_code
+
+
+def get_events(start_date="", location=""):
+    url = "https://api.yelp.com/v3/events"
+    headers = {"Authorization": "Bearer {}".format(os.environ["API_YELP_KEY"])}
+    params = {
+        "start_date": start_date,
+        "location": location,
+        "limit": 5,
+        "categories": 'music,visual-arts,performing-arts,film,lectures-books,food-and-drink,festivals-fairs,kids-family,other'
+    }
+    res = requests.get(url, headers=headers, params=params)
+    data = res.json()
+    return data

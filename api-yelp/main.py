@@ -18,6 +18,7 @@ origins = [
     "http://localhost",
     os.environ.get("CORS_HOST", None),
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

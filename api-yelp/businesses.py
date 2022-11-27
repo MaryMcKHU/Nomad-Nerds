@@ -1,11 +1,13 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+import datetime
 from fastapi.responses import JSONResponse
 from acls import (
     businesses_request,
     category_request,
     get_business,
-    categories_request
+    categories_request,
+    get_events
 )
 
 yelp_router = APIRouter()
@@ -71,7 +73,7 @@ def get_locations(categories: str, quantity: int = 1, cities: str = "nyc"):
 
 
 # Input a category and Location: Return a list of ranked Businesses
-@yelp_router.get("/api-yelp/businesses/list")
+@yelp_router.get("/api-yelp/businesses/list/")
 def get_business_list(category: str, location: str, quantity: int = 1):
     raw_data = businesses_request(
         categories=category, location=location, quantity=quantity
@@ -80,7 +82,7 @@ def get_business_list(category: str, location: str, quantity: int = 1):
 
 
 # Input a business ID: Return business info and photo
-@yelp_router.get("/api-yelp/businesses/details")
+@yelp_router.get("/api-yelp/businesses/details/")
 def get_business_info(id: str):
     raw_data = get_business(id)
     data = {}
@@ -107,3 +109,10 @@ def get_business_info(id: str):
         data["latitude"] = ""
         data["longitude"] = ""
     return JSONResponse(content=data)
+
+
+# Input a location and category: Return event info
+@yelp_router.get("/api-yelp/events/")
+def events(start_date: int, location: str):
+    raw_data = get_events(start_date, location)
+    return raw_data
