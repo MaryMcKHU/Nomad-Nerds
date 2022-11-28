@@ -13,6 +13,9 @@ import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
+import EventSearch from "./EventSearch.js";
 
 function EventList() {
   const location = useLocation();
@@ -80,7 +83,7 @@ function EventList() {
         "Content-Type": "application/json",
       },
     };
-    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=1669616068&location=${cityAndState}`;
+    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=1669966444&location=${cityAndState}`;
     const response = await fetch(categories_url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
@@ -183,8 +186,10 @@ function EventList() {
   }
 
   const cardImage = (event) => {
+    const url = event.event_site_url
     return (
       <div>
+        <button onClick={() => window.open(url, '_blank') } style={{border:'none'}}>
         <Card.Img
           variant="top"
           src={event.image_url}
@@ -192,44 +197,8 @@ function EventList() {
           height={250}
           style={{ objectFit: "cover", borderRadius: 10 }}
         />
-        {/* <button
-          style={{
-            float: "right",
-            backgroundColor: "transparent",
-            border: "none",
-            position: "relative",
-            marginTop: -235,
-            marginRight: 8,
-          }}
-        >
-          {favoriteList.includes(store.id) ? (
-            <img
-              alt="filled-heart"
-              src={HeartFilled}
-              height={22}
-              onClick={() => deleteFavorite(store.id)}
-            ></img>
-          ) : (
-            <img
-              alt="heart-outline"
-              src={Heart}
-              height={22}
-              onClick={() =>
-                addFavorite(
-                  store.id,
-                  store.name,
-                  store.image_url,
-                  store.rating,
-                  store.price,
-                  store.location.display_address,
-                  store.location.city,
-                  store.location.state
-                )
-              }
-            ></img>
-          )}
-        </button> */}
-      </div>
+        </button>
+        </div>
     );
   };
 
@@ -250,19 +219,18 @@ function EventList() {
     const start_date = new Date(event.time_start)
     const end_date = new Date(event.time_end)
     return (
-      <Card.Text>
-        {start_date.toLocaleDateString("en-US")} - {end_date.toLocaleDateString("en-US")}
+      <Card.Text className="card-block px-2">
+        <AiOutlineCalendar size={30}/> {start_date.toLocaleDateString("en-US")}  
+        {event.time_end ? ("-" + (new Date(event.time_end).toLocaleDateString("en-US"))) : ("") } 
         <br />
-        {event.description}
         <br />
-        Location:
-        <br />
-        {event.location.display_address[0]}
+        <GoLocation size={30}/> {event.location.display_address[0]}
         <br />
         {event.location.display_address[1]}
         <br />
+        <br />
         {event.tickets_url? 
-        (<a href={event.tickets_url}>Tickets</a>) :
+        (<a href={event.tickets_url} target="_blank" rel="noreferrer noopener">Get tickets</a>) :
         ("")}
       </Card.Text>
     );
@@ -274,15 +242,28 @@ function EventList() {
         Upcoming events in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      {console.log(events)}
-      {events.map((event, index) => (
-        <div key={index}>
+      {console.log(events)}  
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
             <h1
               className="card-title"
             >
             </h1>
             <Row>
+            <Carousel
+              swipeable={true}
+              draggable={true}
+              showDots={true}
+              responsive={responsive}
+              ssr={true}
+              infinite={false}
+              keyBoardControl={true}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-20-px"
+            >
+              {events.map((event, index) => (
+                <div key={index}>
                 <Card
                   style={{
                     width: "16rem",
@@ -296,10 +277,10 @@ function EventList() {
                     {cardText(event)}
                   </Card.Body>
                 </Card>
+                </div>))}
+                </Carousel>
             </Row>
             </Container>
-        </div>
-      ))}
     </ul>
   );
 }
