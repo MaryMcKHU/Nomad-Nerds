@@ -18,6 +18,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { GoLocation } from "react-icons/go";
 import ScrollTop from '../Components/ScrollTop';
+import { FaDollarSign } from 'react-icons/fa';
 
 
 function CategoryList() {
@@ -371,7 +372,7 @@ function CategoryList() {
           {event.name}
         </div>
         <div className="event-card-text">
-        <AiOutlineCalendar size={25} /> {start_date.toLocaleDateString("en-US")}
+        <AiOutlineCalendar size={25} color="red" /> {start_date.toLocaleDateString("en-US")}
         ,{" "}
         {start_date.toLocaleTimeString([], {
           hour: "2-digit",
@@ -390,13 +391,17 @@ function CategoryList() {
         <br />
 
         <br />
-        <GoLocation size={25} /> {event.location.display_address[0]}
+        <GoLocation size={25} color="blue"/> {event.location.display_address[0]}
         <br />
         {event.location.display_address[1]}
         <br />
         <br />
-        {event.cost >= 0 && event.cost !== null ? "$" + (event.cost) : ""}
-        {event.cost_max ? " - $" + (event.cost_max) : ""}
+        <div style={{fontWeight:'bold'}}>
+          <FaDollarSign size={25} color="green"/>
+          {event.is_free === true ? "Free" : ""}
+          {event.cost >= 0 && event.cost !== null ? "$" + (event.cost) : ""}
+          {event.cost_max ? " - $" + (event.cost_max) : ""}
+        </div>
         <br />
         {event.tickets_url ? (
           <a href={event.tickets_url} target="_blank" rel="noreferrer noopener">
