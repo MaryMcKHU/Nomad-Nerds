@@ -26,6 +26,8 @@ function CategoryList() {
   const [categories, setCategories] = useState([]);
   const [businesses, setBusinesses] = useState([]);
   const [events, setEvents] = useState([]);
+  const [showButton, setShowButton] = useState(true);
+  const [eventsLoading, setEventsLoading] = useState(false);
   const [businessesLoading, setBusinessesLoading] = useState(true);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
@@ -101,6 +103,7 @@ function CategoryList() {
       const data = await response.json();
       setEvents(data["events"]);
     }
+    await setEventsLoading(false)
   }
 
   async function getCategories() {
@@ -248,6 +251,10 @@ function CategoryList() {
     );
   } else if (businessesLoading === true) {
     return <Loading />;
+  }
+
+  if (eventsLoading === false && events.length === 0) {
+    setShowButton(!showButton);
   }
 
   const cardImage = (store) => {
@@ -426,7 +433,7 @@ function CategoryList() {
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
       <Container style={{ textAlign: "center", marginTop: 20 }}>
-        <Button
+        {showButton && (<Button
           className="event-btn"
           variant="outline-dark"
           style={{
@@ -437,7 +444,7 @@ function CategoryList() {
           onClick={handleClick}
         >
           Upcoming events
-        </Button>
+        </Button>)}
       </Container>
       {businesses.map((business, index) => (
         <div key={index}>
