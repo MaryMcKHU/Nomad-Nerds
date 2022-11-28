@@ -85,7 +85,7 @@ def get_events(start_date="", location=""):
         "limit": 5,
         "sort_on": "time_start",
         "categories": """visual-arts,performing-arts,film,lectures-books,
-            food-and-drink,festivals-fairs,kids-family,other"""
+            food-and-drink,festivals-fairs,kids-family"""
     }
     res = requests.get(url, headers=headers, params=params)
     data = res.json()

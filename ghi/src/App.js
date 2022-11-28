@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
 import MainPage from "./Components/MainPage";
@@ -12,20 +12,40 @@ import Logout from "./users/Logout";
 import { AuthProvider } from "./users/Auth";
 import CityList from "./searchByCategory/CityList";
 import CategoryList from "./searchByCity/categoryList";
-// import EventList from "./searchByCity/EventList";
+import up_arrow from "./images/up-arrow.png";
 
 function App() {
   const [token, login, logout, signup, user] = useToken();
   const [userName, setUserName] = useState("");
+  const [showButton, setShowButton] = useState(false);
+
 
   if (user && !userName) {
     setUserName(user.username);
   }
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth"})
+  };
+
+  useEffect(() => {
+      const handleScrollButtonVisibility = () => {
+          window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false)
+      };
+      window.addEventListener("scroll", handleScrollButtonVisibility);
+
+      return () => {
+          window.removeEventListener('scroll', handleScrollButtonVisibility);
+      };
+  }, []);
+
+
+
   return (
+      
     <AuthProvider>
       <Nav token={token} username={userName} />
-      <Routes>
+      <Routes>      
         <Route path="/" element={<MainPage />} />
         <Route path="user">
           <Route

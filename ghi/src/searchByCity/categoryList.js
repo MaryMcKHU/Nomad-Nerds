@@ -17,6 +17,8 @@ import Heart from "../images/heart.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { GoLocation } from "react-icons/go";
+import ScrollTop from '../Components/ScrollTop';
+
 
 function CategoryList() {
   const location = useLocation();
@@ -393,7 +395,7 @@ function CategoryList() {
         {event.location.display_address[1]}
         <br />
         <br />
-        {event.cost ? "$" + (event.cost) : ""}
+        {event.cost >= 0 && event.cost !== null ? "$" + (event.cost) : ""}
         {event.cost_max ? " - $" + (event.cost_max) : ""}
         <br />
         {event.tickets_url ? (
@@ -410,6 +412,7 @@ function CategoryList() {
 
   return (
     <ul>
+      <ScrollTop />
       <h1 className="cat-list-header">
         Things to do in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}

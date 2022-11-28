@@ -13,6 +13,7 @@ import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import ScrollTop from "../Components/ScrollTop";
 
 function CityList() {
   const location = useLocation();
@@ -323,6 +324,7 @@ function CityList() {
       <h1 className="city-list-header">
         Top recommendations for {category.title.toLowerCase()}
       </h1>
+      <ScrollTop />
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
