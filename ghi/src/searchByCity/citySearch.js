@@ -30,7 +30,7 @@ function CitySearch() {
         placeholder="Where to?"
         formatResult={formatResult}
         maxResults={5}
-        styling={{ border: "3px solid rgba(255, 171, 56)", fontSize: "1.2rem" }}
+        styling={{ border: "3px solid rgba(173, 182, 72)", fontSize: "1.2rem" }}
       />
     </div>
   );
