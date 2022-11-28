@@ -5,8 +5,6 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import HeroBanner from "./HeroBanner";
 import Modal from "react-bootstrap/Modal";
-import EventSearch from "../Events/EventSearch";
-
 import "aos/dist/aos.css";
 import activities from "../images/activities.png";
 import Row from "react-bootstrap/Row";
@@ -69,9 +67,6 @@ function MainPage() {
             </Container>
           </Col>
         </Row>
-      </Container>
-      <Container>
-        <EventSearch />
       </Container>
       <Container>
         <SuggestionList />

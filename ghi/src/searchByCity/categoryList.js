@@ -9,16 +9,21 @@ import { useAuthContext } from "../users/Auth";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
+import no_image from '../images/no-image.png';
 import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
-import EventList from '../Events/EventList';
+import Button from 'react-bootstrap/Button';
+import { AiOutlineCalendar } from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
+
 
 function CategoryList() {
   const location = useLocation();
   const [categories, setCategories] = useState([]);
   const [businesses, setBusinesses] = useState([]);
+  const [events, setEvents] = useState([]);
   const [businessesLoading, setBusinessesLoading] = useState(true);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
@@ -75,6 +80,24 @@ function CategoryList() {
 
   const favoriteList = favorites.map((favorite) => favorite.business_id);
 
+  
+  async function getEvents() {
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
+    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=1669966444&location=${cityAndState}`;
+    const response = await fetch(categories_url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setEvents(data["events"]);
+    }
+  }
+
+  
   async function getCategories() {
     const fetchConfig = {
       method: "GET",
@@ -185,9 +208,13 @@ function CategoryList() {
     }
   }
 
+
   useEffect(() => {
     getFavorites();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps  
+  useEffect(() => {
+    getEvents();
+  }, []);
   useEffect(() => {
     getCategories();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -225,7 +252,7 @@ function CategoryList() {
         <Card.Img
           variant="top"
           src={store.image_url}
-          onError={(e) => (e.target.src = no_info)}
+          onError={(e) => (e.target.src = no_image)}
           height={250}
           style={{ objectFit: "cover", borderRadius: 10 }}
         />
@@ -311,13 +338,87 @@ function CategoryList() {
     );
   };
 
+    const eventCardImage = (event) => {
+    const url = event.event_site_url;
+    return (
+      <div>
+        <button
+          onClick={() => window.open(url, "_blank")}
+          style={{ border: "none" }}
+        >
+          <Card.Img
+            variant="top"
+            src={event.image_url}
+            onError={(e) => (e.target.src = no_image)}
+            height={250}
+            style={{ objectFit: "cover", borderRadius: 10 }}
+          />
+        </button>
+      </div>
+    );
+  };
+
+  const eventCardTitle = (event) => {
+    return (
+      <Card.Title style={{ fontWeight: "bold", fontSize: "18px" }}>
+        <Row>
+          <div>{event.name}</div>
+          <div style={{ color: "green", fontSize: "14px" }}>
+          </div>
+        </Row>
+      </Card.Title>
+    );
+  };
+
+  const eventCardText = (event) => {
+    const start_date = new Date(event.time_start);
+    const end_date = new Date(event.time_end);
+    return (
+      <Card.Text className="card-block px-2">
+        <AiOutlineCalendar size={30} /> {start_date.toLocaleDateString("en-US")}
+        ,{" "}
+        {start_date.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
+        {event.time_end
+          ? "-" +
+            new Date(event.time_end).toLocaleDateString("en-US") +
+            ", " +
+            end_date.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          : ""}
+        <br />
+        <br />
+        <GoLocation size={30} /> {event.location.display_address[0]}
+        <br />
+        {event.location.display_address[1]}
+        <br />
+        <br />
+        {event.tickets_url ? (
+          <a href={event.tickets_url} target="_blank" rel="noreferrer noopener">
+            Get tickets
+          </a>
+        ) : (
+          ""
+        )}
+      </Card.Text>
+    );
+  };
+
   return (
     <ul>
+      
       <h1 className="cat-list-header">
         Things to do in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      <button onClick={()=> navigate("/event/")}>Check for upcoming events</button>
+      <Container style={{alignItems:"center"}}>
+        <Button>Upcoming events</Button>
+        <Button>Top Activities</Button>
+      </Container>
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
@@ -369,6 +470,45 @@ function CategoryList() {
           </Container>
         </div>
       ))}
+      <h1 className="cat-list-header">
+        Upcoming events:
+      </h1>
+      <Container className="container-fluid" style={{ maxWidth: 1215 }}>
+        <h1 className="card-title"></h1>
+        <Row>
+          <Carousel
+            swipeable={true}
+            draggable={true}
+            // showDots={true}
+            responsive={responsive}
+            ssr={true}
+            infinite={false}
+            keyBoardControl={true}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            // dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-20-px"
+          >
+            {events.map((event, index) => (
+              <div key={index}>
+                <Card
+                  style={{
+                    width: "16rem",
+                    border: "none",
+                    marginTop: 15,
+                  }}
+                >
+                  {eventCardImage(event)}
+                  <Card.Body>
+                    {eventCardTitle(event)}
+                    {eventCardText(event)}
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+          </Carousel>
+        </Row>
+      </Container>
     </ul>
   );
 }

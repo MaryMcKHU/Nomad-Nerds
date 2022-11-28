@@ -12,7 +12,7 @@ import Logout from "./users/Logout";
 import { AuthProvider } from "./users/Auth";
 import CityList from "./searchByCategory/CityList";
 import CategoryList from "./searchByCity/categoryList";
-import EventList from "./Events/EventList";
+// import EventList from "./searchByCity/EventList";
 
 function App() {
   const [token, login, logout, signup, user] = useToken();
@@ -45,7 +45,7 @@ function App() {
         </Route>
         <Route path="category" element={<CityList token={token} />} />
         <Route path="city" element={<CategoryList token={token} />} />
-        <Route path="event" element={<EventList token={token} />} />
+        {/* <Route path="event" element={<EventList token={token} />} /> */}
       </Routes>
       <Footer />
     </AuthProvider>
