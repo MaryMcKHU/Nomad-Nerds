@@ -16,7 +16,6 @@ import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 import { GoLocation } from "react-icons/go";
 
 function CategoryList() {
@@ -92,7 +91,8 @@ function CategoryList() {
         "Content-Type": "application/json",
       },
     };
-    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=1669966444&location=${cityAndState}`;
+    const timestamp = Math.floor(Date.now() / 1000)
+    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
     const response = await fetch(categories_url, fetchConfig);
     if (response.ok) {
       const data = await response.json();
@@ -386,11 +386,15 @@ function CategoryList() {
             })
           : ""}
         <br />
+
         <br />
         <GoLocation size={25} /> {event.location.display_address[0]}
         <br />
         {event.location.display_address[1]}
         <br />
+        <br />
+        {event.cost ? "$" + (event.cost) : ""}
+        {event.cost_max ? " - $" + (event.cost_max) : ""}
         <br />
         {event.tickets_url ? (
           <a href={event.tickets_url} target="_blank" rel="noreferrer noopener">
@@ -480,6 +484,7 @@ function CategoryList() {
           paddingBottom: 50,
           width: "100%",
           color: "white",
+          textAlign: "center"
         }}
       >
         Upcoming events:
@@ -497,7 +502,7 @@ function CategoryList() {
                   <div className="col-md-8">
                     {eventCardText(event)}
                   </div>
-                  </div>
+                </div>
                 </div>
               </div>
             ))}

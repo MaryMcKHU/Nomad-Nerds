@@ -115,6 +115,7 @@ function SuggestionList() {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-20-px"
               >
+                {console.log(Object.values(location))}
                 {Object.values(location)[0]
                   .slice(lowerNum, higherNum)
                   .map((store, idx) => (
@@ -124,9 +125,7 @@ function SuggestionList() {
                           width: "16rem",
                           height: "28em",
                           border: "none",
-                          // marginLeft: 10,
                           marginTop: 15,
-                          // marginRight: 10,
                         }}
                       >
                         {cardImage(store)}

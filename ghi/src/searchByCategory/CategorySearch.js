@@ -231,7 +231,7 @@ function CategorySearch() {
     },
   ];
 
-  const [selectedCities, setSelectedCities] = useState(oceaniaList);
+  const [selectedCities, setSelectedCities] = useState(northAmericaList);
 
   const navigate = useNavigate();
 

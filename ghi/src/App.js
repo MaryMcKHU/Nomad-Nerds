@@ -45,7 +45,6 @@ function App() {
         </Route>
         <Route path="category" element={<CityList token={token} />} />
         <Route path="city" element={<CategoryList token={token} />} />
-        {/* <Route path="event" element={<EventList token={token} />} /> */}
       </Routes>
       <Footer />
     </AuthProvider>

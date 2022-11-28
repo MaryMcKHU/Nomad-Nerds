@@ -360,7 +360,7 @@ p {
   }
 }
 @media only screen and (max-width: 1200px) {
-  .card img {
+  .event-card img {
     width: 40%;
   }
 }

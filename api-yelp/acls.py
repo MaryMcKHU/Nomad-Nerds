@@ -83,7 +83,7 @@ def get_events(start_date="", location=""):
         "start_date": start_date,
         "location": location,
         "limit": 5,
-        "sort-on": "time_start",
+        "sort_on": "time_start",
         "categories": """visual-arts,performing-arts,film,lectures-books,
             food-and-drink,festivals-fairs,kids-family,other"""
     }
