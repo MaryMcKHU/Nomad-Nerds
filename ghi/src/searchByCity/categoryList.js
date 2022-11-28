@@ -18,7 +18,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { GoLocation } from "react-icons/go";
 import ScrollTop from '../Components/ScrollTop';
-import { FaDollarSign } from 'react-icons/fa';
+import { HiOutlineTicket } from 'react-icons/hi';
 
 
 function CategoryList() {
@@ -354,8 +354,8 @@ function CategoryList() {
             variant="top"
             src={event.image_url}
             onError={(e) => (e.target.src = no_image)}
-            height={250}
-            style={{ objectFit: "cover", borderRadius: 10, width:'16rem' }}
+            height={275}
+            style={{ objectFit: "cover", borderRadius: 10, width:'18rem' }}
           />
         </button>
       </div>
@@ -367,11 +367,11 @@ function CategoryList() {
     const start_date = new Date(event.time_start);
     const end_date = new Date(event.time_end);
     return (
-      <div className="event-card-body">
+      <div className="event-card-body" style={{marginLeft:25}}>
         <div className="event-card-title" style={{ fontWeight: "bold", fontSize: "18px" }}>
           {event.name}
         </div>
-        <div className="event-card-text">
+        <div className="event-card-text" style={{marginTop:10}}>
         <AiOutlineCalendar size={25} color="red" /> {start_date.toLocaleDateString("en-US")}
         ,{" "}
         {start_date.toLocaleTimeString([], {
@@ -389,19 +389,17 @@ function CategoryList() {
             })
           : ""}
         <br />
-
         <br />
         <GoLocation size={25} color="blue"/> {event.location.display_address[0]}
         <br />
-        {event.location.display_address[1]}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{event.location.display_address[1]}
         <br />
         <br />
-        <div style={{fontWeight:'bold'}}>
-          <FaDollarSign size={25} color="green"/>
-          {event.is_free === true ? "Free" : ""}
-          {event.cost >= 0 && event.cost !== null ? "$" + (event.cost) : ""}
+          {event.cost !== null || event.cost_max !== null || event.is_free !== false ? <HiOutlineTicket size={25} color="green"/> : ""}
+          {event.is_free === true ?  "  Free": ""}
+          {event.cost >= 0 && event.cost !== null ? "  $" + (event.cost) : ""}
           {event.cost_max ? " - $" + (event.cost_max) : ""}
-        </div>
+          <br />
         {event.tickets_url ? (
           <Button onClick={() => window.open(event.tickets_url, "_blank")}
             variant="outline-dark"
