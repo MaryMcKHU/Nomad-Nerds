@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Card from "react-bootstrap/Card";
 import Loading from "../Components/Placeholder.js";
 import Container from "react-bootstrap/Container";
@@ -31,6 +31,12 @@ function CategoryList() {
   const city = location.state.city.city.replace(/ /g, "%20");
   const state = location.state.city.admin_name.replace(/ /g, "%20");
   const cityAndState = city + "%2C%20" + state;
+
+  const ref = useRef(null);
+
+  const handleClick = () => {
+    ref.current?.scrollIntoView({behavior: 'smooth'});
+  };
 
   const navigate = useNavigate();
 
@@ -375,7 +381,7 @@ function CategoryList() {
     const end_date = new Date(event.time_end);
     return (
       <Card.Text className="card-block px-2">
-        <AiOutlineCalendar size={30} /> {start_date.toLocaleDateString("en-US")}
+        <AiOutlineCalendar size={25} /> {start_date.toLocaleDateString("en-US")}
         ,{" "}
         {start_date.toLocaleTimeString([], {
           hour: "2-digit",
@@ -392,7 +398,7 @@ function CategoryList() {
           : ""}
         <br />
         <br />
-        <GoLocation size={30} /> {event.location.display_address[0]}
+        <GoLocation size={25} /> {event.location.display_address[0]}
         <br />
         {event.location.display_address[1]}
         <br />
@@ -416,8 +422,7 @@ function CategoryList() {
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
       <Container style={{alignItems:"center"}}>
-        <Button>Upcoming events</Button>
-        <Button>Top Activities</Button>
+        <Button onClick={handleClick}>Upcoming events</Button>
       </Container>
       {businesses.map((business, index) => (
         <div key={index}>
@@ -470,7 +475,7 @@ function CategoryList() {
           </Container>
         </div>
       ))}
-      <h1 className="cat-list-header">
+      <h1 className="cat-list-header" ref={ref}>
         Upcoming events:
       </h1>
       <Container className="container-fluid" style={{ maxWidth: 1215 }}>
