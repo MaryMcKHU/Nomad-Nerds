@@ -144,7 +144,9 @@ p {
 
 
 .hero-container {
-  background:url('./images/airballoons.jpg');
+  background:url('./images/calm2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -152,7 +154,7 @@ p {
   height: 80vh;
   width: 100%;
   position: relative;
-  /* display: flex; */
+  display: flex;
   margin-top: 0;
   overflow: hidden;
 }
@@ -202,7 +204,7 @@ p {
     width: 100%;
     position: absolute;
     display: block;
-    right: 0;
+    /* right: 0; */
     margin-top: 30%;
     font-size: 30px
   }
