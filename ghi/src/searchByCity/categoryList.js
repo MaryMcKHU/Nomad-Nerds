@@ -367,11 +367,7 @@ function CategoryList() {
   const eventCardTitle = (event) => {
     return (
       <Card.Title style={{ fontWeight: "bold", fontSize: "18px" }}>
-        <Row>
-          <div>{event.name}</div>
-          <div style={{ color: "green", fontSize: "14px" }}>
-          </div>
-        </Row>
+        {event.name}
       </Card.Title>
     );
   };
@@ -380,7 +376,7 @@ function CategoryList() {
     const start_date = new Date(event.time_start);
     const end_date = new Date(event.time_end);
     return (
-      <Card.Text className="card-block px-2">
+      <Card.Text>
         <AiOutlineCalendar size={25} /> {start_date.toLocaleDateString("en-US")}
         ,{" "}
         {start_date.toLocaleTimeString([], {
@@ -388,7 +384,7 @@ function CategoryList() {
           minute: "2-digit",
         })}
         {event.time_end
-          ? "-" +
+          ? "- " + "     " +
             new Date(event.time_end).toLocaleDateString("en-US") +
             ", " +
             end_date.toLocaleTimeString([], {
@@ -421,8 +417,8 @@ function CategoryList() {
         Things to do in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      <Container style={{alignItems:"center"}}>
-        <Button onClick={handleClick}>Upcoming events</Button>
+      <Container style={{textAlign:"center", marginTop:20}}>
+        <Button variant="dark" onClick={handleClick}>Upcoming events</Button>
       </Container>
       {businesses.map((business, index) => (
         <div key={index}>
@@ -475,7 +471,7 @@ function CategoryList() {
           </Container>
         </div>
       ))}
-      <h1 className="cat-list-header" ref={ref}>
+      <h1 className="cat-list-header" ref={ref} style={{backgroundColor:'lightcyan', padding:30}}>
         Upcoming events:
       </h1>
       <Container className="container-fluid" style={{ maxWidth: 1215 }}>
