@@ -165,7 +165,6 @@ function EventList() {
         Upcoming events in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      {console.log(events)}
       <Container className="container-fluid" style={{ maxWidth: 1215 }}>
         <h1 className="card-title"></h1>
         <Row>

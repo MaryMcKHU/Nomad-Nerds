@@ -6,7 +6,6 @@ function EventSearch() {
   const navigate = useNavigate();
 
   const handleOnSelect = function (item) {
-    console.log("event", { state: { city: item } })
     navigate("event", { state: { city: item } });
   };
 

@@ -13,7 +13,7 @@ import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
-
+import EventList from '../Events/EventList';
 
 function CategoryList() {
   const location = useLocation();
@@ -317,6 +317,7 @@ function CategoryList() {
         Things to do in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
+      <button onClick={()=> navigate("/event/")}>Check for upcoming events</button>
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
