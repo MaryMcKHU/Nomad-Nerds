@@ -14,6 +14,7 @@ import Heart from "../images/heart.png";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
+
 function CategoryList() {
   const location = useLocation();
   const [categories, setCategories] = useState([]);

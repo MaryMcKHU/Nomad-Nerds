@@ -6,23 +6,16 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useAuthContext } from "../users/Auth";
-import { BsStarFill } from "react-icons/bs";
-import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
-import HeartFilled from "../images/heart-filled.png";
-import Heart from "../images/heart.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
-import EventSearch from "./EventSearch.js";
 
 function EventList() {
   const location = useLocation();
   const [events, setEvents] = useState([]);
   const [eventsLoading, setEventsLoading] = useState(true);
-  //   const [favorites, setFavorites] = useState([]);
-  const { token } = useAuthContext();
   const city = location.state.city.city.replace(/ /g, "%20");
   const state = location.state.city.admin_name.replace(/ /g, "%20");
   const cityAndState = city + "%2C%20" + state;
@@ -52,26 +45,6 @@ function EventList() {
     },
   };
 
-  //   async function getFavorites() {
-  //     if (token) {
-  //       const fetchConfig = {
-  //         credentials: "include",
-  //         method: "GET",
-  //         headers: {
-  //           "Access-Control-Request-Headers": "*",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       };
-  //       const url = `${process.env.REACT_APP_USER}/user/favorites/`;
-  //       const response = await fetch(url, fetchConfig);
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setFavorites(data);
-  //       }
-  //     }
-  //   }
-
-  //   const favoriteList = favorites.map((favorite) => favorite.business_id);
 
   async function getEvents() {
     const fetchConfig = {
@@ -89,72 +62,6 @@ function EventList() {
     }
     await setEventsLoading(false);
   }
-
-  //   async function addFavorite(
-  //     id,
-  //     business_name,
-  //     business_image,
-  //     business_rating,
-  //     business_price,
-  //     business_display_address,
-  //     business_city,
-  //     business_state
-  //   ) {
-  //     const url = `${process.env.REACT_APP_USER}/user/favorites/`;
-  //     let content = {
-  //       business_id: id,
-  //       business_name,
-  //       business_image,
-  //       business_rating,
-  //       business_price,
-  //       business_display_address,
-  //       business_city,
-  //       business_state,
-  //     };
-  //     const fetchConfig = {
-  //       credentials: "include",
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(content),
-  //     };
-  //     const response = await fetch(url, fetchConfig);
-  //     if (response.ok) {
-  //       if (favorites.includes(id) === false) {
-  //         setFavorites([...favorites, content]);
-  //       }
-  //     }
-  //     if (response.status === 403) {
-  //       if (
-  //         window.confirm(
-  //           "You cannot save favorites because you are not currently logged in. Would you like to log in?"
-  //         )
-  //       ) {
-  //         navigate("/user/login/");
-  //       } else {
-  //       }
-  //     }
-  //   }
-
-  //   async function deleteFavorite(id) {
-  //     const fetchConfig = {
-  //       credentials: "include",
-  //       method: "DELETE",
-  //       headers: {
-  //         "Access-Control-Request-Headers": "*",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     };
-  //     const url = `${process.env.REACT_APP_USER}/user/favorites/${id}`;
-  //     const response = await fetch(url, fetchConfig);
-  //     if (response.ok) {
-  //       setFavorites(
-  //         favorites.filter((favorite) => favorite["business_id"] !== id)
-  //       );
-  //     }
-  //   }
 
   useEffect(() => {
     getEvents();

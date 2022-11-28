@@ -7,6 +7,7 @@ function CitySearch() {
 
   const handleOnSelect = function (item) {
     navigate("city", { state: { city: item } });
+    navigate("event", { state: { city: item } });
   };
 
   const formatResult = (item) => {
