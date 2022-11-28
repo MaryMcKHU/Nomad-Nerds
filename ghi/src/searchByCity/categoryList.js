@@ -365,7 +365,7 @@ function CategoryList() {
     const end_date = new Date(event.time_end);
     return (
       <div className="event-card-body">
-        <div className="card-title" style={{ fontWeight: "bold", fontSize: "18px" }}>
+        <div className="event-card-title" style={{ fontWeight: "bold", fontSize: "18px" }}>
           {event.name}
         </div>
         <div className="event-card-text">
@@ -376,7 +376,7 @@ function CategoryList() {
           minute: "2-digit",
         })}
         {event.time_end
-          ? "- " +
+          ? " - " +
             "     " +
             new Date(event.time_end).toLocaleDateString("en-US") +
             ", " +
@@ -486,9 +486,10 @@ function CategoryList() {
       </h1>
       <Container className="container-fluid" style={{ maxWidth: 1215 }}>
         <h1 className="card-title"></h1>
+        {console.log(events)}
             {events.map((event, index) => (
               <div key={index}>
-                <div className="event-card mb-3" style={{maxWidth: "800px"}}>
+                <div className="event-card mb-3" style={{maxWidth: "900px"}}>
                 <div className="row no-gutters">
                   <div className="col-md-4">
                   {eventCardImage(event)}
