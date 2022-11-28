@@ -9,7 +9,7 @@ function Footer() {
   return (
     <footer
       className="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 border-top"
-      style={{ marginTop: 60 }}
+      style={{ marginTop: 100 }}
     >
       <ul className="nav col-md-4 justify-content-start">
         <li className="nav-item">

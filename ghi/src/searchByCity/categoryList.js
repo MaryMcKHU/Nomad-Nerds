@@ -1,23 +1,23 @@
-import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import Loading from "../Components/Placeholder.js";
+import Loading from "../Components/Placeholder";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import { useAuthContext } from "../users/Auth";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
+import { AiOutlineCalendar } from "react-icons/ai";
 import no_info from "../images/no_info.png";
-import no_image from '../images/no-image.png';
+import no_image from "../images/no-image.png";
 import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Button from 'react-bootstrap/Button';
-import { AiOutlineCalendar } from "react-icons/ai";
-import { GoLocation } from "react-icons/go";
 
+import { GoLocation } from "react-icons/go";
 
 function CategoryList() {
   const location = useLocation();
@@ -35,7 +35,7 @@ function CategoryList() {
   const ref = useRef(null);
 
   const handleClick = () => {
-    ref.current?.scrollIntoView({behavior: 'smooth'});
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const navigate = useNavigate();
@@ -60,10 +60,8 @@ function CategoryList() {
     smaller: {
       breakpoint: { max: 600, min: 0 },
       items: 1,
-    }
-
+    },
   };
-
 
   async function getFavorites() {
     if (token) {
@@ -86,7 +84,6 @@ function CategoryList() {
 
   const favoriteList = favorites.map((favorite) => favorite.business_id);
 
-  
   async function getEvents() {
     const fetchConfig = {
       method: "GET",
@@ -103,7 +100,6 @@ function CategoryList() {
     }
   }
 
-  
   async function getCategories() {
     const fetchConfig = {
       method: "GET",
@@ -214,10 +210,9 @@ function CategoryList() {
     }
   }
 
-
   useEffect(() => {
     getFavorites();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps  
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     getEvents();
   }, []);
@@ -305,10 +300,10 @@ function CategoryList() {
 
   const cardTitle = (store) => {
     return (
-      <Card.Title style={{ fontWeight:"bold", fontSize:"18px" }}>
+      <Card.Title style={{ fontWeight: "bold", fontSize: "18px" }}>
         <Row>
           <div>{store.name}</div>
-          <div style={{ color:"green", fontSize:"14px" }}>
+          <div style={{ color: "green", fontSize: "14px" }}>
             {store.price ? store.price : " "}
           </div>
         </Row>
@@ -344,39 +339,36 @@ function CategoryList() {
     );
   };
 
-    const eventCardImage = (event) => {
+  const eventCardImage = (event) => {
     const url = event.event_site_url;
     return (
-      <div>
+      <div className="event-card-img">
         <button
           onClick={() => window.open(url, "_blank")}
           style={{ border: "none" }}
         >
-          <Card.Img
+          <img
             variant="top"
             src={event.image_url}
             onError={(e) => (e.target.src = no_image)}
             height={250}
-            style={{ objectFit: "cover", borderRadius: 10 }}
+            style={{ objectFit: "cover", borderRadius: 10, width:'16rem' }}
           />
         </button>
       </div>
     );
   };
 
-  const eventCardTitle = (event) => {
-    return (
-      <Card.Title style={{ fontWeight: "bold", fontSize: "18px" }}>
-        {event.name}
-      </Card.Title>
-    );
-  };
 
   const eventCardText = (event) => {
     const start_date = new Date(event.time_start);
     const end_date = new Date(event.time_end);
     return (
-      <Card.Text>
+      <div className="event-card-body">
+        <div className="card-title" style={{ fontWeight: "bold", fontSize: "18px" }}>
+          {event.name}
+        </div>
+        <div className="event-card-text">
         <AiOutlineCalendar size={25} /> {start_date.toLocaleDateString("en-US")}
         ,{" "}
         {start_date.toLocaleTimeString([], {
@@ -384,7 +376,8 @@ function CategoryList() {
           minute: "2-digit",
         })}
         {event.time_end
-          ? "- " + "     " +
+          ? "- " +
+            "     " +
             new Date(event.time_end).toLocaleDateString("en-US") +
             ", " +
             end_date.toLocaleTimeString([], {
@@ -406,42 +399,49 @@ function CategoryList() {
         ) : (
           ""
         )}
-      </Card.Text>
+        </div>
+      </div>
     );
   };
 
   return (
     <ul>
-      
       <h1 className="cat-list-header">
         Things to do in {city.replace("%20", " ").replace("%20", " ")}
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
-      <Container style={{textAlign:"center", marginTop:20}}>
-        <Button variant="dark" onClick={handleClick}>Upcoming events</Button>
+      <Container style={{ textAlign: "center", marginTop: 20 }}>
+        <Button
+          className="event-btn"
+          variant="outline-dark"
+          style={{
+            fontWeight: "bolder",
+            marginRight: 10,
+            marginTop: 10,
+          }}
+          onClick={handleClick}
+        >
+          Upcoming events
+        </Button>
       </Container>
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
-            <h1
-              className="card-title"
-            >
-              {Object.keys(business)}
-            </h1>
+            <h1 className="card-title">{Object.keys(business)}</h1>
             <Row>
-            <Carousel
-              swipeable={true}
-              draggable={true}
-              showDots={true}
-              responsive={responsive}
-              ssr={true}
-              infinite={false}
-              keyBoardControl={true}
-              containerClass="carousel-container"
-              removeArrowOnDeviceType={["tablet", "mobile"]}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-20-px"
-            >
+              <Carousel
+                swipeable={true}
+                draggable={true}
+                showDots={true}
+                responsive={responsive}
+                ssr={true}
+                infinite={false}
+                keyBoardControl={true}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-20-px"
+              >
                 {Object.values(business)[0]
                   .slice(0, 15)
                   .map((store, idx) => (
@@ -471,44 +471,35 @@ function CategoryList() {
           </Container>
         </div>
       ))}
-      <h1 className="cat-list-header" ref={ref} style={{backgroundColor:'lightcyan', padding:30}}>
+      <h1
+        className="cat-list-header"
+        ref={ref}
+        style={{
+          backgroundColor: "lightcoral",
+          paddingTop: 50,
+          paddingBottom: 50,
+          width: "100%",
+          color: "white",
+        }}
+      >
         Upcoming events:
       </h1>
       <Container className="container-fluid" style={{ maxWidth: 1215 }}>
         <h1 className="card-title"></h1>
-        <Row>
-          <Carousel
-            swipeable={true}
-            draggable={true}
-            // showDots={true}
-            responsive={responsive}
-            ssr={true}
-            infinite={false}
-            keyBoardControl={true}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            // dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-20-px"
-          >
             {events.map((event, index) => (
               <div key={index}>
-                <Card
-                  style={{
-                    width: "16rem",
-                    border: "none",
-                    marginTop: 15,
-                  }}
-                >
+                <div className="event-card mb-3" style={{maxWidth: "800px"}}>
+                <div className="row no-gutters">
+                  <div className="col-md-4">
                   {eventCardImage(event)}
-                  <Card.Body>
-                    {eventCardTitle(event)}
+                  </div>
+                  <div className="col-md-8">
                     {eventCardText(event)}
-                  </Card.Body>
-                </Card>
+                  </div>
+                  </div>
+                </div>
               </div>
             ))}
-          </Carousel>
-        </Row>
       </Container>
     </ul>
   );
