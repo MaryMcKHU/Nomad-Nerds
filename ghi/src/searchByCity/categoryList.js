@@ -402,11 +402,16 @@ function CategoryList() {
           {event.cost >= 0 && event.cost !== null ? "$" + (event.cost) : ""}
           {event.cost_max ? " - $" + (event.cost_max) : ""}
         </div>
-        <br />
         {event.tickets_url ? (
-          <a href={event.tickets_url} target="_blank" rel="noreferrer noopener">
-            Get tickets
-          </a>
+          <Button onClick={() => window.open(event.tickets_url, "_blank")}
+            variant="outline-dark"
+            style={{
+              fontWeight: "bolder",
+              marginRight: 10,
+              marginTop: 10,
+            }}
+            >Get tickets
+          </Button>
         ) : (
           ""
         )}
@@ -492,7 +497,8 @@ function CategoryList() {
           paddingBottom: 50,
           width: "100%",
           color: "white",
-          textAlign: "center"
+          textAlign: "center",
+          marginRight: 20
         }}
       >
         Upcoming events:

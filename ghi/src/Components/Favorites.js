@@ -10,6 +10,7 @@ import no_info from "../images/no_info.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import HeartFilled from "../images/heart-filled.png";
+import ScrollTop from './ScrollTop';
 
 function Favorites() {
   const { token } = useAuthContext();
@@ -186,6 +187,7 @@ function Favorites() {
 
   return (
     <ul>
+      <ScrollTop />
       <h1
         className="font-link2"
         style={{

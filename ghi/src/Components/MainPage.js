@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import activities from "../images/activities.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ScrollTop from "./ScrollTop";
 
 function MainPage() {
   const [show, setShow] = useState(false);
@@ -18,6 +19,7 @@ function MainPage() {
   return (
     <>
       <HeroBanner />
+      <ScrollTop />
       <Container>
         <Row>
           <Col>
