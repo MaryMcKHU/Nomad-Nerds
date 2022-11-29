@@ -498,10 +498,13 @@ function CategoryList() {
           backgroundColor: "lightcoral",
           paddingTop: 50,
           paddingBottom: 50,
-          marginTop: 70,
+          marginTop: 100,
           color: "white",
           textAlign: "center",
-          width: "100%"
+          justifyContent:'center',
+          width: "90%",
+          marginLeft: "auto",
+          marginRight:'auto'
         }}
       >
         Upcoming events:
