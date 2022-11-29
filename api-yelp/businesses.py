@@ -25,7 +25,7 @@ class BusinessesOut(BaseModel):
     businesses: list[BusinessOut]
 
 
-# Input a location: Return List of ranked Categories (Right side of Main Page)
+# Input a location: Return List of ranked Categories (for city search)
 @yelp_router.get("/api-yelp/businesses/categories/")
 def get_categories(location: str, quantity: int = 1):
     raw_data = categories_request(location=location, quantity=quantity)
@@ -46,7 +46,7 @@ def get_categories(location: str, quantity: int = 1):
 
 
 # Input a string of categories and a string of cities:
-# Returns a ranked list of cities (Left side of Main Page)
+# Returns a ranked list of cities (for category search)
 @yelp_router.get("/api-yelp/businesses/categories/search/")
 def get_locations(categories: str, quantity: int = 1, cities: str = "nyc"):
     cities.replace("%20", " ")

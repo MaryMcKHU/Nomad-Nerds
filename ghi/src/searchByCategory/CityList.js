@@ -325,6 +325,7 @@ function CityList() {
         Top recommendations for {category.title.toLowerCase()}
       </h1>
       <ScrollTop />
+      {console.log(businesses)}
       {businesses.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>

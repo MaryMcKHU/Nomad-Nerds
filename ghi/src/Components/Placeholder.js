@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Button from "react-bootstrap/Button";
 
 function Loading() {
   const dummyBusinessList = [0, 1, 2, 3, 4];
@@ -38,12 +39,25 @@ function Loading() {
 
   return (
     <ul>
-      <h1 className="cat-list-header" style={{ marginTop: "310px" }}>
+      <h1 className="cat-list-header" style={{ marginTop: "280px" }}>
         <Placeholder xs={10} animation="glow" />
       </h1>
       <p aria-hidden="true">
         <Placeholder xs={10} animation="glow" />
       </p>
+      <Container style={{ textAlign: "center", marginTop: 20 }}>
+      <Button
+          className="event-btn"
+          variant="outline-dark"
+          style={{
+            fontWeight: "bolder",
+            marginRight: 10,
+            marginTop: 10,
+          }}
+        >
+          Upcoming events
+        </Button>
+      </Container>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
           <Container className="container-fluid" style={{ maxWidth: 1215 }}>
