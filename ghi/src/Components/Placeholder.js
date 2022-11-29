@@ -46,7 +46,7 @@ function Loading() {
         <Placeholder xs={10} animation="glow" />
       </p>
       <Container style={{ textAlign: "center", marginTop: 20 }}>
-      <Button
+      <Placeholder
           className="event-btn"
           variant="outline-dark"
           style={{
@@ -55,8 +55,7 @@ function Loading() {
             marginTop: 10,
           }}
         >
-          Upcoming events
-        </Button>
+        </Placeholder>
       </Container>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>

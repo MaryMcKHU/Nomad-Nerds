@@ -290,7 +290,7 @@ function CategorySearch() {
             <div key={item.id} className="row">
               <div className="col-1">
                 <Button
-                  variant="dark"
+                  variant="secondary"
                   style={{ fontWeight: "bolder" }}
                   onClick={() =>
                     setSelectedCities(
@@ -355,27 +355,24 @@ function CategorySearch() {
   return (
     <div className="container">
       <h3
-        className="font-link2"
         style={{ fontSize: "1.3rem", textAlign: "left" }}
       >
         1. Choose a preset group of cities
       </h3>
       {presetButtons()}
       <h3
-        className="font-link2"
         style={{ marginTop: "10%", textAlign: "left", fontSize: "1.3rem" }}
       >
         2. Add / remove cities from the list
       </h3>
       <div
-        className="font-link2"
         style={{
           backgroundColor: "white",
           fontSize: "1.1rem",
           fontWeight: "bold",
           opacity: 0.9,
           overflowX: "hidden",
-          border: "3px solid rgba(54, 89, 161)",
+          border: "2px solid rgba(54, 89, 161)",
           borderRadius: 10,
           width: "100%",
           marginBottom: "5%",
@@ -398,6 +395,7 @@ function CategorySearch() {
         style={{
           width: "100%",
           marginTop: "5%",
+          cursor:'pointer'
         }}
       >
         <ReactSearchAutocomplete
@@ -417,7 +415,6 @@ function CategorySearch() {
         />
       </div>
       <h3
-        className="font-link2"
         style={{ marginTop: "40%", fontSize: "1.3rem", textAlign: "left" }}
       >
         3. Search for what you want to do
@@ -427,6 +424,7 @@ function CategorySearch() {
         style={{
           width: "100%",
           textAlign: "left",
+          cursor: 'pointer'
         }}
       >
         <ReactSearchAutocomplete
@@ -443,6 +441,7 @@ function CategorySearch() {
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "1.1rem",
             display: "flex",
+            
           }}
         />
       </div>
