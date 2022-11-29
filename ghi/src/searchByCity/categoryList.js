@@ -11,7 +11,6 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import { AiOutlineCalendar } from "react-icons/ai";
 import no_info from "../images/no_info.png";
-import no_image from "../images/no-image.png";
 import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
 import Carousel from "react-multi-carousel";
