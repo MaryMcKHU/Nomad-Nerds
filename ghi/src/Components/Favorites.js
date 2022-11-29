@@ -189,7 +189,6 @@ function Favorites() {
     <ul>
       <ScrollTop />
       <h1
-        className="font-link2"
         style={{
           fontWeight: "bold",
           fontSize: "40px",

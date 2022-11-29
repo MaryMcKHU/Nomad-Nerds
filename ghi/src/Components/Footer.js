@@ -8,8 +8,7 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 function Footer() {
   return (
     <footer
-      className="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 border-top"
-      style={{ marginTop: 100 }}
+      className="d-flex flex-wrap justify-content-between align-items-center border-top"
     >
       <ul className="nav col-md-4 justify-content-start">
         <li className="nav-item">
@@ -86,7 +85,7 @@ function Footer() {
         className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
       >
         <div
-          className="justify-content-center font-link2"
+          className="justify-content-center"
           style={{ fontWeight: "bolder", fontSize: "30px" }}
         >
           nomad nerds .

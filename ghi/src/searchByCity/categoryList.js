@@ -263,7 +263,7 @@ function CategoryList() {
         <Card.Img
           variant="top"
           src={store.image_url}
-          onError={(e) => (e.target.src = no_image)}
+          onError={(e) => (e.target.src = no_info)}
           height={250}
           style={{ objectFit: "cover", borderRadius: 10 }}
         />
@@ -360,7 +360,7 @@ function CategoryList() {
           <img
             variant="top"
             src={event.image_url}
-            onError={(e) => (e.target.src = no_image)}
+            onError={(e) => (e.target.src = no_info)}
             height={275}
             style={{ objectFit: "cover", borderRadius: 10, width:'18rem' }}
           />
@@ -494,16 +494,15 @@ function CategoryList() {
         </div>
       ))}
       <h1
-        className="cat-list-header"
         ref={ref}
         style={{
           backgroundColor: "lightcoral",
           paddingTop: 50,
           paddingBottom: 50,
-          width: "100%",
+          marginTop: 70,
           color: "white",
           textAlign: "center",
-          marginRight: 20
+          width: "100%"
         }}
       >
         Upcoming events:
