@@ -354,15 +354,11 @@ function CategorySearch() {
 
   return (
     <div className="container">
-      <h3
-        style={{ fontSize: "1.3rem", textAlign: "left" }}
-      >
+      <h3 style={{ fontSize: "1.3rem", textAlign: "left" }}>
         1. Choose a preset group of cities
       </h3>
       {presetButtons()}
-      <h3
-        style={{ marginTop: "10%", textAlign: "left", fontSize: "1.3rem" }}
-      >
+      <h3 style={{ marginTop: "10%", textAlign: "left", fontSize: "1.3rem" }}>
         2. Add / remove cities from the list
       </h3>
       <div
@@ -395,7 +391,7 @@ function CategorySearch() {
         style={{
           width: "100%",
           marginTop: "5%",
-          cursor:'pointer'
+          cursor: "pointer",
         }}
       >
         <ReactSearchAutocomplete
@@ -414,9 +410,7 @@ function CategorySearch() {
           }}
         />
       </div>
-      <h3
-        style={{ marginTop: "40%", fontSize: "1.3rem", textAlign: "left" }}
-      >
+      <h3 style={{ marginTop: "40%", fontSize: "1.3rem", textAlign: "left" }}>
         3. Search for what you want to do
       </h3>
       <div className="d-flex justify-content-center"></div>
@@ -424,7 +418,7 @@ function CategorySearch() {
         style={{
           width: "100%",
           textAlign: "left",
-          cursor: 'pointer'
+          cursor: "pointer",
         }}
       >
         <ReactSearchAutocomplete
@@ -441,7 +435,6 @@ function CategorySearch() {
             border: "3px solid rgba(54, 89, 161)",
             fontSize: "1.1rem",
             display: "flex",
-            
           }}
         />
       </div>

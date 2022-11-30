@@ -13,21 +13,18 @@ import { AuthProvider } from "./users/Auth";
 import CityList from "./searchByCategory/CityList";
 import CategoryList from "./searchByCity/categoryList";
 
-
 function App() {
   const [token, login, logout, signup, user] = useToken();
   const [userName, setUserName] = useState("");
-
 
   if (user && !userName) {
     setUserName(user.username);
   }
 
   return (
-      
     <AuthProvider>
       <Nav token={token} username={userName} />
-      <Routes>      
+      <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="user">
           <Route

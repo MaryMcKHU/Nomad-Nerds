@@ -11,7 +11,7 @@ import { BsStarHalf } from "react-icons/bs";
 import no_info from "../images/no_info.png";
 import HeartFilled from "../images/heart-filled.png";
 import Heart from "../images/heart.png";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ScrollTop from "../Components/ScrollTop";
 
@@ -50,8 +50,7 @@ function CityList() {
     smaller: {
       breakpoint: { max: 600, min: 0 },
       items: 1,
-    }
-
+    },
   };
 
   async function getFavorites() {

@@ -7,9 +7,7 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 
 function Footer() {
   return (
-    <footer
-      className="d-flex flex-wrap justify-content-between align-items-center border-top"
-    >
+    <footer className="d-flex flex-wrap justify-content-between align-items-center border-top">
       <ul className="nav col-md-4 justify-content-start">
         <li className="nav-item">
           <NavLink to="/" className="nav-link px-2 text-muted">

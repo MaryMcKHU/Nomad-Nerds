@@ -12,7 +12,9 @@ function CitySearch() {
   const formatResult = (item) => {
     return (
       <>
-        <span style={{ display: "block", textAlign: "left", cursor:'pointer' }}>
+        <span
+          style={{ display: "block", textAlign: "left", cursor: "pointer" }}
+        >
           {item.city}, {item.admin_name}, {item.country}
         </span>
       </>

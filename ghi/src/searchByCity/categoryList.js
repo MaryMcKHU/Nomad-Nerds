@@ -16,9 +16,8 @@ import Heart from "../images/heart.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { GoLocation } from "react-icons/go";
-import ScrollTop from '../Components/ScrollTop';
-import { HiOutlineTicket } from 'react-icons/hi';
-
+import ScrollTop from "../Components/ScrollTop";
+import { HiOutlineTicket } from "react-icons/hi";
 
 function CategoryList() {
   const location = useLocation();
@@ -87,23 +86,23 @@ function CategoryList() {
 
   const favoriteList = favorites.map((favorite) => favorite.business_id);
 
-  async function getEvents() {
-    const fetchConfig = {
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    };
-    const timestamp = Math.floor(Date.now() / 1000)
-    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
-    const response = await fetch(categories_url, fetchConfig);
-    if (response.ok) {
-      const data = await response.json();
-      setEvents(data["events"]);
-    }
-    await setEventsLoading(false)
-  }
+  // async function getEvents() {
+  //   const fetchConfig = {
+  //     method: "GET",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+  //   const timestamp = Math.floor(Date.now() / 1000)
+  //   const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
+  //   const response = await fetch(categories_url, fetchConfig);
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     setEvents(data["events"]);
+  //   }
+  //   await setEventsLoading(false)
+  // }
 
   async function getCategories() {
     const fetchConfig = {
@@ -218,7 +217,24 @@ function CategoryList() {
   useEffect(() => {
     getFavorites();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => {
+  useEffect((cityAndState) => {
+    function getEvents() {
+      const fetchConfig = {
+        method: "GET",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      };
+      const timestamp = Math.floor(Date.now() / 1000);
+      const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
+      const response = fetch(categories_url, fetchConfig);
+      if (response.ok) {
+        const data = response.json();
+        setEvents(data["events"]);
+      }
+      setEventsLoading(false);
+    }
     getEvents();
   }, []);
   useEffect(() => {
@@ -358,67 +374,80 @@ function CategoryList() {
         >
           <img
             variant="top"
+            alt="event"
             src={event.image_url}
             onError={(e) => (e.target.src = no_info)}
             height={275}
-            style={{ objectFit: "cover", borderRadius: 10, width:'18rem' }}
+            style={{ objectFit: "cover", borderRadius: 10, width: "18rem" }}
           />
         </button>
       </div>
     );
   };
 
-
   const eventCardText = (event) => {
     const start_date = new Date(event.time_start);
     const end_date = new Date(event.time_end);
     return (
-      <div className="event-card-body" style={{marginLeft:25}}>
-        <div className="event-card-title" style={{ fontWeight: "bold", fontSize: "18px" }}>
+      <div className="event-card-body" style={{ marginLeft: 25 }}>
+        <div
+          className="event-card-title"
+          style={{ fontWeight: "bold", fontSize: "18px" }}
+        >
           {event.name}
         </div>
-        <div className="event-card-text" style={{marginTop:10}}>
-        <AiOutlineCalendar size={25} color="red" /> {start_date.toLocaleDateString("en-US")}
-        ,{" "}
-        {start_date.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
-        {event.time_end
-          ? " - " +
-            "     " +
-            new Date(event.time_end).toLocaleDateString("en-US") +
-            ", " +
-            end_date.toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-            })
-          : ""}
-        <br />
-        <br />
-        <GoLocation size={25} color="blue"/> {event.location.display_address[0]}
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{event.location.display_address[1]}
-        <br />
-        <br />
-          {event.cost !== null || event.cost_max !== null || event.is_free !== false ? <HiOutlineTicket size={25} color="green"/> : ""}
-          {event.is_free === true ?  "  Free": ""}
-          {event.cost >= 0 && event.cost !== null ? "  $" + (event.cost) : ""}
-          {event.cost_max ? " - $" + (event.cost_max) : ""}
+        <div className="event-card-text" style={{ marginTop: 10 }}>
+          <AiOutlineCalendar size={25} color="red" />{" "}
+          {start_date.toLocaleDateString("en-US")},{" "}
+          {start_date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+          {event.time_end
+            ? " - " +
+              "     " +
+              new Date(event.time_end).toLocaleDateString("en-US") +
+              ", " +
+              end_date.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })
+            : ""}
           <br />
-        {event.tickets_url ? (
-          <Button onClick={() => window.open(event.tickets_url, "_blank")}
-            variant="outline-dark"
-            style={{
-              fontWeight: "bolder",
-              marginRight: 10,
-              marginTop: 10,
-            }}
-            >Get tickets
-          </Button>
-        ) : (
-          ""
-        )}
+          <br />
+          <GoLocation size={25} color="blue" />{" "}
+          {event.location.display_address[0]}
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {event.location.display_address[1]}
+          <br />
+          <br />
+          {event.cost !== null ||
+          event.cost_max !== null ||
+          event.is_free !== false ? (
+            <HiOutlineTicket size={25} color="green" />
+          ) : (
+            ""
+          )}
+          {event.is_free === true ? "  Free" : ""}
+          {event.cost >= 0 && event.cost !== null ? "  $" + event.cost : ""}
+          {event.cost_max ? " - $" + event.cost_max : ""}
+          <br />
+          {event.tickets_url ? (
+            <Button
+              onClick={() => window.open(event.tickets_url, "_blank")}
+              variant="outline-dark"
+              style={{
+                fontWeight: "bolder",
+                marginRight: 10,
+                marginTop: 10,
+              }}
+            >
+              Get tickets
+            </Button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     );
@@ -432,18 +461,20 @@ function CategoryList() {
         {state ? ", " + location.state.city.admin_name : " "}
       </h1>
       <Container style={{ textAlign: "center", marginTop: 20 }}>
-        {showButton && (<Button
-          className="event-btn"
-          variant="outline-dark"
-          style={{
-            fontWeight: "bolder",
-            marginRight: 10,
-            marginTop: 10,
-          }}
-          onClick={handleClick}
-        >
-          Upcoming events
-        </Button>)}
+        {showButton && (
+          <Button
+            className="event-btn"
+            variant="outline-dark"
+            style={{
+              fontWeight: "bolder",
+              marginRight: 10,
+              marginTop: 10,
+            }}
+            onClick={handleClick}
+          >
+            Upcoming events
+          </Button>
+        )}
       </Container>
       {businesses.map((business, index) => (
         <div key={index}>
@@ -501,31 +532,24 @@ function CategoryList() {
           marginTop: 100,
           color: "white",
           textAlign: "center",
-          justifyContent:'center',
+          justifyContent: "center",
           width: "90%",
           marginLeft: "auto",
-          marginRight:'auto'
         }}
       >
         Upcoming events:
       </h1>
       <Container className="container-fluid" style={{ maxWidth: 1215 }}>
-        <h1 className="card-title"></h1>
-        {console.log(events)}
-            {events.map((event, index) => (
-              <div key={index}>
-                <div className="event-card mb-3" style={{maxWidth: "900px"}}>
-                <div className="row no-gutters">
-                  <div className="col-md-4">
-                  {eventCardImage(event)}
-                  </div>
-                  <div className="col-md-8">
-                    {eventCardText(event)}
-                  </div>
-                </div>
-                </div>
+        {events.map((event, index) => (
+          <div key={index}>
+            <div className="event-card mb-3" style={{ maxWidth: "900px" }}>
+              <div className="row no-gutters">
+                <div className="col-md-4">{eventCardImage(event)}</div>
+                <div className="col-md-8">{eventCardText(event)}</div>
               </div>
-            ))}
+            </div>
+          </div>
+        ))}
       </Container>
     </ul>
   );

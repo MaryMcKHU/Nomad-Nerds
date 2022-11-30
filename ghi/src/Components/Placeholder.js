@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Button from "react-bootstrap/Button";
 
 function Loading() {
   const dummyBusinessList = [0, 1, 2, 3, 4];
@@ -46,7 +45,7 @@ function Loading() {
         <Placeholder xs={10} animation="glow" />
       </p>
       <Container style={{ textAlign: "center", marginTop: 20 }}>
-      <Placeholder
+        <Placeholder
           className="event-btn"
           variant="outline-dark"
           style={{
@@ -54,8 +53,7 @@ function Loading() {
             marginRight: 10,
             marginTop: 10,
           }}
-        >
-        </Placeholder>
+        ></Placeholder>
       </Container>
       {dummyBusinessList.map((business, index) => (
         <div key={index}>
