@@ -6,7 +6,7 @@ from acls import (
     category_request,
     get_business,
     categories_request,
-    get_events
+    get_events,
 )
 
 yelp_router = APIRouter()
@@ -114,16 +114,18 @@ def get_business_info(id: str):
 @yelp_router.get("/api-yelp/events/")
 def events(start_date: int, location: str):
     raw_data = get_events(start_date, location)
-    timestamp_data = [(event['id'], event['time_start']) for event in raw_data['events']]
-    sorted_timestamp = sorted(timestamp_data, key=lambda x:x[1])
+    timestamp_data = [
+        (event["id"], event["time_start"]) for event in raw_data["events"]
+    ]
+    sorted_timestamp = sorted(timestamp_data, key=lambda x: x[1])
 
     sorted_raw_data = {}
-    sorted_raw_data['total'] = raw_data['total']
+    sorted_raw_data["total"] = raw_data["total"]
     sorted_events = []
     for items in sorted_timestamp:
-        for event in raw_data['events']:
-            if items[0] == event['id']:
+        for event in raw_data["events"]:
+            if items[0] == event["id"]:
                 sorted_events.append(event)
-    sorted_raw_data['events'] = sorted_events
+    sorted_raw_data["events"] = sorted_events
 
     return sorted_raw_data
