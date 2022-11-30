@@ -86,23 +86,23 @@ function CategoryList() {
 
   const favoriteList = favorites.map((favorite) => favorite.business_id);
 
-  // async function getEvents() {
-  //   const fetchConfig = {
-  //     method: "GET",
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-  //   const timestamp = Math.floor(Date.now() / 1000)
-  //   const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
-  //   const response = await fetch(categories_url, fetchConfig);
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     setEvents(data["events"]);
-  //   }
-  //   await setEventsLoading(false)
-  // }
+  async function getEvents() {
+    const fetchConfig = {
+      method: "GET",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
+    const timestamp = Math.floor(Date.now() / 1000)
+    const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
+    const response = await fetch(categories_url, fetchConfig);
+    if (response.ok) {
+      const data = await response.json();
+      setEvents(data["events"]);
+    }
+    await setEventsLoading(false)
+  }
 
   async function getCategories() {
     const fetchConfig = {
@@ -217,24 +217,7 @@ function CategoryList() {
   useEffect(() => {
     getFavorites();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect((cityAndState) => {
-    function getEvents() {
-      const fetchConfig = {
-        method: "GET",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      };
-      const timestamp = Math.floor(Date.now() / 1000);
-      const categories_url = `${process.env.REACT_APP_API_YELP}/api-yelp/events/?start_date=${timestamp}&location=${cityAndState}`;
-      const response = fetch(categories_url, fetchConfig);
-      if (response.ok) {
-        const data = response.json();
-        setEvents(data["events"]);
-      }
-      setEventsLoading(false);
-    }
+  useEffect(() => {
     getEvents();
   }, []);
   useEffect(() => {
