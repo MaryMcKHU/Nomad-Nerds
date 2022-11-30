@@ -5,6 +5,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineLinkedin } from "react-icons/ai";
 
+
 function Footer() {
   return (
     <footer className="d-flex flex-wrap justify-content-between align-items-center border-top">
