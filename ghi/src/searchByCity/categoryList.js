@@ -219,7 +219,7 @@ function CategoryList() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     getEvents();
-  }, []);
+  });
   useEffect(() => {
     getCategories();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -518,6 +518,7 @@ function CategoryList() {
           justifyContent: "center",
           width: "90%",
           marginLeft: "auto",
+          marginRight:'auto'
         }}
       >
         Upcoming events:
