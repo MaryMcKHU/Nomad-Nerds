@@ -101,8 +101,7 @@ function CategoryList() {
       const data = await response.json();
       setEvents(data["events"]);
     }
-    await setEventsLoading(false)
-  }
+  } getEvents();
 
   async function getCategories() {
     const fetchConfig = {
@@ -217,9 +216,9 @@ function CategoryList() {
   useEffect(() => {
     getFavorites();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    getEvents();
-  });
+  // useEffect(() => {
+  //   getEvents();
+  // });
   useEffect(() => {
     getCategories();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
