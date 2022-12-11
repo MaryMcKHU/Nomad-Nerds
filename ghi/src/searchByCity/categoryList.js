@@ -25,7 +25,6 @@ function CategoryList() {
   const [businesses, setBusinesses] = useState([]);
   const [events, setEvents] = useState([]);
   const [showButton, setShowButton] = useState(true);
-  const [eventsLoading, setEventsLoading] = useState(false);
   const [businessesLoading, setBusinessesLoading] = useState(true);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
@@ -216,9 +215,6 @@ function CategoryList() {
   useEffect(() => {
     getFavorites();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  // useEffect(() => {
-  //   getEvents();
-  // });
   useEffect(() => {
     getCategories();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
