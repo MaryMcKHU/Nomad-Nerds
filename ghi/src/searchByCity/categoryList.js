@@ -246,7 +246,7 @@ function CategoryList() {
     return <Loading />;
   }
 
-  if (eventsLoading === false && events.length === 0) {
+  if (events.length === 0) {
     setShowButton(!showButton);
   }
 
